@@ -17,12 +17,12 @@
         extend: {
           colors: {
             brand: {
-              white: '#FAFAFA',
-              blue: '#0B2559',
-              blueHover: '#143C8A',
-              orange: '#FF5E14',
-              orangeLight: '#FFF1EB',
-              dark: '#111827'
+              white: '#FFFFFF',
+              black: '#000000',
+              grayLight: '#FAFAFA',
+              grayBorder: '#E5E5E5',
+              grayMuted: '#737373',
+              dark: '#0A0A0A'
             }
           },
           fontFamily: {
@@ -35,44 +35,43 @@
   </script>
 
   <style>
-    /* Clean angular neo-brutalist edges */
+    /* Clean angular monochrome neo-brutalist edges */
     .angular-box {
-      border: 1.5px solid #0B2559;
-      box-shadow: 4px 4px 0px #0B2559;
+      border: 1.5px solid #000000;
+      box-shadow: 4px 4px 0px #000000;
     }
-    .angular-box-orange {
-      border: 1.5px solid #FF5E14;
-      box-shadow: 4px 4px 0px #FF5E14;
+    .angular-box-muted {
+      border: 1.5px solid #000000;
     }
   </style>
 </head>
-<body class="bg-brand-white text-brand-dark font-body antialiased min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white">
+<body class="bg-brand-white text-brand-dark font-body antialiased min-h-screen flex flex-col justify-between selection:bg-black selection:text-white">
 
   <!-- TOP SHELL CONTAINER -->
-  <header class="w-full border-b border-brand-blue/20 bg-white">
+  <header class="w-full border-b border-brand-grayBorder bg-white">
     <div class="max-w-5xl mx-auto px-6 py-6">
 
       <!-- 1ST LINE: LOGO & TAGLINE -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6">
         <!-- Clickable Constant Logo with Primary H1 heading -->
-        <a href="#home" onclick="navigateTo('home')" class="group inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue">
-          <h1 class="bg-brand-blue text-white font-heading font-bold text-xl px-4 py-2 angular-box tracking-widest group-hover:bg-brand-orange group-hover:border-brand-orange transition-colors">
+        <a href="#home" onclick="navigateTo('home')" class="group inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
+          <h1 class="bg-black text-white font-heading font-bold text-xl px-4 py-2 angular-box tracking-widest group-hover:bg-neutral-800 transition-colors">
             KRA3T6
           </h1>
-          <span class="text-xs font-mono text-brand-blue/60 tracking-wider">/ 36_CORE</span>
+          <span class="text-xs font-mono text-brand-grayMuted tracking-wider">/ 36_CORE</span>
         </a>
 
         <!-- Tagline Box -->
-        <div class="text-xs sm:text-sm font-heading font-medium tracking-wide text-brand-blue bg-blue-50/50 border border-brand-blue/20 px-4 py-2 rounded-none self-start sm:self-auto">
-          <span class="text-brand-orange font-bold mr-1">&bull;</span> Systems Architecture & Botanical Sourcing
+        <div class="text-xs sm:text-sm font-heading font-medium tracking-wide text-black bg-neutral-100 border border-black px-4 py-2 rounded-none self-start sm:self-auto">
+          <span class="text-black font-bold mr-1">&bull;</span> Systems Architecture & Botanical Sourcing
         </div>
       </div>
 
       <!-- DASHED SECTION BREAK -->
-      <div class="border-b-2 border-dashed border-brand-blue/30 w-full mb-6"></div>
+      <div class="border-b-2 border-dashed border-black/30 w-full mb-6"></div>
 
       <!-- 2ND LINE: NAVIGATION RIBBON BAR -->
-      <nav aria-label="Main Navigation" class="flex flex-wrap items-center gap-2 sm:gap-4 text-sm font-heading font-semibold text-brand-blue">
+      <nav aria-label="Main Navigation" class="flex flex-wrap items-center gap-2 sm:gap-4 text-sm font-heading font-semibold text-black">
         
         <!-- Tab: Home -->
         <button 
@@ -80,7 +79,7 @@
           onclick="navigateTo('home')" 
           id="tab-home" 
           aria-current="page"
-          class="px-4 py-2 border border-brand-blue bg-brand-blue text-white shadow-[2px_2px_0px_#0B2559] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue">
+          class="px-4 py-2 border border-black bg-black text-white shadow-[2px_2px_0px_#000000] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
           Home
         </button>
 
@@ -93,7 +92,7 @@
             aria-expanded="false"
             aria-controls="prod-serv-menu"
             onclick="toggleDropdown()"
-            class="flex items-center gap-1.5 px-4 py-2 border border-brand-blue/30 bg-white hover:border-brand-blue transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue">
+            class="flex items-center gap-1.5 px-4 py-2 border border-black/30 bg-white hover:border-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
             <span>Products/Services</span>
             <svg class="w-3.5 h-3.5 fill-current transition-transform" id="dropdown-chevron" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
@@ -105,13 +104,13 @@
             id="prod-serv-menu" 
             role="menu"
             class="hidden absolute left-0 top-full pt-1 z-50 min-w-[220px]">
-            <div class="bg-white border-2 border-brand-blue shadow-[4px_4px_0px_#0B2559] py-2 flex flex-col">
-              <span class="px-4 py-1 text-[10px] uppercase font-mono tracking-widest text-brand-orange font-bold">Services</span>
-              <a href="#tools" onclick="navigateTo('tools')" role="menuitem" class="px-4 py-2 hover:bg-brand-orangeLight hover:text-brand-orange transition text-xs font-semibold focus:outline-none focus:bg-brand-orangeLight">&rarr; Tools</a>
-              <a href="#blogs" onclick="navigateTo('blogs')" role="menuitem" class="px-4 py-2 hover:bg-brand-orangeLight hover:text-brand-orange transition text-xs font-semibold focus:outline-none focus:bg-brand-orangeLight">&rarr; Blogs</a>
-              <div class="border-t border-brand-blue/10 my-1"></div>
-              <span class="px-4 py-1 text-[10px] uppercase font-mono tracking-widest text-brand-blue/60 font-bold">Physical</span>
-              <a href="#products-page" onclick="navigateTo('products-page')" role="menuitem" class="px-4 py-2 hover:bg-blue-50 transition text-xs font-semibold focus:outline-none focus:bg-blue-50">&rarr; Products (Catalog)</a>
+            <div class="bg-white border-2 border-black shadow-[4px_4px_0px_#000000] py-2 flex flex-col">
+              <span class="px-4 py-1 text-[10px] uppercase font-mono tracking-widest text-brand-grayMuted font-bold">Services</span>
+              <a href="#tools" onclick="navigateTo('tools')" role="menuitem" class="px-4 py-2 hover:bg-black hover:text-white transition text-xs font-semibold focus:outline-none focus:bg-black focus:text-white">&rarr; Tools</a>
+              <a href="#blogs" onclick="navigateTo('blogs')" role="menuitem" class="px-4 py-2 hover:bg-black hover:text-white transition text-xs font-semibold focus:outline-none focus:bg-black focus:text-white">&rarr; Blogs</a>
+              <div class="border-t border-black/20 my-1"></div>
+              <span class="px-4 py-1 text-[10px] uppercase font-mono tracking-widest text-brand-grayMuted font-bold">Physical</span>
+              <a href="#products-page" onclick="navigateTo('products-page')" role="menuitem" class="px-4 py-2 hover:bg-neutral-100 transition text-xs font-semibold focus:outline-none focus:bg-neutral-100">&rarr; Products (Catalog)</a>
             </div>
           </div>
         </div>
@@ -121,7 +120,7 @@
           type="button" 
           onclick="navigateTo('about')" 
           id="tab-about" 
-          class="px-4 py-2 border border-brand-blue/30 bg-white hover:border-brand-blue transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue">
+          class="px-4 py-2 border border-black/30 bg-white hover:border-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
           About us
         </button>
 
@@ -138,8 +137,8 @@
       
       <!-- Section Tag -->
       <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 bg-brand-orange" aria-hidden="true"></span>
-        <h2 class="text-xs uppercase font-mono tracking-widest text-brand-blue font-bold">Current Core Directives</h2>
+        <span class="w-2.5 h-2.5 bg-black" aria-hidden="true"></span>
+        <h2 class="text-xs uppercase font-mono tracking-widest text-black font-bold">Current Core Directives</h2>
       </div>
 
       <!-- Single Column Stack -->
@@ -149,24 +148,24 @@
         <div class="bg-white angular-box p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start justify-between">
           <div class="space-y-3 flex-1">
             <div class="flex items-center gap-3">
-              <span class="px-2 py-0.5 text-[11px] font-mono font-bold bg-brand-blue text-white">P1_SYSTEM</span>
-              <span class="text-xs font-mono text-brand-blue/60">SPEC: MARGIN-AUDITOR</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono font-bold bg-black text-white">P1_SYSTEM</span>
+              <span class="text-xs font-mono text-brand-grayMuted">SPEC: MARGIN-AUDITOR</span>
             </div>
-            <h3 class="text-xl sm:text-2xl font-heading font-bold text-brand-blue">
+            <h3 class="text-xl sm:text-2xl font-heading font-bold text-black">
               E-Commerce Fee & Margin Auditor
             </h3>
             <p class="text-sm text-neutral-600 leading-relaxed">
               High-precision algorithmic auditing framework engineered to detect hidden marketplace commission leaks, return penalties, and accurate post-tax margins.
             </p>
             <div class="pt-2">
-              <a href="#tools" onclick="navigateTo('tools')" class="inline-flex items-center text-xs font-heading font-bold text-brand-orange hover:underline underline-offset-4 gap-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-orange">
+              <a href="#tools" onclick="navigateTo('tools')" class="inline-flex items-center text-xs font-heading font-bold text-black hover:underline underline-offset-4 gap-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-black">
                 Explore System Details &rarr;
               </a>
             </div>
           </div>
 
           <!-- Clipart Box -->
-          <div class="w-full md:w-36 h-28 bg-blue-50 border border-brand-blue/20 flex flex-col items-center justify-center p-3 text-brand-blue text-center shrink-0">
+          <div class="w-full md:w-36 h-28 bg-neutral-100 border border-black flex flex-col items-center justify-center p-3 text-black text-center shrink-0">
             <svg class="w-10 h-10 mb-1 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="0"/>
               <path d="M3 9h18M9 21V9"/>
@@ -179,24 +178,24 @@
         <div class="bg-white angular-box p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start justify-between">
           <div class="space-y-3 flex-1">
             <div class="flex items-center gap-3">
-              <span class="px-2 py-0.5 text-[11px] font-mono font-bold bg-brand-orange text-white">P2_PROVISION</span>
-              <span class="text-xs font-mono text-brand-blue/60">BATCH: 01-MALABAR</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono font-bold bg-neutral-800 text-white">P2_PROVISION</span>
+              <span class="text-xs font-mono text-brand-grayMuted">BATCH: 01-MALABAR</span>
             </div>
-            <h3 class="text-xl sm:text-2xl font-heading font-bold text-brand-blue">
+            <h3 class="text-xl sm:text-2xl font-heading font-bold text-black">
               Single-Estate Black Pepper & Botanicals
             </h3>
             <p class="text-sm text-neutral-600 leading-relaxed">
               Unpolished, sun-cured Malabar Tellicherry garbled black peppercorns sourced directly from estate harvest allocations without commercial waxing or additives.
             </p>
             <div class="pt-2">
-              <a href="#products-page" onclick="navigateTo('products-page')" class="inline-flex items-center text-xs font-heading font-bold text-brand-blue hover:underline underline-offset-4 gap-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-blue">
+              <a href="#products-page" onclick="navigateTo('products-page')" class="inline-flex items-center text-xs font-heading font-bold text-black hover:underline underline-offset-4 gap-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-black">
                 Review Allocation Spec &rarr;
               </a>
             </div>
           </div>
 
           <!-- Clipart Box -->
-          <div class="w-full md:w-36 h-28 bg-orange-50 border border-brand-orange/20 flex flex-col items-center justify-center p-3 text-brand-orange text-center shrink-0">
+          <div class="w-full md:w-36 h-28 bg-neutral-100 border border-black flex flex-col items-center justify-center p-3 text-black text-center shrink-0">
             <svg class="w-10 h-10 mb-1 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
               <circle cx="12" cy="12" r="9"/>
               <path d="M12 3a9 9 0 0 0 0 18M12 7v10"/>
@@ -211,15 +210,15 @@
     <!-- ================= VIEW 2: PRODUCTS (COMING SOON) ================= -->
     <div id="view-products-page" class="hidden space-y-6">
       <div class="max-w-xl mx-auto py-16 text-center space-y-4 bg-white angular-box p-10">
-        <span class="px-3 py-1 text-xs font-mono bg-brand-orangeLight text-brand-orange font-bold">PHYSICAL PROVISIONS</span>
-        <h2 class="text-3xl font-heading font-bold text-brand-blue">Coming soon...</h2>
+        <span class="px-3 py-1 text-xs font-mono bg-neutral-100 border border-black text-black font-bold">PHYSICAL PROVISIONS</span>
+        <h2 class="text-3xl font-heading font-bold text-black">Coming soon...</h2>
         <p class="text-sm text-neutral-600 leading-relaxed">
           Direct single-origin batches are currently undergoing estate grading and verification. Full storefront allocations will go live shortly.
         </p>
         <button 
           type="button" 
           onclick="navigateTo('home')" 
-          class="mt-4 px-5 py-2.5 bg-brand-blue text-white text-xs font-heading font-semibold hover:bg-brand-blueHover transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue">
+          class="mt-4 px-5 py-2.5 bg-black text-white text-xs font-heading font-semibold hover:bg-neutral-800 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
           &larr; Back to Overview
         </button>
       </div>
@@ -227,31 +226,31 @@
 
     <!-- ================= VIEW 3: SERVICES > TOOLS ================= -->
     <div id="view-tools" class="hidden space-y-8">
-      <div class="border-b border-brand-blue/20 pb-4">
-        <span class="text-xs font-mono text-brand-orange font-bold uppercase tracking-wider">Services / Sub-Module</span>
-        <h2 class="text-2xl font-heading font-bold text-brand-blue mt-1">Operational Tools</h2>
+      <div class="border-b border-black/20 pb-4">
+        <span class="text-xs font-mono text-brand-grayMuted font-bold uppercase tracking-wider">Services / Sub-Module</span>
+        <h2 class="text-2xl font-heading font-bold text-black mt-1">Operational Tools</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-white angular-box p-6 space-y-3">
-          <span class="text-xs font-mono text-brand-blue/60 font-semibold">[ TOOL_01 ]</span>
-          <h3 class="text-lg font-heading font-bold text-brand-blue">Gross-to-Net Settlement Calculator</h3>
+          <span class="text-xs font-mono text-brand-grayMuted font-semibold">[ TOOL_01 ]</span>
+          <h3 class="text-lg font-heading font-bold text-black">Gross-to-Net Settlement Calculator</h3>
           <p class="text-xs text-neutral-600 leading-relaxed">
             Unravel payment gateway cutoffs, reverse logistics costs, and input tax credit reconciliations for multi-channel commerce sellers.
           </p>
           <div class="pt-4">
-            <span class="text-xs font-mono text-brand-orange font-bold">Available in Sheet & Web Engine Format</span>
+            <span class="text-xs font-mono text-black font-bold uppercase">Available in Sheet & Web Engine Format</span>
           </div>
         </div>
 
         <div class="bg-white angular-box p-6 space-y-3">
-          <span class="text-xs font-mono text-brand-blue/60 font-semibold">[ TOOL_02 ]</span>
-          <h3 class="text-lg font-heading font-bold text-brand-blue">Return Threshold Simulator</h3>
+          <span class="text-xs font-mono text-brand-grayMuted font-semibold">[ TOOL_02 ]</span>
+          <h3 class="text-lg font-heading font-bold text-black">Return Threshold Simulator</h3>
           <p class="text-xs text-neutral-600 leading-relaxed">
             Predict precise operational breakeven points relative to return-to-origin (RTO) volatility across national courier zones.
           </p>
           <div class="pt-4">
-            <span class="text-xs font-mono text-brand-blue font-bold">In Active Pilot Stage</span>
+            <span class="text-xs font-mono text-black font-bold uppercase">In Active Pilot Stage</span>
           </div>
         </div>
       </div>
@@ -259,15 +258,15 @@
 
     <!-- ================= VIEW 4: SERVICES > BLOGS ================= -->
     <div id="view-blogs" class="hidden space-y-8">
-      <div class="border-b border-brand-blue/20 pb-4">
-        <span class="text-xs font-mono text-brand-orange font-bold uppercase tracking-wider">Services / Insights</span>
-        <h2 class="text-2xl font-heading font-bold text-brand-blue mt-1">Field Notes & Dispatches</h2>
+      <div class="border-b border-black/20 pb-4">
+        <span class="text-xs font-mono text-brand-grayMuted font-bold uppercase tracking-wider">Services / Insights</span>
+        <h2 class="text-2xl font-heading font-bold text-black mt-1">Field Notes & Dispatches</h2>
       </div>
 
       <div class="space-y-4 max-w-3xl">
-        <article class="bg-white p-6 border border-brand-blue/20 hover:border-brand-blue transition">
-          <span class="text-[11px] font-mono text-neutral-500">DISPATCH #04 &bull; COMMERCE ECONOMICS</span>
-          <h3 class="text-lg font-heading font-bold text-brand-blue mt-1 hover:text-brand-orange cursor-pointer">
+        <article class="bg-white p-6 border border-black hover:bg-neutral-50 transition">
+          <span class="text-[11px] font-mono text-brand-grayMuted">DISPATCH #04 &bull; COMMERCE ECONOMICS</span>
+          <h3 class="text-lg font-heading font-bold text-black mt-1 hover:underline cursor-pointer">
             The Hidden 8% Drain: Where Marketplace Margins Evaporate
           </h3>
           <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
@@ -275,9 +274,9 @@
           </p>
         </article>
 
-        <article class="bg-white p-6 border border-brand-blue/20 hover:border-brand-blue transition">
-          <span class="text-[11px] font-mono text-neutral-500">DISPATCH #03 &bull; AGRONOMY SPEC</span>
-          <h3 class="text-lg font-heading font-bold text-brand-blue mt-1 hover:text-brand-orange cursor-pointer">
+        <article class="bg-white p-6 border border-black hover:bg-neutral-50 transition">
+          <span class="text-[11px] font-mono text-brand-grayMuted">DISPATCH #03 &bull; AGRONOMY SPEC</span>
+          <h3 class="text-lg font-heading font-bold text-black mt-1 hover:underline cursor-pointer">
             Density Over Polishing: Sourcing Pure Tellicherry Peppercorns
           </h3>
           <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
@@ -293,10 +292,10 @@
       <!-- Vision -->
       <section class="space-y-3">
         <div class="flex items-center gap-2">
-          <span class="w-2 h-2 bg-brand-orange" aria-hidden="true"></span>
-          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue font-bold">Our Vision</h2>
+          <span class="w-2 h-2 bg-black" aria-hidden="true"></span>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-black font-bold">Our Vision</h2>
         </div>
-        <p class="text-base text-brand-blue font-heading font-medium leading-relaxed bg-white p-6 angular-box">
+        <p class="text-base text-black font-heading font-medium leading-relaxed bg-white p-6 angular-box">
           To champion mathematical clarity in digital tools and untainted authenticity in foundational physical provisions. We build systems without redundant layers and source harvests without synthetic compromises.
         </p>
       </section>
@@ -304,10 +303,10 @@
       <!-- History -->
       <section class="space-y-3">
         <div class="flex items-center gap-2">
-          <span class="w-2 h-2 bg-brand-blue" aria-hidden="true"></span>
-          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue font-bold">History</h2>
+          <span class="w-2 h-2 bg-black" aria-hidden="true"></span>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-black font-bold">History</h2>
         </div>
-        <p class="text-sm text-neutral-600 leading-relaxed bg-white p-6 border border-brand-blue/20">
+        <p class="text-sm text-neutral-600 leading-relaxed bg-white p-6 border border-black">
           Established as a dual-horizon multidisciplinary project, KRA3T6 originated from a mandate to reject marketplace noise. What started as an internal set of calculation tools for commerce logistics expanded to encompass physical trade in single-origin, clean-harvest essentials.
         </p>
       </section>
@@ -315,19 +314,19 @@
       <!-- Services We Offer -->
       <section class="space-y-4">
         <div class="flex items-center gap-2">
-          <span class="w-2 h-2 bg-brand-orange" aria-hidden="true"></span>
-          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue font-bold">Services We Offer</h2>
+          <span class="w-2 h-2 bg-black" aria-hidden="true"></span>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-black font-bold">Services We Offer</h2>
         </div>
         
-        <div class="space-y-4 text-sm text-neutral-700 leading-relaxed bg-white p-6 border border-brand-blue/20">
+        <div class="space-y-4 text-sm text-neutral-700 leading-relaxed bg-white p-6 border border-black">
           <p>
-            <strong class="text-brand-blue font-heading">Digital Systems & Audit Frameworks:</strong> We design custom unit-economic spreadsheets, fee-leakage detectors, and margin calculators tailored for modern independent operators seeking uncompromised visibility over their balance sheets.
+            <strong class="text-black font-heading">Digital Systems & Audit Frameworks:</strong> We design custom unit-economic spreadsheets, fee-leakage detectors, and margin calculators tailored for modern independent operators seeking uncompromised visibility over their balance sheets.
           </p>
           <p>
-            <strong class="text-brand-blue font-heading">Botanical & Pantry Allocations:</strong> We coordinate direct-from-harvest single-origin botanical sourcing, delivering small-batch, unpolished spices and premium dry fruits that retain natural potency and zero additive treatments.
+            <strong class="text-black font-heading">Botanical & Pantry Allocations:</strong> We coordinate direct-from-harvest single-origin botanical sourcing, delivering small-batch, unpolished spices and premium dry fruits that retain natural potency and zero additive treatments.
           </p>
           <p>
-            <strong class="text-brand-blue font-heading">Research & Analysis:</strong> We generate independent operational reports, cost-architecture teardowns, and actionable insights to guide businesses navigating multi-platform trade channels.
+            <strong class="text-black font-heading">Research & Analysis:</strong> We generate independent operational reports, cost-architecture teardowns, and actionable insights to guide businesses navigating multi-platform trade channels.
           </p>
         </div>
       </section>
@@ -335,30 +334,44 @@
       <!-- Contacts Block -->
       <section class="space-y-4">
         <div class="flex items-center gap-2">
-          <span class="w-2 h-2 bg-brand-blue" aria-hidden="true"></span>
-          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue font-bold">Contacts</h2>
+          <span class="w-2 h-2 bg-black" aria-hidden="true"></span>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-black font-bold">Contacts</h2>
         </div>
 
-        <div class="bg-white angular-box-orange p-6 sm:p-8 space-y-4">
+        <div class="bg-white angular-box p-6 sm:p-8 space-y-4">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <span class="text-xs font-mono text-neutral-500 block">TRANSMISSION CHANNEL</span>
-              <span class="text-sm font-heading font-bold text-brand-blue">Official Electronic Mail</span>
+              <span class="text-xs font-mono text-brand-grayMuted block">TRANSMISSION CHANNEL</span>
+              <span class="text-sm font-heading font-bold text-black">Official Electronic Mail</span>
             </div>
-            <a href="mailto:contact@kra3t6.studio" class="text-sm font-mono text-brand-orange font-semibold hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-orange">
+            <a href="mailto:contact@kra3t6.studio" class="text-sm font-mono text-black font-semibold underline underline-offset-4 focus:outline-none">
               contact@kra3t6.studio
             </a>
           </div>
 
-          <div class="border-t border-brand-orange/20 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="border-t border-black/20 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <span class="text-xs font-mono text-neutral-500 block">COMMUNITY & SOCIAL REPOSITORY</span>
-              <span class="text-sm font-heading font-bold text-brand-blue">Central Network Link</span>
+              <span class="text-xs font-mono text-brand-grayMuted block">COMMUNITY & SOCIAL REPOSITORY</span>
+              <span class="text-sm font-heading font-bold text-black">Central Network Link</span>
             </div>
-            <a href="https://bit.ly" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-blue text-white text-xs font-heading font-semibold hover:bg-brand-blueHover transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue">
+            <a href="https://bit.ly" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 bg-black text-white text-xs font-heading font-semibold hover:bg-neutral-800 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
               <span>Access Channels via Bitly</span>
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
                 <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
               </svg>
-       
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- CLEAN SYSTEM FOOTER -->
+  <footer class="border-t border-black/20 bg-white py-6">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-brand-grayMuted">
+      <div>&copy; 2026 KRA3T6 STUDIO. MINIMAL LOGIC FRAMEWORK.</div>
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-fu
