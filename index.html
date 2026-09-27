@@ -3,41 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="KRA3T6 builds commerce auditing tools and sources small-batch botanical provisions. Systems architecture and mathematical clarity.">
-  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Business tools and premium provisions for local entrepreneurs. Custom Excel macros, business analytics, and hand-sourced dry fruits & masalas.">
+  <meta name="theme-color" content="#FF8C00">
   <link rel="canonical" href="https://kra3t6.github.io/kra3t6-site/">
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="KRA3T6 | Systems & Material Studio">
-  <meta property="og:description" content="Systems architecture, commerce auditing, and botanical sourcing.">
+  <meta property="og:title" content="KRA3T6 | Business Tools & Premium Provisions">
+  <meta property="og:description" content="Excel macros, business solutions, and artisanal dry fruits & masalas for local businesses.">
   <meta property="og:url" content="https://kra3t6.github.io/kra3t6-site/">
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="KRA3T6 | Systems & Material Studio">
-  <meta name="twitter:description" content="Commerce tools & botanical provisions.">
+  <meta name="twitter:title" content="KRA3T6 | Business Tools & Premium Provisions">
+  <meta name="twitter:description" content="Tools for growth. Quality for taste.">
   
-  <title>KRA3T6 | Systems & Material Studio</title>
+  <title>KRA3T6 | Business Tools & Premium Provisions</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: {
+            primary: {
+              orange: '#FF8C00',
+              orangeLight: '#FFB84D',
+              orangeDark: '#E67E00'
+            },
+            secondary: {
+              blue: '#1E3A8A',
+              blueLight: '#3B82F6',
+              blueLighter: '#EFF6FF'
+            },
+            neutral: {
               white: '#FFFFFF',
               black: '#000000',
-              grayLight: '#FAFAFA',
-              grayBorder: '#E5E5E5',
-              grayMuted: '#737373',
-              dark: '#0A0A0A'
+              grayLight: '#F8FAFC',
+              gray: '#64748B',
+              grayDark: '#1E293B'
             }
           },
           fontFamily: {
-            heading: ['"Space Grotesk"', 'sans-serif'],
+            heading: ['"Poppins"', 'sans-serif'],
             body: ['"Inter"', 'sans-serif']
           }
         }
@@ -46,9 +55,31 @@
   </script>
 
   <style>
-    .angular-box {
-      border: 1.5px solid #000000;
-      box-shadow: 4px 4px 0px #000000;
+    .card-shadow {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 25px rgba(255, 140, 0, 0.1);
+    }
+    .gradient-orange-blue {
+      background: linear-gradient(135deg, #FF8C00 0%, #1E3A8A 100%);
+    }
+    .badge-orange {
+      background-color: #FF8C00;
+      color: white;
+    }
+    .text-orange {
+      color: #FF8C00;
+    }
+    .border-orange {
+      border-color: #FF8C00;
+    }
+    .hover-orange:hover {
+      color: #FF8C00;
     }
     @media (prefers-reduced-motion: reduce) {
       * {
@@ -58,26 +89,31 @@
     }
   </style>
 </head>
-<body class="bg-brand-white text-brand-dark font-body antialiased min-h-screen flex flex-col justify-between selection:bg-black selection:text-white">
+<body class="bg-neutral-white text-neutral-grayDark font-body antialiased">
 
-  <header class="w-full border-b border-brand-grayBorder bg-white">
-    <div class="max-w-5xl mx-auto px-6 py-6">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6">
-        <a href="#home" class="group inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-black" data-nav="home">
-          <span class="bg-black text-white font-heading font-bold text-xl px-4 py-2 angular-box tracking-widest group-hover:bg-neutral-800 transition-colors">
-            KRA3T6
-          </span>
-          <span class="text-xs font-mono text-brand-grayMuted tracking-wider">/ 36_CORE</span>
+  <!-- HEADER -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-40 card-shadow">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <a href="#home" class="group inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange" data-nav="home">
+          <div class="bg-primary-orange text-white font-heading font-bold text-2xl px-3 py-1.5 rounded-lg">
+            KRA
+          </div>
+          <div class="hidden sm:block">
+            <h1 class="font-heading font-bold text-lg text-neutral-black">KRA3T6</h1>
+            <p class="text-xs text-neutral-gray">Business Tools & Quality Provisions</p>
+          </div>
         </a>
-        <div class="text-xs sm:text-sm font-heading font-medium tracking-wide text-black bg-neutral-100 border border-black px-4 py-2 self-start sm:self-auto">
-          <span class="text-black font-bold mr-1">&bullet;</span> Systems Architecture & Botanical Sourcing
+        
+        <div class="text-sm font-body text-neutral-gray">
+          <p class="font-semibold text-neutral-black">Crafted for Local Growth</p>
+          <p class="text-xs">Excel • Analytics • Provisions</p>
         </div>
       </div>
 
-      <div class="border-b-2 border-dashed border-black/30 w-full mb-6"></div>
-
-      <nav aria-label="Main Navigation" class="flex flex-wrap items-center gap-2 sm:gap-4 text-sm font-heading font-semibold text-black">
-        <a href="#home" data-nav="home" class="px-4 py-2 border border-black bg-black text-white shadow-[2px_2px_0px_#000000] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
+      <!-- NAVIGATION -->
+      <nav aria-label="Main Navigation" class="flex flex-wrap items-center gap-2 mt-4 text-sm font-heading font-semibold">
+        <a href="#home" data-nav="home" class="px-4 py-2 bg-primary-orange text-white rounded-lg transition hover:bg-primary-orangeDark focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-orange">
           Home
         </a>
 
@@ -88,9 +124,9 @@
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="prod-serv-menu"
-            class="flex items-center gap-1.5 px-4 py-2 border border-black/30 bg-white hover:border-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
-            <span>Products/Services</span>
-            <svg class="w-3.5 h-3.5 fill-current transition-transform" id="dropdown-chevron" viewBox="0 0 20 20" aria-hidden="true">
+            class="flex items-center gap-2 px-4 py-2 bg-secondary-blueLighter text-secondary-blue rounded-lg hover:bg-secondary-blueLight hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary-blue">
+            <span>Solutions</span>
+            <svg class="w-4 h-4 fill-current transition-transform" id="dropdown-chevron" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
             </svg>
           </button>
@@ -99,251 +135,428 @@
             id="prod-serv-menu" 
             role="menu"
             hidden
-            class="absolute left-0 top-full pt-1 z-50 min-w-[220px]">
-            <div class="bg-white border-2 border-black shadow-[4px_4px_0px_#000000] py-2 flex flex-col">
-              <span class="px-4 py-1 text-[10px] uppercase font-mono tracking-widest text-brand-grayMuted font-bold">Services</span>
-              <a href="#tools" data-nav="tools" role="menuitem" class="px-4 py-2 hover:bg-black hover:text-white transition text-xs font-semibold focus:outline-none focus:bg-black focus:text-white">Tools</a>
-              <a href="#blogs" data-nav="blogs" role="menuitem" class="px-4 py-2 hover:bg-black hover:text-white transition text-xs font-semibold focus:outline-none focus:bg-black focus:text-white">Insights</a>
-              <div class="border-t border-black/20 my-1"></div>
-              <span class="px-4 py-1 text-[10px] uppercase font-mono tracking-widest text-brand-grayMuted font-bold">Physical</span>
-              <a href="#products-page" data-nav="products-page" role="menuitem" class="px-4 py-2 hover:bg-neutral-100 transition text-xs font-semibold focus:outline-none focus:bg-neutral-100">Provisions</a>
+            class="absolute left-0 top-full mt-2 z-50 w-48 bg-white border border-gray-200 rounded-lg card-shadow">
+            <div class="py-2 flex flex-col">
+              <span class="px-4 py-2 text-xs uppercase font-mono tracking-widest text-neutral-gray font-bold">Digital Tools</span>
+              <a href="#tools" data-nav="tools" role="menuitem" class="px-4 py-3 hover:bg-primary-orangeLight hover:text-white transition text-sm font-semibold focus:outline-none focus:bg-primary-orange focus:text-white rounded-none">📊 Excel Macros</a>
+              <a href="#analytics" data-nav="analytics" role="menuitem" class="px-4 py-3 hover:bg-primary-orangeLight hover:text-white transition text-sm font-semibold focus:outline-none focus:bg-primary-orange focus:text-white rounded-none">📈 Analytics Suite</a>
+              <div class="border-t border-gray-200 my-1"></div>
+              <span class="px-4 py-2 text-xs uppercase font-mono tracking-widest text-neutral-gray font-bold">Premium Stock</span>
+              <a href="#dryfruits" data-nav="dryfruits" role="menuitem" class="px-4 py-3 hover:bg-primary-orangeLight hover:text-white transition text-sm font-semibold focus:outline-none focus:bg-primary-orange focus:text-white rounded-none">🥜 Dry Fruits</a>
+              <a href="#masalas" data-nav="masalas" role="menuitem" class="px-4 py-3 hover:bg-primary-orangeLight hover:text-white transition text-sm font-semibold focus:outline-none focus:bg-primary-orange focus:text-white rounded-none">🌶️ Masalas</a>
             </div>
           </div>
         </div>
 
-        <a href="#about" data-nav="about" class="px-4 py-2 border border-black/30 bg-white hover:border-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
-          About us
+        <a href="#about" data-nav="about" class="px-4 py-2 text-neutral-black border border-gray-300 rounded-lg hover:border-primary-orange hover:text-primary-orange transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange">
+          About
         </a>
       </nav>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-6 py-12 w-full flex-1">
-    <div id="view-home" data-view>
-      <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 bg-black" aria-hidden="true"></span>
-        <h2 class="text-xs uppercase font-mono tracking-widest text-black font-bold">Current Core Directives</h2>
+  <!-- MAIN CONTENT -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1">
+
+    <!-- VIEW: HOME -->
+    <div id="view-home" data-view class="space-y-12">
+      
+      <!-- HERO SECTION -->
+      <div class="gradient-orange-blue rounded-2xl px-6 sm:px-8 lg:px-12 py-12 sm:py-16 text-white">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div class="space-y-6">
+            <h2 class="font-heading font-bold text-4xl sm:text-5xl leading-tight">
+              Business Tools Built for Local Success
+            </h2>
+            <p class="text-lg text-blue-100 leading-relaxed">
+              Streamline your operations with custom Excel solutions, analytics dashboards, and hand-sourced provisions—all designed with local businesses in mind.
+            </p>
+            <div class="flex gap-3 flex-wrap">
+              <a href="#tools" data-nav="tools" class="px-6 py-3 bg-white text-primary-orange font-semibold rounded-lg hover:bg-neutral-grayLight transition focus-visible:ring-2 focus-visible:ring-white">
+                Explore Tools
+              </a>
+              <a href="#about" data-nav="about" class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition focus-visible:ring-2 focus-visible:ring-white">
+                Learn More
+              </a>
+            </div>
+          </div>
+          <!-- Placeholder for aesthetic image -->
+          <div class="bg-white/20 rounded-xl h-64 sm:h-72 flex items-center justify-center">
+            <svg class="w-32 h-32 text-white/40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+        </div>
       </div>
 
-      <div class="flex flex-col gap-8 max-w-3xl mt-10">
-        <article class="bg-white angular-box p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start justify-between">
-          <div class="space-y-3 flex-1">
-            <div class="flex items-center gap-3">
-              <span class="px-2 py-0.5 text-[11px] font-mono font-bold bg-black text-white">P1_SYSTEM</span>
-              <span class="text-xs font-mono text-brand-grayMuted">SPEC: MARGIN-AUDITOR</span>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-heading font-bold text-black">
-              E-Commerce Fee &amp; Margin Auditor
-            </h3>
-            <p class="text-sm text-neutral-600 leading-relaxed">
-              High-precision algorithmic auditing framework engineered to detect hidden marketplace commission leaks, return penalties, and accurate post-tax margins.
-            </p>
-            <div class="pt-2">
-              <a href="#tools" data-nav="tools" class="inline-flex items-center text-xs font-heading font-bold text-black hover:underline underline-offset-4 gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
-                Explore System Details <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full md:w-36 h-28 bg-neutral-100 border border-black flex flex-col items-center justify-center p-3 text-black text-center shrink-0">
-            <svg class="w-10 h-10 mb-1 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="0"/>
-              <path d="M3 9h18M9 21V9"/>
-            </svg>
-            <span class="text-[10px] font-mono uppercase tracking-wider">P1 / Tool_Grid</span>
-          </div>
-        </article>
+      <!-- FEATURED SOLUTIONS -->
+      <div class="space-y-6">
+        <div>
+          <h2 class="font-heading font-bold text-3xl text-neutral-black mb-2">Featured Solutions</h2>
+          <p class="text-neutral-gray">Start optimizing today</p>
+        </div>
 
-        <article class="bg-white angular-box p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start justify-between">
-          <div class="space-y-3 flex-1">
-            <div class="flex items-center gap-3">
-              <span class="px-2 py-0.5 text-[11px] font-mono font-bold bg-neutral-800 text-white">P2_PROVISION</span>
-              <span class="text-xs font-mono text-brand-grayMuted">BATCH: 01-MALABAR</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- CARD 1: Excel Macros -->
+          <div class="bg-white rounded-xl p-6 sm:p-8 card-shadow card-hover border-t-4 border-primary-orange">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <span class="inline-block badge-orange px-3 py-1 rounded-full text-sm font-bold mb-2">DIGITAL</span>
+                <h3 class="font-heading font-bold text-xl text-neutral-black">
+                  Custom Excel Macros
+                </h3>
+              </div>
+              <div class="text-4xl">📊</div>
             </div>
-            <h3 class="text-xl sm:text-2xl font-heading font-bold text-black">
-              Single-Estate Black Pepper &amp; Botanicals
-            </h3>
-            <p class="text-sm text-neutral-600 leading-relaxed">
-              Unpolished, sun-cured Malabar Tellicherry garbled black peppercorns sourced directly from estate harvest allocations without commercial waxing or additives.
+            <p class="text-neutral-gray text-sm leading-relaxed mb-6">
+              Automate repetitive tasks, create dynamic dashboards, and process data 10x faster. Perfect for inventory, billing, and customer management.
             </p>
-            <div class="pt-2">
-              <a href="#products-page" data-nav="products-page" class="inline-flex items-center text-xs font-heading font-bold text-black hover:underline underline-offset-4 gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
-                Review Allocation Spec <span aria-hidden="true">&rarr;</span>
-              </a>
+            <div class="space-y-3 mb-6">
+              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-primary-orange">✓</span> Custom-built for your workflow</p>
+              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-primary-orange">✓</span> Training & documentation included</p>
+              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-primary-orange">✓</span> 6-month support guarantee</p>
+            </div>
+            <a href="#tools" data-nav="tools" class="inline-flex items-center text-primary-orange font-semibold text-sm hover:text-primary-orangeDark transition">
+              View pricing <span class="ml-2">→</span>
+            </a>
+          </div>
+
+          <!-- CARD 2: Analytics -->
+          <div class="bg-white rounded-xl p-6 sm:p-8 card-shadow card-hover border-t-4 border-secondary-blue">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <span class="inline-block px-3 py-1 rounded-full text-sm font-bold mb-2" style="background-color: #3B82F6; color: white;">ANALYTICS</span>
+                <h3 class="font-heading font-bold text-xl text-neutral-black">
+                  Business Analytics Suite
+                </h3>
+              </div>
+              <div class="text-4xl">📈</div>
+            </div>
+            <p class="text-neutral-gray text-sm leading-relaxed mb-6">
+              Real-time insights into sales, expenses, and growth metrics. Make data-driven decisions with confidence.
+            </p>
+            <div class="space-y-3 mb-6">
+              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-secondary-blue">✓</span> Live dashboard syncing</p>
+              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-secondary-blue">✓</span> Automated reports</p>
+              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-secondary-blue">✓</span> Multi-source data integration</p>
+            </div>
+            <a href="#analytics" data-nav="analytics" class="inline-flex items-center text-secondary-blue font-semibold text-sm hover:text-secondary-blue transition">
+              Explore suite <span class="ml-2">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROVISIONS PREVIEW -->
+      <div class="bg-neutral-grayLight rounded-xl p-6 sm:p-8 border border-gray-300">
+        <h2 class="font-heading font-bold text-2xl text-neutral-black mb-4">Premium Provisions</h2>
+        <p class="text-neutral-gray mb-6">Hand-sourced, quality-assured dry fruits and masalas for discerning businesses.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white rounded-lg p-4 flex items-center gap-3 hover:shadow-md transition">
+            <span class="text-3xl">🥜</span>
+            <div>
+              <p class="font-semibold text-neutral-black">Premium Dry Fruits</p>
+              <p class="text-xs text-neutral-gray">Almonds, cashews, walnuts</p>
             </div>
           </div>
-          <div class="w-full md:w-36 h-28 bg-neutral-100 border border-black flex flex-col items-center justify-center p-3 text-black text-center shrink-0">
-            <svg class="w-10 h-10 mb-1 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 3a9 9 0 0 0 0 18M12 7v10"/>
-            </svg>
-            <span class="text-[10px] font-mono uppercase tracking-wider">P2 / Harvest_Node</span>
+          <div class="bg-white rounded-lg p-4 flex items-center gap-3 hover:shadow-md transition">
+            <span class="text-3xl">🌶️</span>
+            <div>
+              <p class="font-semibold text-neutral-black">Artisanal Masalas</p>
+              <p class="text-xs text-neutral-gray">Turmeric, cumin, garam masala</p>
+            </div>
           </div>
-        </article>
+        </div>
       </div>
     </div>
 
-    <div id="view-products-page" data-view hidden>
-      <div class="max-w-xl mx-auto py-16 text-center space-y-4 bg-white angular-box p-10">
-        <span class="px-3 py-1 text-xs font-mono bg-neutral-100 border border-black text-black font-bold">PHYSICAL PROVISIONS</span>
-        <h2 class="text-3xl font-heading font-bold text-black">Coming soon...</h2>
-        <p class="text-sm text-neutral-600 leading-relaxed">
-          Direct single-origin batches are currently undergoing estate grading and verification. Full storefront allocations will go live shortly.
+    <!-- VIEW: TOOLS -->
+    <div id="view-tools" data-view hidden class="space-y-10">
+      <div>
+        <h2 class="font-heading font-bold text-4xl text-neutral-black mb-2">Excel Macro Solutions</h2>
+        <p class="text-neutral-gray text-lg">Tailored automation for your business needs</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 card-shadow card-hover">
+          <div class="text-5xl mb-4">🧮</div>
+          <h3 class="font-heading font-bold text-lg text-neutral-black mb-3">Billing Automator</h3>
+          <p class="text-sm text-neutral-gray mb-4 leading-relaxed">
+            Generate invoices, track payments, and manage GST calculations automatically.
+          </p>
+          <p class="text-primary-orange font-semibold text-sm">₹2,999 one-time</p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 card-shadow card-hover">
+          <div class="text-5xl mb-4">📦</div>
+          <h3 class="font-heading font-bold text-lg text-neutral-black mb-3">Inventory Manager</h3>
+          <p class="text-sm text-neutral-gray mb-4 leading-relaxed">
+            Real-time stock tracking, low-stock alerts, and reorder automation.
+          </p>
+          <p class="text-primary-orange font-semibold text-sm">₹3,499 one-time</p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 card-shadow card-hover">
+          <div class="text-5xl mb-4">💼</div>
+          <h3 class="font-heading font-bold text-lg text-neutral-black mb-3">Customer Portal</h3>
+          <p class="text-sm text-neutral-gray mb-4 leading-relaxed">
+            Manage leads, track interactions, and schedule follow-ups effortlessly.
+          </p>
+          <p class="text-primary-orange font-semibold text-sm">₹4,999 one-time</p>
+        </div>
+      </div>
+
+      <!-- Image Placeholder -->
+      <div class="bg-neutral-grayLight rounded-xl p-8 flex items-center justify-center min-h-96">
+        <svg class="w-48 h-48 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- VIEW: ANALYTICS -->
+    <div id="view-analytics" data-view hidden class="space-y-10">
+      <div>
+        <h2 class="font-heading font-bold text-4xl text-neutral-black mb-2">Analytics Dashboard Suite</h2>
+        <p class="text-neutral-gray text-lg">Transform raw data into actionable insights</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gradient-to-br from-primary-orange to-primary-orangeLight rounded-xl p-6 text-white card-shadow card-hover">
+          <h3 class="font-heading font-bold text-xl mb-2">Sales Dashboard</h3>
+          <p class="text-white/90 text-sm mb-4 leading-relaxed">
+            Daily, weekly, and monthly revenue tracking with category breakdown and growth trends.
+          </p>
+          <ul class="space-y-2 text-sm text-white/80">
+            <li>• Real-time sales metrics</li>
+            <li>• Category performance</li>
+            <li>• Top-performing products</li>
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-br from-secondary-blue to-secondary-blueLight rounded-xl p-6 text-white card-shadow card-hover">
+          <h3 class="font-heading font-bold text-xl mb-2">Expense Tracker</h3>
+          <p class="text-white/90 text-sm mb-4 leading-relaxed">
+            Categorize expenses, monitor burn rate, and identify cost-saving opportunities.
+          </p>
+          <ul class="space-y-2 text-sm text-white/80">
+            <li>• Automated categorization</li>
+            <li>• Budget vs. actual</li>
+            <li>• Cost trends analysis</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Image Placeholder -->
+      <div class="bg-neutral-grayLight rounded-xl p-8 flex items-center justify-center min-h-72">
+        <svg class="w-40 h-40 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- VIEW: DRY FRUITS -->
+    <div id="view-dryfruits" data-view hidden class="space-y-10">
+      <div>
+        <h2 class="font-heading font-bold text-4xl text-neutral-black mb-2">Premium Dry Fruits</h2>
+        <p class="text-neutral-gray text-lg">Hand-selected, fresh-sourced provisions</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
+          <div class="bg-orange-100 h-48 flex items-center justify-center">
+            <span class="text-6xl">🥜</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">California Almonds</h3>
+            <p class="text-sm text-neutral-gray mb-4">Premium grade, raw & natural</p>
+            <p class="text-primary-orange font-bold text-lg">₹450/kg</p>
+            <p class="text-xs text-neutral-gray mt-2">MOQ: 5kg | Free delivery pan-India</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
+          <div class="bg-orange-100 h-48 flex items-center justify-center">
+            <span class="text-6xl">💰</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">Raw Cashews</h3>
+            <p class="text-sm text-neutral-gray mb-4">Whole, unsalted, fresh batch</p>
+            <p class="text-primary-orange font-bold text-lg">₹550/kg</p>
+            <p class="text-xs text-neutral-gray mt-2">MOQ: 3kg | Vacuum sealed</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
+          <div class="bg-orange-100 h-48 flex items-center justify-center">
+            <span class="text-6xl">🥜</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">Walnut Kernels</h3>
+            <p class="text-sm text-neutral-gray mb-4">Organic sourced, high omega-3</p>
+            <p class="text-primary-orange font-bold text-lg">₹380/kg</p>
+            <p class="text-xs text-neutral-gray mt-2">MOQ: 4kg | Cold storage</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Placeholder -->
+      <div class="bg-neutral-grayLight rounded-xl p-8 flex items-center justify-center min-h-64">
+        <svg class="w-40 h-40 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- VIEW: MASALAS -->
+    <div id="view-masalas" data-view hidden class="space-y-10">
+      <div>
+        <h2 class="font-heading font-bold text-4xl text-neutral-black mb-2">Artisanal Masalas & Spices</h2>
+        <p class="text-neutral-gray text-lg">Pure, unadulterated, freshly ground</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
+          <div class="bg-red-100 h-48 flex items-center justify-center">
+            <span class="text-6xl">🌶️</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">Garam Masala Blend</h3>
+            <p class="text-sm text-neutral-gray mb-4">10 authentic spices, hand-roasted</p>
+            <p class="text-primary-orange font-bold text-lg">₹120/100g</p>
+            <p class="text-xs text-neutral-gray mt-2">Freshly ground to order</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
+          <div class="bg-yellow-100 h-48 flex items-center justify-center">
+            <span class="text-6xl">✨</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">Turmeric Powder</h3>
+            <p class="text-sm text-neutral-gray mb-4">High curcumin, organic certified</p>
+            <p class="text-primary-orange font-bold text-lg">₹80/100g</p>
+            <p class="text-xs text-neutral-gray mt-2">No additives or fillers</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
+          <div class="bg-orange-100 h-48 flex items-center justify-center">
+            <span class="text-6xl">🫘</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">Cumin Seeds</h3>
+            <p class="text-sm text-neutral-gray mb-4">Rajasthan sourced, premium grade</p>
+            <p class="text-primary-orange font-bold text-lg">₹140/100g</p>
+            <p class="text-xs text-neutral-gray mt-2">Roasted for maximum flavor</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Placeholder -->
+      <div class="bg-neutral-grayLight rounded-xl p-8 flex items-center justify-center min-h-64">
+        <svg class="w-40 h-40 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- VIEW: ABOUT -->
+    <div id="view-about" data-view hidden class="space-y-12 max-w-4xl">
+      
+      <div>
+        <h2 class="font-heading font-bold text-4xl text-neutral-black mb-4">About KRA3T6</h2>
+        <p class="text-neutral-gray text-lg leading-relaxed">
+          We exist to empower local businesses with tools that scale operations without the corporate overhead. From automating Excel workflows to sourcing premium provisions, every solution is built with your growth in mind.
         </p>
-        <a href="#home" data-nav="home" class="mt-4 px-5 py-2.5 bg-black text-white text-xs font-heading font-semibold hover:bg-neutral-800 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black inline-block">
-          &larr; Back to Overview
-        </a>
-      </div>
-    </div>
-
-    <div id="view-tools" data-view hidden>
-      <div class="border-b border-black/20 pb-4">
-        <span class="text-xs font-mono text-brand-grayMuted font-bold uppercase tracking-wider">Services / Sub-Module</span>
-        <h2 class="text-2xl font-heading font-bold text-black mt-1">Operational Tools</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-        <div class="bg-white angular-box p-6 space-y-3">
-          <span class="text-xs font-mono text-brand-grayMuted font-semibold">[ TOOL_01 ]</span>
-          <h3 class="text-lg font-heading font-bold text-black">Gross-to-Net Settlement Calculator</h3>
-          <p class="text-xs text-neutral-600 leading-relaxed">
-            Unravel payment gateway cutoffs, reverse logistics costs, and input tax credit reconciliations for multi-channel commerce sellers.
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-neutral-grayLight rounded-xl p-8">
+          <h3 class="font-heading font-bold text-xl text-neutral-black mb-4 flex items-center gap-3">
+            <span class="text-3xl">⚙️</span> Our Mission
+          </h3>
+          <p class="text-neutral-gray leading-relaxed">
+            To provide affordable, effective business solutions that level the playing field for small and medium enterprises. We believe technology and quality provisions should be accessible to everyone.
           </p>
-          <div class="pt-4">
-            <span class="text-xs font-mono text-black font-bold uppercase">Available in Sheet &amp; Web Engine Format</span>
-          </div>
         </div>
 
-        <div class="bg-white angular-box p-6 space-y-3">
-          <span class="text-xs font-mono text-brand-grayMuted font-semibold">[ TOOL_02 ]</span>
-          <h3 class="text-lg font-heading font-bold text-black">Return Threshold Simulator</h3>
-          <p class="text-xs text-neutral-600 leading-relaxed">
-            Predict precise operational breakeven points relative to return-to-origin (RTO) volatility across national courier zones.
+        <div class="bg-neutral-grayLight rounded-xl p-8">
+          <h3 class="font-heading font-bold text-xl text-neutral-black mb-4 flex items-center gap-3">
+            <span class="text-3xl">🎯</span> Our Values
+          </h3>
+          <p class="text-neutral-gray leading-relaxed">
+            Simplicity, Quality, Support. We don't overcomplicate. Every tool works out of the box, every provision is tested for quality, and your success is our success.
           </p>
-          <div class="pt-4">
-            <span class="text-xs font-mono text-black font-bold uppercase">In Active Pilot Stage</span>
-          </div>
         </div>
       </div>
-    </div>
 
-    <div id="view-blogs" data-view hidden>
-      <div class="border-b border-black/20 pb-4">
-        <span class="text-xs font-mono text-brand-grayMuted font-bold uppercase tracking-wider">Services / Insights</span>
-        <h2 class="text-2xl font-heading font-bold text-black mt-1">Field Notes &amp; Dispatches</h2>
-      </div>
-
-      <div class="space-y-4 max-w-3xl mt-8">
-        <article class="bg-white p-6 border border-black hover:bg-neutral-50 transition">
-          <span class="text-[11px] font-mono text-brand-grayMuted">DISPATCH #04 &bullet; COMMERCE ECONOMICS</span>
-          <h3 class="text-lg font-heading font-bold text-black mt-1">
-            The Hidden 8% Drain: Where Marketplace Margins Evaporate
-          </h3>
-          <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
-            An empirical breakdown of storage tier adjustments, courier weight discrepancies, and how to defend unit-level profit metrics.
-          </p>
-        </article>
-
-        <article class="bg-white p-6 border border-black hover:bg-neutral-50 transition">
-          <span class="text-[11px] font-mono text-brand-grayMuted">DISPATCH #03 &bullet; AGRONOMY SPEC</span>
-          <h3 class="text-lg font-heading font-bold text-black mt-1">
-            Density Over Polishing: Sourcing Pure Tellicherry Peppercorns
-          </h3>
-          <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
-            Why commercial spice retail strips essential volatile oils, and how single-estate harvesting protects natural piperine content.
-          </p>
-        </article>
+      <div class="bg-primary-orange rounded-xl p-8 text-white space-y-4">
+        <h3 class="font-heading font-bold text-2xl">Why Choose Us?</h3>
+        <ul class="space-y-3 text-blue-50">
+          <li class="flex items-start gap-3">
+            <span class="text-xl">✓</span>
+            <span><strong>Local First:</strong> Built by people who understand your market</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-xl">✓</span>
+            <span><strong>Support Included:</strong> Email & phone support for 6 months</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-xl">✓</span>
+            <span><strong>Quality Guaranteed:</strong> All provisions tested & certified</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-xl">✓</span>
+            <span><strong>Transparent Pricing:</strong> No hidden charges, pay once & done</span>
+          </li>
+        </ul>
       </div>
     </div>
 
-    <div id="view-about" data-view hidden>
-      <div class="space-y-12 max-w-3xl">
-        <section class="space-y-3">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 bg-black" aria-hidden="true"></span>
-            <h2 class="text-xs font-mono uppercase tracking-widest text-black font-bold">Our Vision</h2>
-          </div>
-          <p class="text-base text-black font-heading font-medium leading-relaxed bg-white p-6 angular-box">
-            To champion mathematical clarity in digital tools and untainted authenticity in foundational physical provisions. We build systems without redundant layers and source harvests without synthetic enhancement.
-          </p>
-        </section>
-
-        <section class="space-y-3">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 bg-black" aria-hidden="true"></span>
-            <h2 class="text-xs font-mono uppercase tracking-widest text-black font-bold">History</h2>
-          </div>
-          <p class="text-sm text-neutral-600 leading-relaxed bg-white p-6 border border-black">
-            Established as a dual-horizon multidisciplinary project, KRA3T6 originated from a mandate to reject marketplace noise. What started as an internal set of calculation tools for commerce logistics evolved into a full studio practice spanning both digital auditing systems and direct botanical sourcing.
-          </p>
-        </section>
-
-        <section class="space-y-4">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 bg-black" aria-hidden="true"></span>
-            <h2 class="text-xs font-mono uppercase tracking-widest text-black font-bold">Services We Offer</h2>
-          </div>
-          
-          <div class="space-y-4 text-sm text-neutral-700 leading-relaxed bg-white p-6 border border-black">
-            <p>
-              <strong class="text-black font-heading">Digital Systems &amp; Audit Frameworks:</strong> We design custom unit-economic spreadsheets, fee-leakage detectors, and margin calculators tailored for e-commerce and marketplace operators.
-            </p>
-            <p>
-              <strong class="text-black font-heading">Botanical &amp; Pantry Allocations:</strong> We coordinate direct-from-harvest single-origin botanical sourcing, delivering small-batch, unpolished spices and provisions to discerning clients.
-            </p>
-            <p>
-              <strong class="text-black font-heading">Research &amp; Analysis:</strong> We generate independent operational reports, cost-architecture teardowns, and actionable insights to guide business strategy and risk mitigation.
-            </p>
-          </div>
-        </section>
-
-        <section class="space-y-4">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 bg-black" aria-hidden="true"></span>
-            <h2 class="text-xs font-mono uppercase tracking-widest text-black font-bold">Contacts</h2>
-          </div>
-
-          <div class="bg-white angular-box p-6 sm:p-8 space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <span class="text-xs font-mono text-brand-grayMuted block">TRANSMISSION CHANNEL</span>
-                <span class="text-sm font-heading font-bold text-black">Official Electronic Mail</span>
-              </div>
-              <a href="mailto:contact@kra3t6.studio" class="text-sm font-mono text-black font-semibold underline underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
-                contact@kra3t6.studio
-              </a>
-            </div>
-
-            <div class="border-t border-black/20 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <span class="text-xs font-mono text-brand-grayMuted block">COMMUNITY &amp; SOCIAL REPOSITORY</span>
-                <span class="text-sm font-heading font-bold text-black">Central Network Link</span>
-              </div>
-              <a href="https://linktr.ee/kra3t6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 bg-black text-white text-xs font-heading font-semibold hover:bg-neutral-800 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black">
-                <span>Connect With Us</span>
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
-                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
-                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
   </main>
 
-  <footer class="border-t border-black/20 bg-white py-6">
-    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-brand-grayMuted">
-      <div>&copy; 2026 KRA3T6 STUDIO. MINIMAL LOGIC FRAMEWORK.</div>
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-black" aria-hidden="true"></span>
-        <span>CORE STATUS: ONLINE</span>
+  <!-- FOOTER / CONTACT SECTION -->
+  <footer class="bg-neutral-grayDark text-white mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="space-y-4">
+          <h4 class="font-heading font-bold text-lg">Get in Touch</h4>
+          <p class="text-sm text-gray-400">Have questions? We're here to help.</p>
+          <a href="mailto:hello@kra3t6.local" class="inline-block text-primary-orange font-semibold hover:text-primary-orangeLight transition">
+            hello@kra3t6.local
+          </a>
+        </div>
+
+        <div class="space-y-4">
+          <h4 class="font-heading font-bold text-lg">Connect</h4>
+          <p class="text-sm text-gray-400">Follow for updates & tips</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-primary-orange hover:text-primary-orangeLight transition font-semibold text-sm">Instagram</a>
+            <a href="#" class="text-primary-orange hover:text-primary-orangeLight transition font-semibold text-sm">LinkedIn</a>
+            <a href="#" class="text-primary-orange hover:text-primary-orangeLight transition font-semibold text-sm">Twitter</a>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h4 class="font-heading font-bold text-lg">Info</h4>
+          <p class="text-sm text-gray-400">Learn more about us</p>
+          <p class="text-xs text-gray-500">
+            KRA3T6 is your partner in growth. Business solutions & premium provisions crafted with care.
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <p>&copy; 2024 KRA3T6. Building local businesses, one tool at a time.</p>
+        <p>Made with care for growth.</p>
       </div>
     </div>
   </footer>
 
   <script>
-    const views = ["home", "products-page", "tools", "blogs", "about"];
+    const views = ["home", "tools", "analytics", "dryfruits", "masalas", "about"];
     const dropdownBtn = document.getElementById("tab-prod-serv");
     const dropdownMenu = document.getElementById("prod-serv-menu");
     const dropdownChevron = document.getElementById("dropdown-chevron");
@@ -363,6 +576,8 @@
           link.removeAttribute("aria-current");
         }
       });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function routeFromHash() {
