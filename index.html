@@ -1,239 +1,379 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KRA3T6 — Systems & Material Studio</title>
+  <title>KRA3T6 | Systems & Material Studio</title>
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Clean, Sober Google Fonts: Space Grotesk & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              white: '#FAFAFA',
+              blue: '#0B2559',
+              blueHover: '#143C8A',
+              orange: '#FF5E14',
+              orangeLight: '#FFF1EB',
+              dark: '#111827'
+            }
+          },
+          fontFamily: {
+            heading: ['"Space Grotesk"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .mono { font-family: 'Fira Code', monospace; }
+    /* Clean angular edges */
+    .angular-box {
+      border: 1.5px solid #0B2559;
+      box-shadow: 4px 4px 0px #0B2559;
+    }
+    .angular-box-orange {
+      border: 1.5px solid #FF5E14;
+      box-shadow: 4px 4px 0px #FF5E14;
+    }
   </style>
 </head>
-<body class="bg-neutral-950 text-neutral-300 antialiased selection:bg-neutral-800 selection:text-white flex flex-col min-h-screen">
+<body class="bg-brand-white text-brand-dark font-body antialiased min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white">
 
-  <!-- Minimal Sticky Navigation -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-neutral-950/80 border-b border-neutral-900">
-    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center space-x-2">
-        <span class="text-white font-semibold tracking-wider mono text-sm">KRA3T6</span>
-        <span class="text-neutral-600 mono text-xs">/ 36</span>
-      </a>
-      <nav class="flex items-center space-x-6 text-xs mono text-neutral-400">
-        <a href="#products" class="hover:text-white transition">01. Products</a>
-        <a href="#about" class="hover:text-white transition">02. About</a>
-        <a href="#contact" class="hover:text-white transition">03. Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- TOP SHELL CONTAINER -->
+  <div class="w-full border-b border-brand-blue/20 bg-white">
+    <div class="max-w-5xl mx-auto px-6 py-6">
 
-  <main class="max-w-5xl mx-auto px-6 w-full flex-1">
-
-    <!-- Hero / Statement -->
-    <section class="py-24 sm:py-32 border-b border-neutral-900">
-      <p class="text-xs uppercase tracking-widest text-neutral-500 mono mb-4">[ Discipline &bull; Structure &bull; Origin ]</p>
-      <h1 class="text-3xl sm:text-5xl font-light tracking-tight text-white max-w-2xl leading-tight">
-        Engineered logic units for operators. Pure, unadulterated botanical harvest.
-      </h1>
-      <p class="mt-6 text-sm text-neutral-400 max-w-lg leading-relaxed">
-        A dual-focus practice developing programmatic margin tools alongside single-estate organic provisions. Built with zero operational fluff.
-      </p>
-    </section>
-
-    <!-- Products & Sub-Products Hierarchy -->
-    <section id="products" class="py-20 border-b border-neutral-900">
-      <div class="flex justify-between items-baseline mb-12">
-        <h2 class="text-xs uppercase tracking-widest mono text-neutral-500">01 / Products & Deployments</h2>
-        <span class="text-xs mono text-neutral-600">Index &bull; v2.6</span>
-      </div>
-
-      <div class="space-y-16">
-
-        <!-- Master Product 01: Digital Systems -->
-        <div class="space-y-6">
-          <div class="border-b border-neutral-900 pb-3 flex justify-between items-end">
-            <div>
-              <span class="text-xs mono text-emerald-400 font-medium">CATEGORY 01</span>
-              <h3 class="text-xl font-medium text-white mt-1">Systems & Calculators</h3>
-            </div>
-            <span class="text-xs mono text-neutral-500">Digital / Software</span>
+      <!-- 1ST LINE: LOGO & TAGLINE (From Diagram) -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6">
+        <!-- Clickable Constant Logo -->
+        <a href="javascript:void(0)" onclick="navigateTo('home')" class="group inline-flex items-center gap-3">
+          <div class="bg-brand-blue text-white font-heading font-bold text-xl px-4 py-2 angular-box tracking-widest group-hover:bg-brand-orange group-hover:border-brand-orange transition-colors">
+            KRA3T6
           </div>
+          <span class="text-xs font-mono text-brand-blue/60 tracking-wider">/ 36_CORE</span>
+        </a>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Sub-product 1.1 -->
-            <div class="p-6 rounded-lg border border-neutral-900 bg-neutral-950/60 hover:border-neutral-800 transition">
-              <div class="flex justify-between items-center text-xs mono text-neutral-500 mb-2">
-                <span>SUB-01.1</span>
-                <span>STATUS: READY</span>
-              </div>
-              <h4 class="text-base font-medium text-white">Marketplace Margin Engine</h4>
-              <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
-                Deterministic spreadsheet framework calculating marketplace commissions, logistics leakage, and net GST margins across e-commerce channels.
-              </p>
-              <div class="mt-6 pt-4 border-t border-neutral-900/80 flex justify-between items-center">
-                <span class="text-xs mono text-neutral-500">v1.0 &bull; Google Sheets</span>
-                <a href="#contact" class="text-xs mono text-white hover:underline underline-offset-4">Acquire Access &rarr;</a>
-              </div>
-            </div>
-
-            <!-- Sub-product 1.2 -->
-            <div class="p-6 rounded-lg border border-neutral-900 bg-neutral-950/60 hover:border-neutral-800 transition">
-              <div class="flex justify-between items-center text-xs mono text-neutral-500 mb-2">
-                <span>SUB-01.2</span>
-                <span>STATUS: IN DEV</span>
-              </div>
-              <h4 class="text-base font-medium text-white">Reverse Logistics Auditor</h4>
-              <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
-                Automated threshold calculator isolating RTO penalties and calculating exact breakeven price corridors.
-              </p>
-              <div class="mt-6 pt-4 border-t border-neutral-900/80 flex justify-between items-center">
-                <span class="text-xs mono text-neutral-500">v0.9 &bull; Script Harness</span>
-                <span class="text-xs mono text-neutral-600">Pending Release</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Master Product 02: Physical Goods -->
-        <div class="space-y-6">
-          <div class="border-b border-neutral-900 pb-3 flex justify-between items-end">
-            <div>
-              <span class="text-xs mono text-amber-400 font-medium">CATEGORY 02</span>
-              <h3 class="text-xl font-medium text-white mt-1">Single-Estate Provisions</h3>
-            </div>
-            <span class="text-xs mono text-neutral-500">Physical / Botanical</span>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Sub-product 2.1 -->
-            <div class="p-6 rounded-lg border border-neutral-900 bg-neutral-950/60 hover:border-neutral-800 transition">
-              <div class="flex justify-between items-center text-xs mono text-neutral-500 mb-2">
-                <span>SUB-02.1</span>
-                <span>BATCH: 01-PROV</span>
-              </div>
-              <h4 class="text-base font-medium text-white">Unpolished Malabar Tellicherry</h4>
-              <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
-                Hand-harvested black peppercorns graded TGSEB. Sun-dried without chemical polishing agents.
-              </p>
-              <div class="mt-6 pt-4 border-t border-neutral-900/80 flex justify-between items-center">
-                <span class="text-xs mono text-neutral-500">Origin: Kerala</span>
-                <span class="text-xs mono text-neutral-500">Harvest Allocation</span>
-              </div>
-            </div>
-
-            <!-- Sub-product 2.2 -->
-            <div class="p-6 rounded-lg border border-neutral-900 bg-neutral-950/60 hover:border-neutral-800 transition">
-              <div class="flex justify-between items-center text-xs mono text-neutral-500 mb-2">
-                <span>SUB-02.2</span>
-                <span>BATCH: 02-PROV</span>
-              </div>
-              <h4 class="text-base font-medium text-white">Reserve Mamra Almonds</h4>
-              <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
-                Cold-climate, oil-rich heritage almonds. Zero bleaching, direct estate allocation with verified nutrient density.
-              </p>
-              <div class="mt-6 pt-4 border-t border-neutral-900/80 flex justify-between items-center">
-                <span class="text-xs mono text-neutral-500">Origin: Heritage Groves</span>
-                <span class="text-xs mono text-neutral-500">Harvest Allocation</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 border-b border-neutral-900">
-      <div class="flex justify-between items-baseline mb-8">
-        <h2 class="text-xs uppercase tracking-widest mono text-neutral-500">02 / About Us</h2>
-        <span class="text-xs mono text-neutral-600">The Architecture</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs leading-relaxed">
-        <div class="space-y-3">
-          <p class="mono text-white text-sm">Elemental Origin</p>
-          <p class="text-neutral-400">
-            KRA3T6 operates as a unified studio pursuing elemental purity and mathematical clarity across digital and physical domains.
-          </p>
-        </div>
-        <div class="space-y-3">
-          <p class="mono text-white text-sm">Atomic Standard (36)</p>
-          <p class="text-neutral-400">
-            Anchored to element 36—Krypton—a noble gas that never oxidizes or reacts with impurities. In software, this means zero-fluff code. In food, it means zero adulteration or cosmetic additives.
-          </p>
-        </div>
-        <div class="space-y-3">
-          <p class="mono text-white text-sm">Direct Distribution</p>
-          <p class="text-neutral-400">
-            Bypassing marketplace aggregators and redundant intermediary layers, delivering deterministic tools and harvests directly to operators.
-          </p>
+        <!-- Tagline Box -->
+        <div class="text-xs sm:text-sm font-heading font-medium tracking-wide text-brand-blue bg-blue-50/50 border border-brand-blue/20 px-4 py-2 rounded-none">
+          <span class="text-brand-orange font-bold mr-1">&bull;</span> ab cd ef gh
         </div>
       </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
-      <div class="flex justify-between items-baseline mb-8">
-        <h2 class="text-xs uppercase tracking-widest mono text-neutral-500">03 / Inquiries & Contact</h2>
-        <span class="text-xs mono text-neutral-600">Secure Channel</span>
-      </div>
+      <!-- DASHED SECTION BREAK (From Diagram) -->
+      <div class="border-b-2 border-dashed border-brand-blue/30 w-full mb-6"></div>
 
-      <div class="p-8 rounded-xl border border-neutral-900 bg-neutral-950/40 max-w-xl">
-        <form onsubmit="handleInquiry(event)" class="space-y-4">
-          <div>
-            <label class="block text-xs mono text-neutral-400 mb-1">DESIGNATION / NAME</label>
-            <input type="text" required placeholder="Operator name" class="w-full bg-neutral-900/50 border border-neutral-800 rounded px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600 mono">
-          </div>
-          <div>
-            <label class="block text-xs mono text-neutral-400 mb-1">COORDINATES / EMAIL</label>
-            <input type="email" required placeholder="contact@domain.com" class="w-full bg-neutral-900/50 border border-neutral-800 rounded px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600 mono">
-          </div>
-          <div>
-            <label class="block text-xs mono text-neutral-400 mb-1">INTENDED MODULE</label>
-            <select class="w-full bg-neutral-900 border border-neutral-800 rounded px-3 py-2 text-xs text-neutral-300 focus:outline-none focus:border-neutral-600 mono">
-              <option>Digital Systems / Margin Engine Access</option>
-              <option>Physical Provisions / Harvest Allocation</option>
-              <option>General Studio Advisory</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-xs mono text-neutral-400 mb-1">TRANSMISSION / MESSAGE</label>
-            <textarea rows="3" required placeholder="Inquiry details..." class="w-full bg-neutral-900/50 border border-neutral-800 rounded px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600 mono"></textarea>
-          </div>
-          <button type="submit" id="submit-btn" class="w-full py-2.5 bg-neutral-100 hover:bg-white text-black text-xs mono font-medium rounded transition">
-            Dispatch Transmission &rarr;
+      <!-- 2ND LINE: THE RIBBON BAR (Sequence: Home - Products/Services - About us) -->
+      <nav class="flex flex-wrap items-center gap-2 sm:gap-4 text-sm font-heading font-semibold text-brand-blue">
+        
+        <!-- Tab: Home -->
+        <button onclick="navigateTo('home')" id="tab-home" class="px-4 py-2 border border-brand-blue bg-brand-blue text-white shadow-[2px_2px_0px_#0B2559] transition">
+          Home
+        </button>
+
+        <!-- Tab: Products/Services (Interactive Dropdown Group) -->
+        <div class="relative group">
+          <button id="tab-prod-serv" class="flex items-center gap-1.5 px-4 py-2 border border-brand-blue/30 bg-white hover:border-brand-blue transition">
+            <span>Products/Services</span>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
           </button>
-        </form>
+          
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 top-full pt-1 hidden group-hover:block z-50 min-w-[200px]">
+            <div class="bg-white border-2 border-brand-blue shadow-[4px_4px_0px_#0B2559] py-2 flex flex-col">
+              <span class="px-4 py-1 text-[10px] uppercase font-mono tracking-widest text-brand-orange font-bold">Services</span>
+              <a href="javascript:void(0)" onclick="navigateTo('tools')" class="px-4 py-2 hover:bg-brand-orangeLight hover:text-brand-orange transition text-xs font-semibold">&rarr; Tools</a>
+              <a href="javascript:void(0)" onclick="navigateTo('blogs')" class="px-4 py-2 hover:bg-brand-orangeLight hover:text-brand-orange transition text-xs font-semibold">&rarr; Blogs</a>
+              <div class="border-t border-brand-blue/10 my-1"></div>
+              <span class="px-4 py-1 text-[10px] uppercase font-mono tracking-widest text-brand-blue/60 font-bold">Physical</span>
+              <a href="javascript:void(0)" onclick="navigateTo('products-page')" class="px-4 py-2 hover:bg-blue-50 transition text-xs font-semibold">&rarr; Products (Catalog)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: About us -->
+        <button onclick="navigateTo('about')" id="tab-about" class="px-4 py-2 border border-brand-blue/30 bg-white hover:border-brand-blue transition">
+          About us
+        </button>
+
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- MAIN DYNAMIC CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-12 w-full flex-1">
+
+    <!-- ================= VIEW 1: HOME (LANDING PAGE - SINGLE COLUMN CARDS P1 & P2) ================= -->
+    <div id="view-home" class="space-y-10">
+      
+      <!-- Section Tag -->
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 bg-brand-orange"></span>
+        <h2 class="text-xs uppercase font-mono tracking-widest text-brand-blue font-bold">Current Core Directives</h2>
       </div>
-    </section>
+
+      <!-- Single Column Stack as charted in diagram (P1, then P2) -->
+      <div class="flex flex-col gap-8 max-w-3xl">
+
+        <!-- PRODUCT 1 (P1 Card) -->
+        <div class="bg-white angular-box p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start justify-between">
+          <div class="space-y-3 flex-1">
+            <div class="flex items-center gap-3">
+              <span class="px-2 py-0.5 text-[11px] font-mono font-bold bg-brand-blue text-white">P1_SYSTEM</span>
+              <span class="text-xs font-mono text-brand-blue/60">SPEC: MARGIN-AUDITOR</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-heading font-bold text-brand-blue">
+              E-Commerce Fee & Margin Auditor
+            </h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              High-precision algorithmic auditing framework engineered to detect hidden marketplace commission leaks, return penalties, and accurate post-tax margins.
+            </p>
+            <div class="pt-2">
+              <a href="javascript:void(0)" onclick="navigateTo('tools')" class="inline-flex items-center text-xs font-heading font-bold text-brand-orange hover:underline underline-offset-4 gap-1">
+                Clickable preview line &rarr; Explore System Details
+              </a>
+            </div>
+          </div>
+
+          <!-- Minimalist Vector Clipart / Box -->
+          <div class="w-full md:w-36 h-28 bg-blue-50 border border-brand-blue/20 flex flex-col items-center justify-center p-3 text-brand-blue text-center shrink-0">
+            <svg class="w-10 h-10 mb-1 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="0"/>
+              <path d="M3 9h18M9 21V9"/>
+            </svg>
+            <span class="text-[10px] font-mono uppercase tracking-wider">P1 / Tool_Grid</span>
+          </div>
+        </div>
+
+        <!-- PRODUCT 2 (P2 Card) -->
+        <div class="bg-white angular-box p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start justify-between">
+          <div class="space-y-3 flex-1">
+            <div class="flex items-center gap-3">
+              <span class="px-2 py-0.5 text-[11px] font-mono font-bold bg-brand-orange text-white">P2_PROVISION</span>
+              <span class="text-xs font-mono text-brand-blue/60">BATCH: 01-MALABAR</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-heading font-bold text-brand-blue">
+              Single-Estate Black Pepper & Botanicals
+            </h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              Unpolished, sun-cured Malabar Tellicherry garbled black peppercorns sourced directly from estate harvest allocations without commercial waxing or additives.
+            </p>
+            <div class="pt-2">
+              <a href="javascript:void(0)" onclick="navigateTo('products-page')" class="inline-flex items-center text-xs font-heading font-bold text-brand-blue hover:underline underline-offset-4 gap-1">
+                Clickable preview line &rarr; Review Allocation Spec
+              </a>
+            </div>
+          </div>
+
+          <!-- Minimalist Vector Clipart / Box -->
+          <div class="w-full md:w-36 h-28 bg-orange-50 border border-brand-orange/20 flex flex-col items-center justify-center p-3 text-brand-orange text-center shrink-0">
+            <svg class="w-10 h-10 mb-1 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 3a9 9 0 0 0 0 18M12 7v10"/>
+            </svg>
+            <span class="text-[10px] font-mono uppercase tracking-wider">P2 / Harvest_Node</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= VIEW 2: PRODUCTS (COMING SOON...) ================= -->
+    <div id="view-products-page" class="hidden space-y-6">
+      <div class="max-w-xl mx-auto py-16 text-center space-y-4 bg-white angular-box p-10">
+        <span class="px-3 py-1 text-xs font-mono bg-brand-orangeLight text-brand-orange font-bold">PHYSICAL PROVISIONS</span>
+        <h2 class="text-3xl font-heading font-bold text-brand-blue">Coming soon....</h2>
+        <p class="text-sm text-neutral-600 leading-relaxed">
+          Direct single-origin batches are currently undergoing estate grading and verification. Full storefront allocations will go live shortly.
+        </p>
+        <button onclick="navigateTo('home')" class="mt-4 px-5 py-2.5 bg-brand-blue text-white text-xs font-heading font-semibold hover:bg-brand-blueHover transition">
+          &larr; Back to Overview
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= VIEW 3: SERVICES > TOOLS ================= -->
+    <div id="view-tools" class="hidden space-y-8">
+      <div class="border-b border-brand-blue/20 pb-4">
+        <span class="text-xs font-mono text-brand-orange font-bold uppercase tracking-wider">Services / Sub-Module</span>
+        <h2 class="text-2xl font-heading font-bold text-brand-blue mt-1">Operational Tools</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white angular-box p-6 space-y-3">
+          <span class="text-xs font-mono text-brand-blue/60 font-semibold">[ TOOL_01 ]</span>
+          <h3 class="text-lg font-heading font-bold text-brand-blue">Gross-to-Net Settlement Calculator</h3>
+          <p class="text-xs text-neutral-600 leading-relaxed">
+            Unravel payment gateway cutoffs, reverse logistics costs, and input tax credit reconciliations for multi-channel commerce sellers.
+          </p>
+          <div class="pt-4">
+            <span class="text-xs font-mono text-brand-orange font-bold">Available in Sheet & Web Engine Format</span>
+          </div>
+        </div>
+
+        <div class="bg-white angular-box p-6 space-y-3">
+          <span class="text-xs font-mono text-brand-blue/60 font-semibold">[ TOOL_02 ]</span>
+          <h3 class="text-lg font-heading font-bold text-brand-blue">Return Threshold Simulator</h3>
+          <p class="text-xs text-neutral-600 leading-relaxed">
+            Predict precise operational breakeven points relative to return-to-origin (RTO) volatility across national courier zones.
+          </p>
+          <div class="pt-4">
+            <span class="text-xs font-mono text-brand-blue font-bold">In Active Pilot Stage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= VIEW 4: SERVICES > BLOGS ================= -->
+    <div id="view-blogs" class="hidden space-y-8">
+      <div class="border-b border-brand-blue/20 pb-4">
+        <span class="text-xs font-mono text-brand-orange font-bold uppercase tracking-wider">Services / Insights</span>
+        <h2 class="text-2xl font-heading font-bold text-brand-blue mt-1">Field Notes & Dispatches</h2>
+      </div>
+
+      <div class="space-y-4 max-w-3xl">
+        <article class="bg-white p-6 border border-brand-blue/20 hover:border-brand-blue transition">
+          <span class="text-[11px] font-mono text-neutral-500">DISPATCH #04 &bull; COMMERCE ECONOMICS</span>
+          <h3 class="text-lg font-heading font-bold text-brand-blue mt-1 hover:text-brand-orange cursor-pointer">
+            The Hidden 8% Drain: Where Marketplace Margins Evaporate
+          </h3>
+          <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+            An empirical breakdown of storage tier adjustments, courier weight discrepancies, and how to defend unit-level profit metrics.
+          </p>
+        </article>
+
+        <article class="bg-white p-6 border border-brand-blue/20 hover:border-brand-blue transition">
+          <span class="text-[11px] font-mono text-neutral-500">DISPATCH #03 &bull; AGRONOMY SPEC</span>
+          <h3 class="text-lg font-heading font-bold text-brand-blue mt-1 hover:text-brand-orange cursor-pointer">
+            Density Over Polishing: Sourcing Pure Tellicherry Peppercorns
+          </h3>
+          <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+            Why commercial spice retail strips essential volatile oils, and how single-estate harvesting protects natural piperine content.
+          </p>
+        </article>
+      </div>
+    </div>
+
+    <!-- ================= VIEW 5: ABOUT US ================= -->
+    <div id="view-about" class="hidden space-y-12 max-w-3xl">
+      
+      <!-- Vision -->
+      <section class="space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-brand-orange"></span>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue font-bold">Our Vision</h2>
+        </div>
+        <p class="text-base text-brand-blue font-heading font-medium leading-relaxed bg-white p-6 angular-box">
+          To champion mathematical clarity in digital tools and untainted authenticity in foundational physical provisions. We build systems without redundant layers and source harvests without synthetic compromises.
+        </p>
+      </section>
+
+      <!-- History -->
+      <section class="space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-brand-blue"></span>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue font-bold">History</h2>
+        </div>
+        <p class="text-sm text-neutral-600 leading-relaxed bg-white p-6 border border-brand-blue/20">
+          Established as a dual-horizon multidisciplinary project, KRA3T6 originated from a mandate to reject marketplace noise. What started as an internal set of calculation tools for commerce logistics expanded to encompass physical trade in single-origin, clean-harvest essentials.
+        </p>
+      </section>
+
+      <!-- Services We Offer -->
+      <section class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-brand-orange"></span>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue font-bold">Services We Offer</h2>
+        </div>
+        
+        <div class="space-y-4 text-sm text-neutral-700 leading-relaxed bg-white p-6 border border-brand-blue/20">
+          <p>
+            <strong class="text-brand-blue font-heading">Digital Systems & Audit Frameworks:</strong> We design custom unit-economic spreadsheets, fee-leakage detectors, and margin calculators tailored for modern independent operators seeking uncompromised visibility over their balance sheets.
+          </p>
+          <p>
+            <strong class="text-brand-blue font-heading">Botanical & Pantry Allocations:</strong> We coordinate direct-from-harvest single-origin botanical sourcing, delivering small-batch, unpolished spices and premium dry fruits that retain natural potency and zero additive treatments.
+          </p>
+          <p>
+            <strong class="text-brand-blue font-heading">Research & Analysis:</strong> We generate independent operational reports, cost-architecture teardowns, and actionable insights to guide businesses navigating multi-platform trade channels.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contacts Block -->
+      <section class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-brand-blue"></span>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue font-bold">Contacts</h2>
+        </div>
+
+        <div class="bg-white angular-box-orange p-6 sm:p-8 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono text-neutral-500 block">TRANSMISSION CHANNEL</span>
+              <span class="text-sm font-heading font-bold text-brand-blue">Official Electronic Mail</span>
+            </div>
+            <a href="mailto:blahblah@bkk.xyz" class="text-sm font-mono text-brand-orange font-semibold hover:underline">
+              blahblah@bkk.xyz
+            </a>
+          </div>
+
+          <div class="border-t border-brand-orange/20 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono text-neutral-500 block">COMMUNITY & SOCIAL REPOSITORY</span>
+              <span class="text-sm font-heading font-bold text-brand-blue">Central Network Link</span>
+            </div>
+            <a href="https://bit.ly" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-blue text-white text-xs font-heading font-semibold hover:bg-brand-blueHover transition">
+              <span>Access Channels via Bitly</span>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
 
   </main>
 
-  <!-- Clean Minimal Footer -->
-  <footer class="border-t border-neutral-900 py-8">
-    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs mono text-neutral-600">
-      <div>&copy; 2026 KRA3T6 STUDIO. ALL SPECIFICATIONS RESERVED.</div>
-      <div class="text-neutral-500">PRECISION SYSTEMS &bull; PURE HARVEST [KR-36]</div>
+  <!-- CLEAN SYSTEM FOOTER -->
+  <footer class="border-t border-brand-blue/20 bg-white py-6">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-brand-blue/60">
+      <div>&copy; 2026 KRA3T6 STUDIO. MINIMAL LOGIC FRAMEWORK.</div>
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+        <span>STATUS: OPERATIONAL</span>
+      </div>
     </div>
   </footer>
 
+  <!-- LIGHTWEIGHT VIEW SWITCHER (ZERO FRAMEWORK OVERHEAD) -->
   <script>
-    function handleInquiry(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submit-btn');
-      btn.innerText = "Transmission Recorded ✓";
-      btn.classList.remove('bg-neutral-100', 'text-black');
-      btn.classList.add('bg-neutral-800', 'text-emerald-400');
-      setTimeout(() => {
-        btn.innerText = "Dispatch Transmission →";
-        btn.classList.add('bg-neutral-100', 'text-black');
-        btn.classList.remove('bg-neutral-800', 'text-emerald-400');
-        e.target.reset();
-      }, 3000);
-    }
-  </script>
-</body>
-</html>
+    const views = ['home', 'products-page', 'tools', 'blogs', 'about'];
+    
+    function navigateTo(targetView) {
+      views.forEach(v => {
+        const el = document.getElementById('view-' + v);
+        if (el) el.classList.add('hidden');
+      });
+
+      const activeEl = document.getElementById('view-' + targetView);
+      if (activeEl) {
+        activeEl.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update active tab styles
+      const tabHome = document.getElementById('tab-home');
+      const tabAbout = document.getElementById('tab-about');
+      const tabProdServ = document.getElementById('tab-prod-serv');
+
+      // Reset styles
+      [tabHome, tabAbout, tabProdServ].forEach
