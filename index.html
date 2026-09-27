@@ -49,10 +49,6 @@
       cursor: pointer;
     }
 
-    /* =========================
-       VARIABLES
-    ========================= */
-
     :root {
       --black: #111111;
       --white: #ffffff;
@@ -91,7 +87,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(245, 245, 242, 0.94);
+      background: rgba(245, 245, 242, 0.96);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
@@ -111,6 +107,7 @@
       font-size: 20px;
       font-weight: 800;
       letter-spacing: -1px;
+      flex-shrink: 0;
     }
 
     .logo-box {
@@ -158,16 +155,25 @@
       cursor: pointer;
     }
 
+    .arrow {
+      font-size: 11px;
+      transition: transform .2s ease;
+    }
+
+    .dropdown-item.open .arrow {
+      transform: rotate(180deg);
+    }
+
     .dropdown {
       position: absolute;
-      top: 100%;
+      top: calc(100% + 5px);
       left: 0;
-      width: 220px;
+      width: 230px;
       padding: 8px;
       background: white;
       border: 1px solid var(--border);
       border-radius: 15px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.1);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .1);
 
       opacity: 0;
       visibility: hidden;
@@ -175,7 +181,8 @@
       transition: .2s ease;
     }
 
-    .dropdown-item:hover .dropdown {
+    .dropdown-item:hover .dropdown,
+    .dropdown-item.open .dropdown {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
@@ -184,7 +191,7 @@
     .dropdown a {
       display: block;
       width: 100%;
-      padding: 10px 12px;
+      padding: 11px 12px;
     }
 
     .dropdown a:hover {
@@ -198,6 +205,7 @@
       color: white;
       font-size: 13px;
       font-weight: 700;
+      transition: .2s ease;
     }
 
     .nav-contact:hover {
@@ -403,7 +411,7 @@
 
     .bento-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 25px 60px rgba(0,0,0,.3);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, .3);
     }
 
     .bento-card h3 {
@@ -465,7 +473,7 @@
     .pill {
       padding: 7px 11px;
       border-radius: 999px;
-      background: rgba(255,255,255,.5);
+      background: rgba(255, 255, 255, .5);
       font-size: 11px;
       font-weight: 700;
     }
@@ -492,7 +500,7 @@
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,.08);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
     }
 
     .icon {
@@ -586,6 +594,26 @@
        PRODUCTS
     ========================= */
 
+    .product-grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: .3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+    }
+
     .product-image {
       height: 230px;
       display: grid;
@@ -600,7 +628,7 @@
       height: 190px;
       position: absolute;
       border-radius: 50%;
-      background: rgba(255,255,255,.25);
+      background: rgba(255, 255, 255, .25);
     }
 
     .masala {
@@ -627,7 +655,8 @@
       text-align: center;
       font-size: 18px;
       font-weight: 800;
-      box-shadow: 0 20px 40px rgba(0,0,0,.15);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
+      padding: 10px;
     }
 
     .product-content {
@@ -704,7 +733,7 @@
 
     .blog-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,.08);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
     }
 
     .tag {
@@ -780,7 +809,14 @@
     .contact-text {
       margin-top: 20px;
       max-width: 550px;
-      color: rgba(0,0,0,.65);
+      color: rgba(0, 0, 0, .65);
+    }
+
+    .contact-email {
+      display: inline-block;
+      margin-top: 25px;
+      font-weight: 800;
+      border-bottom: 2px solid var(--black);
     }
 
     .contact-form {
@@ -829,6 +865,11 @@
       background: var(--black);
       color: white;
       font-weight: 700;
+    }
+
+    .submit-button:hover {
+      background: var(--orange);
+      color: var(--black);
     }
 
     /* =========================
@@ -929,7 +970,7 @@
         background: white;
         border: 1px solid var(--border);
         border-radius: 15px;
-        box-shadow: 0 15px 40px rgba(0,0,0,.1);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, .1);
       }
 
       .nav.mobile-open .nav-links a,
@@ -1009,8 +1050,20 @@
         padding: 70px 0;
       }
 
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 70px 0;
+      }
+
       .hero h1 {
         letter-spacing: -3px;
+      }
+
+      .hero-text {
+        font-size: 16px;
       }
 
       .bento {
@@ -1028,67 +1081,4 @@
 
       .card-grid,
       .product-grid,
-      .tool-grid,
-      .blog-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .blog-card:first-child {
-        grid-column: span 1;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      * {
-        transition: none !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- =========================
-       HEADER
-  ========================== -->
-
-  <header>
-
-    <div class="container">
-
-      <nav class="nav" id="nav">
-
-        <a href="#home" class="logo">
-          <span class="logo-box">K</span>
-          KRA3T6
-        </a>
-
-        <ul class="nav-links">
-
-          <li>
-            <a href="#home">Home</a>
-          </li>
-
-          <li class="dropdown-item">
-
-            <button
-              class="dropdown-button"
-              type="button"
-              onclick="t
+      .tool-g
