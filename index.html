@@ -359,4 +359,135 @@
               <span>Access Studio Repositories</span>
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
-                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0
+                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- CLEAN SYSTEM FOOTER -->
+  <footer class="border-t border-brand-blue/20 bg-white py-6">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-brand-blue/60">
+      <div>&copy; 2026 KRA3T6 STUDIO. MINIMAL LOGIC FRAMEWORK.</div>
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse" aria-hidden="true"></span>
+        <span>STATUS: OPERATIONAL</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT: VIEW ROUTER & ACCESSIBLE DROPDOWN -->
+  <script>
+    const validViews = ['home', 'products-page', 'tools', 'blogs', 'about'];
+    const dropdownMenu = document.getElementById('prod-serv-menu');
+    const tabProdServ = document.getElementById('tab-prod-serv');
+    const dropdownContainer = document.getElementById('dropdown-container');
+
+    // Toggle dropdown (Click & Touch support)
+    function toggleDropdown(forceClose = false) {
+      const isCurrentlyOpen = !dropdownMenu.classList.contains('hidden');
+      if (forceClose || isCurrentlyOpen) {
+        dropdownMenu.classList.add('hidden');
+        tabProdServ.setAttribute('aria-expanded', 'false');
+      } else {
+        dropdownMenu.classList.remove('hidden');
+        tabProdServ.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Close dropdown on outside click
+    document.addEventListener('click', (e) => {
+      if (!dropdownContainer.contains(e.target)) {
+        toggleDropdown(true);
+      }
+    });
+
+    // Close dropdown on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        toggleDropdown(true);
+      }
+    });
+
+    // Open on hover for desktop, while retaining click capability
+    dropdownContainer.addEventListener('mouseenter', () => {
+      dropdownMenu.classList.remove('hidden');
+      tabProdServ.setAttribute('aria-expanded', 'true');
+    });
+    dropdownContainer.addEventListener('mouseleave', () => {
+      dropdownMenu.classList.add('hidden');
+      tabProdServ.setAttribute('aria-expanded', 'false');
+    });
+
+    // View Navigation & State Manager
+    function navigateTo(targetView) {
+      if (!validViews.includes(targetView)) {
+        targetView = 'home';
+      }
+
+      // Hide all views, display target view
+      validViews.forEach(v => {
+        const el = document.getElementById('view-' + v);
+        if (el) el.classList.add('hidden');
+      });
+
+      const activeEl = document.getElementById('view-' + targetView);
+      if (activeEl) {
+        activeEl.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Close dropdown menu if open
+      toggleDropdown(true);
+
+      // Manage Tab Visual States
+      const tabHome = document.getElementById('tab-home');
+      const tabAbout = document.getElementById('tab-about');
+
+      const activeStyles = ['bg-brand-blue', 'text-white', 'shadow-[2px_2px_0px_#0B2559]', 'border-brand-blue'];
+      const inactiveStyles = ['bg-white', 'text-brand-blue', 'border-brand-blue/30'];
+
+      [tabHome, tabAbout, tabProdServ].forEach(tab => {
+        if (tab) {
+          tab.classList.remove(...activeStyles);
+          tab.classList.add(...inactiveStyles);
+          tab.removeAttribute('aria-current');
+        }
+      });
+
+      if (targetView === 'home' && tabHome) {
+        tabHome.classList.remove(...inactiveStyles);
+        tabHome.classList.add(...activeStyles);
+        tabHome.setAttribute('aria-current', 'page');
+      } else if (targetView === 'about' && tabAbout) {
+        tabAbout.classList.remove(...inactiveStyles);
+        tabAbout.classList.add(...activeStyles);
+        tabAbout.setAttribute('aria-current', 'page');
+      } else if (['tools', 'blogs', 'products-page'].includes(targetView) && tabProdServ) {
+        tabProdServ.classList.remove(...inactiveStyles);
+        tabProdServ.classList.add(...activeStyles);
+        tabProdServ.setAttribute('aria-current', 'page');
+      }
+
+      // Keep URL hash in sync for back/forward support
+      if (window.location.hash.slice(1) !== targetView) {
+        history.pushState(null, '', '#' + targetView);
+      }
+    }
+
+    // Support browser Back/Forward buttons and direct URL sharing (#tools, etc.)
+    function syncRouteFromHash() {
+      const hash = window.location.hash.replace('#', '');
+      navigateTo(hash || 'home');
+    }
+
+    window.addEventListener('popstate', syncRouteFromHash);
+    window.addEventListener('DOMContentLoaded', syncRouteFromHash);
+  </script>
+</body>
+</html>
