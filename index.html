@@ -1,401 +1,988 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="KRA3T6 — independent software tools and artisanal provisions designed from scratch."
-    />
-    <title>KRA3T6 — Studio & Provisions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              studio: {
-                white: "#FFFFFF",
-                bg: "#FFFFFF",
-                black: "#000000",
-                orange: "#FF6600",
-                blue: "#003366",
-                border: "#000000",
-                muted: "#666666",
-              }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="KRA3T6 — independent software tools, field hardware and artisanal provisions."
+  />
+  <meta name="theme-color" content="#ffffff" />
+
+  <title>KRA3T6 — Studio & Provisions</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            studio: {
+              white: "#FFFFFF",
+              black: "#000000",
+              orange: "#FF6600",
+              blue: "#003366",
+              muted: "#666666",
+              soft: "#F4F4F0"
             }
           }
         }
-      };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
+      }
+    };
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --orange: #ff6600;
+      --blue: #003366;
+      --muted: #666666;
+      --soft: #f4f4f0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--black);
+      font-family: "Inter", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .font-mono-studio {
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    /* =========================
+       BACKGROUND GRID
+    ========================== */
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.055) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* =========================
+       CARDS
+    ========================== */
+
+    .neo-card {
+      background: var(--white);
+      border: 1px solid var(--black);
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background-color 0.18s ease;
+    }
+
+    .neo-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 var(--black);
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::after {
+      content: "";
+      position: absolute;
+
+      width: 70px;
+      height: 70px;
+
+      right: -30px;
+      top: -30px;
+
+      border: 1px solid rgba(0, 0, 0, 0.14);
+
+      transform: rotate(45deg);
+
+      pointer-events: none;
+    }
+
+    /* =========================
+       PRODUCT VISUALS
+    ========================== */
+
+    .product-visual {
+      position: relative;
+
+      min-height: 190px;
+
+      border-bottom: 1px solid var(--black);
+
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-visual::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          transparent 48%,
+          rgba(0, 0, 0, 0.07) 49%,
+          transparent 51%
+        );
+
+      background-size: 18px 18px;
+
+      opacity: 0.45;
+    }
+
+    .visual-object {
+      position: relative;
+      z-index: 1;
+
+      width: 112px;
+      height: 140px;
+
+      border: 2px solid var(--black);
+
+      box-shadow: 8px 8px 0 var(--black);
+
+      transition: transform 0.25s ease;
+    }
+
+    .product-card:hover .visual-object {
+      transform: rotate(-3deg) translateY(-5px);
+    }
+
+    /* Masala */
+
+    .visual-masala {
+      background: var(--orange);
+
+      clip-path: polygon(
+        10% 8%,
+        90% 8%,
+        100% 94%,
+        0 94%
+      );
+    }
+
+    /* Tea */
+
+    .visual-tea {
+      width: 120px;
+      height: 120px;
+
+      border-radius: 50%;
+
+      background: var(--blue);
+
+      box-shadow: 8px 8px 0 var(--black);
+    }
+
+    /* Dry Fruit */
+
+    .visual-dryfruit {
+      width: 145px;
+      height: 105px;
+
+      background: var(--soft);
+
+      transform: rotate(-4deg);
+    }
+
+    /* Workflow */
+
+    .visual-workflow {
+      width: 170px;
+      height: 112px;
+
+      background: var(--black);
+
+      box-shadow: 8px 8px 0 var(--orange);
+    }
+
+    /* Sheetstack */
+
+    .visual-sheetstack {
+      width: 155px;
+      height: 115px;
+
+      background: var(--white);
+
+      box-shadow: 10px 10px 0 var(--blue);
+
+      transform: rotate(3deg);
+    }
+
+    /* Field case */
+
+    .visual-field {
+      width: 155px;
+      height: 105px;
+
+      background: var(--black);
+
+      box-shadow: 9px 9px 0 var(--orange);
+    }
+
+    .screen-line {
+      height: 5px;
+
+      background: var(--white);
+
+      margin: 14px;
+
+      opacity: 0.8;
+    }
+
+    .screen-line.short {
+      width: 45%;
+    }
+
+    .sheet-line {
+      height: 1px;
+
+      background: var(--black);
+
+      margin: 15px;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================== */
+
+    .btn-primary,
+    .btn-secondary {
+      border: 1px solid var(--black);
+
+      transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background-color 0.12s ease,
+        color 0.12s ease;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .btn-primary:hover {
+      transform: translate(-2px, -2px);
+
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    .btn-primary:active,
+    .btn-secondary:active {
+      transform: translate(2px, 2px);
+
+      box-shadow: 1px 1px 0 var(--black);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .btn-secondary:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* =========================
+       STATUS
+    ========================== */
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 999px;
+
+      background: var(--orange);
+
+      animation: pulse 1.8s infinite;
+    }
+
+    /* =========================
+       HERO SYSTEM VISUAL
+    ========================== */
+
+    .hero-orbit {
+      position: relative;
+
+      width: min(390px, 82vw);
+
+      aspect-ratio: 1;
+
+      border: 1px solid var(--black);
+
+      background: var(--white);
+
+      box-shadow: 10px 10px 0 var(--black);
+
+      overflow: hidden;
+    }
+
+    .hero-orbit::before,
+    .hero-orbit::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 13%;
+
+      border: 1px solid var(--black);
+
+      border-radius: 50%;
+    }
+
+    .hero-orbit::after {
+      inset: 27%;
+
+      border-style: dashed;
+
+      animation: spin 18s linear infinite;
+    }
+
+    .orbit-core {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      width: 120px;
+      height: 120px;
+
+      background: var(--black);
+
+      color: var(--white);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      border: 4px solid var(--orange);
+
+      z-index: 2;
+    }
+
+    .orbit-node {
+      position: absolute;
+
+      z-index: 3;
+
+      border: 1px solid var(--black);
+
+      background: var(--white);
+
+      padding: 7px 9px;
+
+      font: 600 9px/1 "JetBrains Mono", monospace;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.12em;
+    }
+
+    .node-a {
+      top: 10%;
+      left: 7%;
+    }
+
+    .node-b {
+      top: 11%;
+      right: 6%;
+    }
+
+    .node-c {
+      bottom: 10%;
+      left: 7%;
+    }
+
+    .node-d {
+      bottom: 10%;
+      right: 6%;
+    }
+
+    .scan-line {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+
+      height: 1px;
+
+      background: var(--orange);
+
+      opacity: 0.7;
+
+      animation: scan 4s ease-in-out infinite;
+
+      z-index: 1;
+    }
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    .mobile-menu {
+      max-height: 0;
+
+      overflow: hidden;
+
+      transition: max-height 0.25s ease;
+    }
+
+    .mobile-menu.open {
+      max-height: 320px;
+    }
+
+    /* =========================
+       MODAL
+    ========================== */
+
+    .modal {
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition: opacity 0.18s ease;
+    }
+
+    .modal.open {
+      opacity: 1;
+
+      pointer-events: auto;
+    }
+
+    .modal-panel {
+      transform: translateY(10px);
+
+      transition: transform 0.18s ease;
+    }
+
+    .modal.open .modal-panel {
+      transform: translateY(0);
+    }
+
+    /* =========================
+       TOAST
+    ========================== */
+
+    .toast {
+      transform: translateY(120%);
+
+      transition: transform 0.25s ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================== */
+
+    @keyframes pulse {
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.35;
+        transform: scale(0.75);
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes scan {
+      0%,
+      100% {
+        top: 15%;
+      }
+
+      50% {
+        top: 82%;
+      }
+    }
+
+    /* =========================
+       REDUCED MOTION
+    ========================== */
+
+    @media (prefers-reduced-motion: reduce) {
       html {
-        scroll-behavior: smooth;
+        scroll-behavior: auto;
       }
 
-      body {
-        background: #FFFFFF;
-        color: #000000;
-        font-family: "Inter", sans-serif;
-        -webkit-font-smoothing: antialiased;
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
       }
+    }
+  </style>
+</head>
 
-      .font-mono-studio {
-        font-family: "JetBrains Mono", monospace;
-      }
+<body>
 
-      .neo-card {
-        background: #FFFFFF;
-        border: 1px solid #000000;
-        transition: transform 0.15s ease;
-      }
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
 
-      .neo-card:hover {
-        transform: translateY(-2px);
-      }
+  <header class="sticky top-0 z-50 border-b border-black bg-white/95 backdrop-blur-sm">
 
-      .btn-primary {
-        background: #FF6600;
-        color: #FFFFFF;
-        border: 1px solid #000000;
-        transition: opacity 0.15s ease;
-      }
+    <div class="mx-auto max-w-7xl px-5 lg:px-12">
 
-      .btn-primary:hover {
-        opacity: 0.9;
-      }
+      <div class="flex h-[72px] items-center justify-between">
 
-      .btn-secondary {
-        background: #FFFFFF;
-        color: #000000;
-        border: 1px solid #000000;
-        transition: background 0.15s ease;
-      }
+        <!-- LOGO -->
 
-      .btn-secondary:hover {
-        background: #F4F4F4;
-      }
+        <a
+          href="#studio"
+          class="inline-flex items-center gap-3"
+          aria-label="KRA3T6 homepage"
+        >
+          <span
+            class="flex h-9 w-9 items-center justify-center border border-black bg-black text-xs font-bold tracking-widest text-white font-mono-studio"
+          >
+            K
+          </span>
 
-      .status-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 999px;
-        background: #FF6600;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- HEADER -->
-    <header class="sticky top-0 z-40 border-b border-black bg-white/95 backdrop-blur-sm">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-12">
-        <div class="flex items-center gap-4">
-          <a href="#" class="inline-flex items-center gap-3" aria-label="KRA3T6 homepage">
-            <div class="flex h-9 w-9 items-center justify-center border border-black bg-black text-xs font-bold text-white tracking-widest font-mono-studio">
-              K
-            </div>
-            <span class="font-mono-studio text-sm font-bold tracking-[0.25em] uppercase">KRA3T6</span>
+          <span
+            class="font-mono-studio text-sm font-bold uppercase tracking-[0.25em]"
+          >
+            KRA3T6
+          </span>
+        </a>
+
+        <!-- DESKTOP NAV -->
+
+        <nav
+          aria-label="Main navigation"
+          class="hidden items-center gap-7 font-mono-studio text-xs uppercase tracking-wider md:flex"
+        >
+          <a href="#studio" class="hover:text-studio-orange">
+            Studio
           </a>
-        </div>
 
-        <nav aria-label="Main navigation" class="hidden items-center gap-8 md:flex font-mono-studio text-xs uppercase tracking-wider">
-          <a href="#studio" class="hover:text-studio-orange transition-colors">Studio</a>
-          <a href="#catalog" class="hover:text-studio-orange transition-colors">Catalog</a>
-          <a href="#provisions" class="hover:text-studio-orange transition-colors">Provisions</a>
-          <a href="#archive" class="hover:text-studio-orange transition-colors">Archive</a>
+          <a href="#catalog" class="hover:text-studio-orange">
+            Catalog
+          </a>
+
+          <a href="#provisions" class="hover:text-studio-orange">
+            Provisions
+          </a>
+
+          <a href="#archive" class="hover:text-studio-orange">
+            Archive
+          </a>
         </nav>
 
-        <div class="flex items-center gap-4">
-          <div class="relative">
-            <label for="languageSelect" class="sr-only">Select language</label>
-            <select
-              id="languageSelect"
-              class="h-9 rounded-none border border-black bg-white px-3 font-mono-studio text-xs uppercase tracking-wider pr-8 appearance-none cursor-pointer"
-              aria-label="Select website language"
-            >
-              <option value="en-in">EN • India</option>
-              <option value="en-us">EN • Global</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-2 flex items-center text-black">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </div>
+        <!-- HEADER CONTROLS -->
 
-          <div class="hidden sm:inline-flex items-center gap-2 border border-black px-3 py-1.5 font-mono-studio text-[10px] uppercase tracking-widest">
+        <div class="flex items-center gap-3">
+
+          <label for="marketSelect" class="sr-only">
+            Select market
+          </label>
+
+          <select
+            id="marketSelect"
+            class="h-9 cursor-pointer appearance-none rounded-none border border-black bg-white px-2 pr-7 font-mono-studio text-[10px] uppercase tracking-wider"
+          >
+            <option value="in">
+              India • ₹
+            </option>
+
+            <option value="us">
+              Global • $
+            </option>
+          </select>
+
+          <div
+            class="hidden items-center gap-2 border border-black px-3 py-1.5 font-mono-studio text-[10px] uppercase tracking-widest sm:inline-flex"
+          >
             <span class="status-dot"></span>
-            <span data-i18n="status">Live</span>
+
+            <span>
+              Live
+            </span>
           </div>
+
+          <!-- MOBILE MENU BUTTON -->
+
+          <button
+            id="menuButton"
+            type="button"
+            class="inline-flex h-9 w-9 items-center justify-center border border-black md:hidden"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span class="text-lg">
+              ☰
+            </span>
+          </button>
+
         </div>
+
       </div>
-    </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="mx-auto max-w-7xl px-6 py-12 lg:px-12 lg:py-16">
-      
-      <!-- HERO SECTION -->
-      <section id="studio" class="py-6 lg:py-10">
-        <div class="grid gap-8 lg:grid-cols-12 items-center">
-          <div class="lg:col-span-7">
-            <div class="mb-4 inline-flex items-center gap-2 border border-black px-3 py-1 font-mono-studio text-[10px] uppercase tracking-[0.2em]">
-              <span class="h-1.5 w-1.5 bg-studio-orange"></span>
-              <span data-i18n="eyebrow">Independent Systems & Provisions Studio</span>
-            </div>
+      <!-- MOBILE NAV -->
 
-            <h1 class="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
-              <span data-i18n="heroLine1">Digital tools</span>
-              <span class="block text-studio-orange" data-i18n="heroLine2">& artisanal provisions</span>
-              <span class="block text-studio-blue" data-i18n="heroLine3">engineered from scratch.</span>
-            </h1>
+      <div id="mobileMenu" class="mobile-menu md:hidden">
 
-            <p class="mt-6 max-w-xl text-base leading-relaxed text-studio-muted sm:text-lg" data-i18n="heroCopy">
-              A minimalist independent studio bridging high-utility software tools with single-origin agricultural provisions. Built for clarity, speed, and real-world execution.
-            </p>
+        <nav
+          class="grid gap-2 border-t border-black py-4 font-mono-studio text-xs uppercase tracking-wider"
+          aria-label="Mobile navigation"
+        >
 
-            <div class="mt-8 flex flex-wrap items-center gap-4">
-              <a href="#catalog" class="btn-primary px-6 py-3 font-mono-studio text-xs uppercase tracking-widest font-semibold">
-                <span data-i18n="ctaPrimary">View inventory</span>
-              </a>
-              <a href="#contact" class="btn-secondary px-6 py-3 font-mono-studio text-xs uppercase tracking-widest font-semibold">
-                <span data-i18n="ctaSecondary">Direct inquiry</span>
-              </a>
-            </div>
+          <a
+            href="#studio"
+            class="mobile-link border border-black px-3 py-3"
+          >
+            Studio
+          </a>
+
+          <a
+            href="#catalog"
+            class="mobile-link border border-black px-3 py-3"
+          >
+            Catalog
+          </a>
+
+          <a
+            href="#provisions"
+            class="mobile-link border border-black px-3 py-3"
+          >
+            Provisions
+          </a>
+
+          <a
+            href="#archive"
+            class="mobile-link border border-black px-3 py-3"
+          >
+            Archive
+          </a>
+
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================================
+       MAIN
+  ========================================================== -->
+
+  <main class="mx-auto max-w-7xl px-5 lg:px-12">
+
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
+
+    <section
+      id="studio"
+      class="grid-bg relative py-12 lg:py-20"
+    >
+
+      <div class="grid gap-12 lg:grid-cols-12 lg:items-center">
+
+        <!-- HERO COPY -->
+
+        <div class="lg:col-span-7">
+
+          <div
+            class="mb-5 inline-flex items-center gap-2 border border-black bg-white px-3 py-1.5 font-mono-studio text-[10px] uppercase tracking-[0.2em]"
+          >
+
+            <span class="h-1.5 w-1.5 bg-studio-orange"></span>
+
+            Independent Systems & Provisions Studio
+
           </div>
 
-          <div class="lg:col-span-5">
-            <div class="neo-card p-6 lg:p-8 bg-white">
-              <div class="flex items-center justify-between border-b border-black pb-4 font-mono-studio text-xs uppercase tracking-widest">
-                <span>System Specs</span>
-                <span class="text-studio-orange">v2.1</span>
-              </div>
-              <div class="mt-6 space-y-4 font-mono-studio text-xs">
-                <div class="flex justify-between border-b border-gray-200 pb-3">
-                  <span class="text-studio-muted">Architecture</span>
-                  <span>Bento Grid / Neo-Mono</span>
-                </div>
-                <div class="flex justify-between border-b border-gray-200 pb-3">
-                  <span class="text-studio-muted">Sourcing</span>
-                  <span class="text-studio-blue">Single-Origin / Direct</span>
-                </div>
-                <div class="flex justify-between border-b border-gray-200 pb-3">
-                  <span class="text-studio-muted">Operations</span>
-                  <span>Bootstrap / Founder-led</span>
-                </div>
-                <div class="flex justify-between pt-1">
-                  <span class="text-studio-muted">Status</span>
-                  <span class="text-emerald-600 font-bold">ONLINE</span>
-                </div>
-              </div>
-            </div>
+          <h1
+            class="max-w-4xl text-5xl font-extrabold leading-[0.95] tracking-[-0.04em] sm:text-7xl lg:text-8xl"
+          >
+
+            Digital tools
+
+            <span class="block text-studio-orange">
+              & provisions
+            </span>
+
+            <span class="block text-studio-blue">
+              built from scratch.
+            </span>
+
+          </h1>
+
+          <p
+            class="mt-7 max-w-2xl text-base leading-relaxed text-studio-muted sm:text-lg"
+          >
+            Independent software, field hardware and small-batch provisions
+            built around utility, clarity and direct execution.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+
+            <a
+              href="#catalog"
+              class="btn-primary px-6 py-3 font-mono-studio text-xs font-semibold uppercase tracking-widest"
+            >
+              View inventory
+            </a>
+
+            <a
+              href="#contact"
+              class="btn-secondary px-6 py-3 font-mono-studio text-xs font-semibold uppercase tracking-widest"
+            >
+              Direct inquiry
+            </a>
+
           </div>
+
+          <div
+            class="mt-9 flex flex-wrap gap-x-8 gap-y-3 border-t border-black pt-5 font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted"
+          >
+
+            <span>
+              01 — Independent
+            </span>
+
+            <span>
+              02 — Direct
+            </span>
+
+            <span>
+              03 — Modular
+            </span>
+
+            <span>
+              04 — Active
+            </span>
+
+          </div>
+
         </div>
-      </section>
 
-      <!-- UNIFIED CATALOG SECTION -->
-      <section id="catalog" class="py-16 lg:py-24 border-t border-black mt-12">
-        <div class="mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
-            <div class="font-mono-studio text-xs uppercase tracking-[0.2em] text-studio-muted">01 / Catalog</div>
-            <h2 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Software & Provisions</h2>
+
+        <!-- HERO SYSTEM -->
+
+        <div class="flex justify-center lg:col-span-5 lg:justify-end">
+
+          <div
+            class="hero-orbit"
+            aria-label="KRA3T6 system status visualization"
+          >
+
+            <div class="scan-line"></div>
+
+            <div class="orbit-node node-a">
+              Software
+            </div>
+
+            <div class="orbit-node node-b">
+              Goods
+            </div>
+
+            <div class="orbit-node node-c">
+              Field
+            </div>
+
+            <div class="orbit-node node-d">
+              Direct
+            </div>
+
+            <div class="orbit-core">
+
+              <div>
+
+                <div
+                  class="font-mono-studio text-[10px] uppercase tracking-widest text-studio-orange"
+                >
+                  KRA3T6
+                </div>
+
+                <div class="mt-2 text-xl font-extrabold tracking-tight">
+                  SYSTEM
+                  <br />
+                  ONLINE
+                </div>
+
+                <div
+                  class="mt-2 font-mono-studio text-[8px] text-gray-300"
+                >
+                  v2.1 / ACTIVE
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
-          <div class="font-mono-studio text-xs uppercase tracking-wider text-studio-blue">
-            Unified Independent Inventory
-          </div>
+
         </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CATALOG
+    ======================================================== -->
+
+    <section
+      id="catalog"
+      class="border-t border-black py-16 lg:py-24"
+    >
+
+      <div
+        class="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"
+      >
+
+        <div>
+
+          <div
+            class="font-mono-studio text-xs uppercase tracking-[0.2em] text-studio-muted"
+          >
+            01 / Catalog
+          </div>
+
+          <h2
+            class="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl"
+          >
+            Independent inventory.
+          </h2>
+
+        </div>
+
+        <div
+          class="font-mono-studio text-xs uppercase tracking-wider text-studio-blue"
+        >
+          06 active products
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           PROVISIONS
+      ====================================================== -->
+
+      <div
+        id="provisions"
+        class="mb-16 scroll-mt-28"
+      >
+
+        <div class="mb-5 flex items-center gap-4">
+
+          <h3
+            class="font-mono-studio text-sm font-bold uppercase tracking-widest"
+          >
+            02 / Provisions
+          </h3>
+
+          <div class="h-px flex-1 bg-black"></div>
+
+          <span
+            class="hidden font-mono-studio text-[10px] text-studio-muted sm:block"
+          >
+            SMALL BATCH / DIRECT
+          </span>
+
+        </div>
+
 
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          
-          <!-- PRODUCT 1: MASALA -->
-          <article class="neo-card p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between gap-2">
-                <span class="border border-black px-2 py-0.5 font-mono-studio text-[10px] uppercase tracking-wider bg-orange-50 text-studio-orange">Provision</span>
-                <span class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Artisanal Blend</span>
-              </div>
-              <h3 class="mt-4 text-xl font-bold tracking-tight">KRA3T6 Royal Masala</h3>
-              <p class="mt-2 text-sm text-studio-muted leading-relaxed">Hand-ground aromatic spice blend roasted in small batches for uncompromised flavor.</p>
-              
-              <div class="mt-6 space-y-2 font-mono-studio text-xs border-t border-gray-100 pt-4">
-                <div class="flex justify-between"><span class="text-studio-muted">Origin</span><span>Kerala, India</span></div>
-                <div class="flex justify-between"><span class="text-studio-muted">Weight</span><span>250g Vacuum Seal</span></div>
-              </div>
-            </div>
 
-            <div class="mt-8 pt-4 border-t border-black flex items-center justify-between">
-              <div>
-                <div class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Price</div>
-                <div class="text-xl font-bold font-mono-studio">
-                  <span class="price" data-product="masala">₹450</span>
+
+          <!-- =================================================
+               MASALA
+          ================================================== -->
+
+          <article
+            class="neo-card product-card flex flex-col"
+            data-product-card="masala"
+          >
+
+            <div
+              class="product-visual bg-orange-50"
+            >
+
+              <div
+                class="visual-object visual-masala"
+              >
+
+                <div
+                  class="absolute inset-x-0 top-5 text-center font-mono-studio text-[9px] font-bold uppercase tracking-widest"
+                >
+                  KRA3T6
                 </div>
-              </div>
-              <button class="btn-primary px-4 py-2 font-mono-studio text-xs uppercase tracking-wider">
-                Order
-              </button>
-            </div>
-          </article>
 
-          <!-- PRODUCT 2: TEA -->
-          <article class="neo-card p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between gap-2">
-                <span class="border border-black px-2 py-0.5 font-mono-studio text-[10px] uppercase tracking-wider bg-blue-50 text-studio-blue">Provision</span>
-                <span class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Single-Origin</span>
-              </div>
-              <h3 class="mt-4 text-xl font-bold tracking-tight">Darjeeling First Flush</h3>
-              <p class="mt-2 text-sm text-studio-muted leading-relaxed">High-altitude floral black tea harvested during the pristine spring prime window.</p>
-              
-              <div class="mt-6 space-y-2 font-mono-studio text-xs border-t border-gray-100 pt-4">
-                <div class="flex justify-between"><span class="text-studio-muted">Origin</span><span>Darjeeling, India</span></div>
-                <div class="flex justify-between"><span class="text-studio-muted">Weight</span><span>150g Tin Pack</span></div>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-4 border-t border-black flex items-center justify-between">
-              <div>
-                <div class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Price</div>
-                <div class="text-xl font-bold font-mono-studio">
-                  <span class="price" data-product="tea">₹850</span>
+                <div
+                  class="absolute bottom-7 left-0 right-0 text-center text-lg font-extrabold text-white"
+                >
+                  MASALA
                 </div>
-              </div>
-              <button class="btn-primary px-4 py-2 font-mono-studio text-xs uppercase tracking-wider">
-                Order
-              </button>
-            </div>
-          </article>
 
-          <!-- PRODUCT 3: DRY FRUIT -->
-          <article class="neo-card p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between gap-2">
-                <span class="border border-black px-2 py-0.5 font-mono-studio text-[10px] uppercase tracking-wider bg-orange-50 text-studio-orange">Provision</span>
-                <span class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Grade-A Harvest</span>
               </div>
-              <h3 class="mt-4 text-xl font-bold tracking-tight">Select Dry Fruit Cache</h3>
-                <p class="mt-2 text-sm text-studio-muted leading-relaxed">Premium hand-sorted almonds, cashews, and walnuts packaged for daily operational fuel.</p>
-              
-              <div class="mt-6 space-y-2 font-mono-studio text-xs border-t border-gray-100 pt-4">
-                <div class="flex justify-between"><span class="text-studio-muted">Origin</span><span>Himalayan Belt</span></div>
-                <div class="flex justify-between"><span class="text-studio-muted">Weight</span><span>500g Pack</span></div>
-              </div>
-            </div>
 
-            <div class="mt-8 pt-4 border-t border-black flex items-center justify-between">
-              <div>
-                <div class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Price</div>
-                <div class="text-xl font-bold font-mono-studio">
-                  <span class="price" data-product="dryfruit">₹1,200</span>
-                </div>
-              </div>
-              <button class="btn-primary px-4 py-2 font-mono-studio text-xs uppercase tracking-wider">
-                Order
-              </button>
-            </div>
-          </article>
+              <span
+                class="absolute left-4 top-4 z-10 border border-black bg-white px-2 py-1 font-mono-studio text-[9px] uppercase"
+              >
+                Provision
+              </span>
 
-          <!-- PRODUCT 4: WORKFLOW OS -->
-          <article class="neo-card p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between gap-2">
-                <span class="border border-black px-2 py-0.5 font-mono-studio text-[10px] uppercase tracking-wider bg-blue-50 text-studio-blue">Software</span>
-                <span class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">v1.4 Tool</span>
-              </div>
-              <h3 class="mt-4 text-xl font-bold tracking-tight">Workflow OS</h3>
-              <p class="mt-2 text-sm text-studio-muted leading-relaxed">Clean operational control panel template and automated system script for independent teams.</p>
-              
-              <div class="mt-6 space-y-2 font-mono-studio text-xs border-t border-gray-100 pt-4">
-                <div class="flex justify-between"><span class="text-studio-muted">Format</span><span>Digital Download</span></div>
-                <div class="flex justify-between"><span class="text-studio-muted">Access</span><span>Lifetime License</span></div>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-4 border-t border-black flex items-center justify-between">
-              <div>
-                <div class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Price</div>
-                <div class="text-xl font-bold font-mono-studio">
-                  <span class="price" data-product="workflow-os">₹4,900</span>
-                </div>
-              </div>
-              <button class="btn-primary px-4 py-2 font-mono-studio text-xs uppercase tracking-wider">
-                Download
-              </button>
-            </div>
-          </article>
-
-          <!-- PRODUCT 5: SHEETSTACK -->
-          <article class="neo-card p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between gap-2">
-                <span class="border border-black px-2 py-0.5 font-mono-studio text-[10px] uppercase tracking-wider bg-blue-50 text-studio-blue">Software</span>
-                <span class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Macro Suite</span>
-              </div>
-              <h3 class="mt-4 text-xl font-bold tracking-tight">Sheetstack Engine</h3>
-              <p class="mt-2 text-sm text-studio-muted leading-relaxed">Financial modeling toolkit and structural spreadsheet scripts designed for bootstrap creators.</p>
-              
-              <div class="mt-6 space-y-2 font-mono-studio text-xs border-t border-gray-100 pt-4">
-                <div class="flex justify-between"><span class="text-studio-muted">Format</span><span>Spreadsheet Pack</span></div>
-                <div class="flex justify-between"><span class="text-studio-muted">Updates</span><span>Free Minor Updates</span></div>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-4 border-t border-black flex items-center justify-between">
-              <div>
-                <div class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Price</div>
-                <div class="text-xl font-bold font-mono-studio">
-                  <span class="price" data-product="sheetstack">₹2,500</span>
-                </div>
-              </div>
-              <button class="btn-primary px-4 py-2 font-mono-studio text-xs uppercase tracking-wider">
-                Download
-              </button>
-            </div>
-          </article>
-
-          <!-- PRODUCT 6: ALPHA FIELD CASE -->
-          <article class="neo-card p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between gap-2">
-                <span class="border border-black px-2 py-0.5 font-mono-studio text-[10px] uppercase tracking-wider bg-orange-50 text-studio-orange">Hardware</span>
-                <span class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Field Gear</span>
-              </div>
-              <h3 class="mt-4 text-xl font-bold tracking-tight">Alpha Field Case</h3>
-              <p class="mt-2 text-sm text-studio-muted leading-relaxed">Industrial aluminum utility container built to securely hold provisions, tech tools, and daily gear.</p>
-              
-              <div class="mt-6 space-y-2 font-mono-studio text-xs border-t border-gray-100 pt-4">
-                <div class="flex justify-between"><span class="text-studio-muted">Material</span><span>Anodized Alloy</span></div>
-                <div class="flex justify-between"><span class="text-studio-muted">Finish</span><span>Matte Monochrome</span></div>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-4 border-t border-black flex items-center justify-between">
-              <div>
-                <div class="font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted">Price</div>
-                <div class="text-xl font-bold font-mono-studio">
-                  <span class="price" data-product="alpha-field">₹3,800</span>
-                </div>
-              </div>
-              <button class="btn-primary px-4 py-2 font-mono-studio text-xs uppercase tracking-wider">
-                Reserve
-              </button>
-            </div>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- ARCHIVE & PHILOSOPHY -->
-      <section id="archive" class="py-16 border-t border-black">
-        <div class="neo-card p-8 lg:p-12">
-          <div class="grid gap-8 lg:grid-cols-2 items-center">
-            <div>
-              <div class="font-mono-studio text-xs uppercase tracking-[0.2em] text-studio-muted">02 / Philosophy</div>
-              <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
-                Independent from day one.
-              </h2>
-              <p class="mt-4 text-sm sm:text-base leading-relaxed text-studio-muted">
-                KRA3T6 operates entirely on bootstrapped principles. We e
+         
