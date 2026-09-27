@@ -1,616 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Business tools and premium provisions for local entrepreneurs. Custom Excel macros, business analytics, and hand-sourced dry fruits & masalas.">
-  <meta name="theme-color" content="#FF8C00">
-  <link rel="canonical" href="https://kra3t6.github.io/kra3t6-site/">
-  
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="KRA3T6 | Business Tools & Premium Provisions">
-  <meta property="og:description" content="Excel macros, business solutions, and artisanal dry fruits & masalas for local businesses.">
-  <meta property="og:url" content="https://kra3t6.github.io/kra3t6-site/">
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="KRA3T6 | Business Tools & Premium Provisions">
-  <meta name="twitter:description" content="Tools for growth. Quality for taste.">
-  
-  <title>KRA3T6 | Business Tools & Premium Provisions</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KRA3T6 — independent software tools and physical provisions designed from scratch." />
+  <meta name="theme-color" content="#FFFFFF" />
+  <title>KRA3T6 — Independent Studio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: {
-              orange: '#FF8C00',
-              orangeLight: '#FFB84D',
-              orangeDark: '#E67E00'
-            },
-            secondary: {
-              blue: '#1E3A8A',
-              blueLight: '#3B82F6',
-              blueLighter: '#EFF6FF'
-            },
-            neutral: {
-              white: '#FFFFFF',
-              black: '#000000',
-              grayLight: '#F8FAFC',
-              gray: '#64748B',
-              grayDark: '#1E293B'
+            studio: {
+              white: "#FFFFFF",
+              offwhite: "#F8F9FA",
+              black: "#111111",
+              orange: "#FF6600",
+              orangeSoft: "#FFF2E8",
+              blue: "#003366",
+              blueSoft: "#EEF4FF",
+              border: "#E5E7EB",
+              muted: "#6B7280"
             }
           },
           fontFamily: {
-            heading: ['"Poppins"', 'sans-serif'],
-            body: ['"Inter"', 'sans-serif']
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
           }
         }
       }
-    }
+    };
   </script>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    .card-shadow {
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
-    }
-    .card-hover {
-      transition: all 0.3s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 25px rgba(255, 140, 0, 0.1);
-    }
-    .gradient-orange-blue {
-      background: linear-gradient(135deg, #FF8C00 0%, #1E3A8A 100%);
-    }
-    .badge-orange {
-      background-color: #FF8C00;
-      color: white;
-    }
-    .text-orange {
-      color: #FF8C00;
-    }
-    .border-orange {
-      border-color: #FF8C00;
-    }
-    .hover-orange:hover {
-      color: #FF8C00;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-      }
-    }
+    :root { --white:#fff; --offwhite:#f8f9fa; --black:#111; --orange:#f60; --blue:#036; --border:#e5e7eb; --muted:#6b7280; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--offwhite); color:var(--black); font-family:Inter,sans-serif; }
+    .mono { font-family:"JetBrains Mono",monospace; }
+    .card { background:#fff; border:1px solid var(--border); transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
+    .card:hover { transform:translateY(-2px); box-shadow:0 18px 40px rgba(17,17,17,.05); border-color:rgba(0,51,102,.35); }
+    .primary { background:var(--orange); color:#fff; transition:filter .2s ease,transform .2s ease; }
+    .primary:hover { filter:brightness(.96); transform:translateY(-1px); }
+    .secondary { background:#fff; color:var(--black); border:1px solid var(--border); transition:transform .2s ease,border-color .2s ease; }
+    .secondary:hover { transform:translateY(-1px); border-color:rgba(0,51,102,.4); }
+    .status-dot { width:9px; height:9px; border-radius:50%; background:#28c76f; box-shadow:0 0 0 6px rgba(40,199,111,.12); }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; animation-duration:.01ms!important; } }
   </style>
 </head>
-<body class="bg-neutral-white text-neutral-grayDark font-body antialiased">
-
-  <!-- HEADER -->
-  <header class="bg-white border-b border-gray-200 sticky top-0 z-40 card-shadow">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <a href="#home" class="group inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange" data-nav="home">
-          <div class="bg-primary-orange text-white font-heading font-bold text-2xl px-3 py-1.5 rounded-lg">
-            KRA
-          </div>
-          <div class="hidden sm:block">
-            <h1 class="font-heading font-bold text-lg text-neutral-black">KRA3T6</h1>
-            <p class="text-xs text-neutral-gray">Business Tools & Quality Provisions</p>
-          </div>
-        </a>
-        
-        <div class="text-sm font-body text-neutral-gray">
-          <p class="font-semibold text-neutral-black">Crafted for Local Growth</p>
-          <p class="text-xs">Excel • Analytics • Provisions</p>
-        </div>
-      </div>
-
-      <!-- NAVIGATION -->
-      <nav aria-label="Main Navigation" class="flex flex-wrap items-center gap-2 mt-4 text-sm font-heading font-semibold">
-        <a href="#home" data-nav="home" class="px-4 py-2 bg-primary-orange text-white rounded-lg transition hover:bg-primary-orangeDark focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-orange">
-          Home
-        </a>
-
-        <div class="relative" id="dropdown-container">
-          <button 
-            type="button" 
-            id="tab-prod-serv" 
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-controls="prod-serv-menu"
-            class="flex items-center gap-2 px-4 py-2 bg-secondary-blueLighter text-secondary-blue rounded-lg hover:bg-secondary-blueLight hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary-blue">
-            <span>Solutions</span>
-            <svg class="w-4 h-4 fill-current transition-transform" id="dropdown-chevron" viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-            </svg>
-          </button>
-          
-          <div 
-            id="prod-serv-menu" 
-            role="menu"
-            hidden
-            class="absolute left-0 top-full mt-2 z-50 w-48 bg-white border border-gray-200 rounded-lg card-shadow">
-            <div class="py-2 flex flex-col">
-              <span class="px-4 py-2 text-xs uppercase font-mono tracking-widest text-neutral-gray font-bold">Digital Tools</span>
-              <a href="#tools" data-nav="tools" role="menuitem" class="px-4 py-3 hover:bg-primary-orangeLight hover:text-white transition text-sm font-semibold focus:outline-none focus:bg-primary-orange focus:text-white rounded-none">📊 Excel Macros</a>
-              <a href="#analytics" data-nav="analytics" role="menuitem" class="px-4 py-3 hover:bg-primary-orangeLight hover:text-white transition text-sm font-semibold focus:outline-none focus:bg-primary-orange focus:text-white rounded-none">📈 Analytics Suite</a>
-              <div class="border-t border-gray-200 my-1"></div>
-              <span class="px-4 py-2 text-xs uppercase font-mono tracking-widest text-neutral-gray font-bold">Premium Stock</span>
-              <a href="#dryfruits" data-nav="dryfruits" role="menuitem" class="px-4 py-3 hover:bg-primary-orangeLight hover:text-white transition text-sm font-semibold focus:outline-none focus:bg-primary-orange focus:text-white rounded-none">🥜 Dry Fruits</a>
-              <a href="#masalas" data-nav="masalas" role="menuitem" class="px-4 py-3 hover:bg-primary-orangeLight hover:text-white transition text-sm font-semibold focus:outline-none focus:bg-primary-orange focus:text-white rounded-none">🌶️ Masalas</a>
-            </div>
-          </div>
-        </div>
-
-        <a href="#about" data-nav="about" class="px-4 py-2 text-neutral-black border border-gray-300 rounded-lg hover:border-primary-orange hover:text-primary-orange transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange">
-          About
-        </a>
+<body>
+  <header class="sticky top-0 z-40 border-b border-gray-200 bg-white/90 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <a href="#studio" class="flex items-center gap-3" aria-label="KRA3T6 homepage">
+        <span class="flex h-10 w-10 items-center justify-center rounded-md bg-studio-black text-sm font-black tracking-[.18em] text-white">K</span>
+        <span class="text-[13px] font-bold uppercase tracking-[.22em]">KRA3T6</span>
+      </a>
+      <nav aria-label="Main navigation" class="hidden items-center gap-8 md:flex">
+        <a href="#studio" class="text-sm font-medium hover:text-studio-orange">Studio</a>
+        <a href="#hardware" class="text-sm font-medium hover:text-studio-orange">Hardware</a>
+        <a href="#software" class="text-sm font-medium hover:text-studio-orange">Software</a>
+        <a href="#archive" class="text-sm font-medium hover:text-studio-orange">Archive</a>
       </nav>
+      <div class="flex items-center gap-3">
+        <label for="languageSelect" class="sr-only">Select language</label>
+        <select id="languageSelect" class="h-11 min-w-[160px] appearance-none rounded-full border border-gray-200 bg-white px-3 pr-8 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-200">
+          <option value="en-in">English • India</option>
+          <option value="en-us">English • Outside India</option>
+          <option value="es">Español</option>
+          <option value="pt">Português</option>
+          <option value="ru">Русский</option>
+        </select>
+        <span class="inline-flex items-center gap-2 rounded-full bg-studio-orange px-3 py-2 text-[11px] font-medium uppercase tracking-[.14em] text-white"><span class="status-dot"></span><span data-i18n="status">Live</span></span>
+      </div>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1">
-
-    <!-- VIEW: HOME -->
-    <div id="view-home" data-view class="space-y-12">
-      
-      <!-- HERO SECTION -->
-      <div class="gradient-orange-blue rounded-2xl px-6 sm:px-8 lg:px-12 py-12 sm:py-16 text-white">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div class="space-y-6">
-            <h2 class="font-heading font-bold text-4xl sm:text-5xl leading-tight">
-              Business Tools Built for Local Success
-            </h2>
-            <p class="text-lg text-blue-100 leading-relaxed">
-              Streamline your operations with custom Excel solutions, analytics dashboards, and hand-sourced provisions—all designed with local businesses in mind.
-            </p>
-            <div class="flex gap-3 flex-wrap">
-              <a href="#tools" data-nav="tools" class="px-6 py-3 bg-white text-primary-orange font-semibold rounded-lg hover:bg-neutral-grayLight transition focus-visible:ring-2 focus-visible:ring-white">
-                Explore Tools
-              </a>
-              <a href="#about" data-nav="about" class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition focus-visible:ring-2 focus-visible:ring-white">
-                Learn More
-              </a>
-            </div>
-          </div>
-          <!-- Placeholder for aesthetic image -->
-          <div class="bg-white/20 rounded-xl h-64 sm:h-72 flex items-center justify-center">
-            <svg class="w-32 h-32 text-white/40" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-            </svg>
-          </div>
+  <main class="mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+    <section id="studio" class="pt-6">
+      <div class="grid gap-6 lg:grid-cols-[1.3fr_.7fr]">
+        <div class="card rounded-[2rem] p-6 sm:p-8 lg:p-10">
+          <span class="mb-5 inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[.2em]"><span class="h-2 w-2 rounded-full bg-studio-orange"></span><span data-i18n="eyebrow">Independent systems studio</span></span>
+          <h1 class="max-w-xl text-4xl font-black leading-[.95] tracking-[-.06em] sm:text-5xl lg:text-6xl"><span data-i18n="heroLine1">Independent software tools</span><span class="block text-studio-orange" data-i18n="heroLine2">and physical provisions</span><span class="block text-studio-blue" data-i18n="heroLine3">crafted from scratch.</span></h1>
+          <p class="mt-6 max-w-xl text-base leading-7 text-gray-500 sm:text-lg" data-i18n="heroCopy">We design and build clean operational systems for modern teams — software that works, hardware that lasts, and essentials chosen for real-world use.</p>
+          <div class="mt-8 flex flex-wrap gap-3"><a href="#software" class="primary rounded-full px-5 py-3 text-sm font-semibold" data-i18n="ctaPrimary">Explore catalog</a><a href="#contact" class="secondary rounded-full px-5 py-3 text-sm font-semibold" data-i18n="ctaSecondary">Book a consultation</a></div>
+          <div class="mt-8 flex flex-wrap gap-3"><span class="rounded-full border border-gray-200 px-3 py-2 text-[10px] uppercase tracking-[.18em]">HTML / CSS</span><span class="rounded-full border border-gray-200 px-3 py-2 text-[10px] uppercase tracking-[.18em]">Automation</span><span class="rounded-full border border-gray-200 px-3 py-2 text-[10px] uppercase tracking-[.18em]">Procurement</span><span class="rounded-full border border-gray-200 px-3 py-2 text-[10px] uppercase tracking-[.18em]">Ops systems</span></div>
         </div>
+        <aside class="card rounded-[2rem] p-5 sm:p-6">
+          <div class="mb-6 flex items-center justify-between"><div class="mono text-[10px] uppercase tracking-[.24em] text-gray-500">System board</div><span class="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[.16em] text-studio-blue">v2.07</span></div>
+          <div class="space-y-4"><div class="rounded-2xl border border-gray-200 bg-studio-offwhite p-4"><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Build status</div><div class="mt-3 flex justify-between"><strong class="text-xl">92%</strong><span class="text-xs font-medium">Stable</span></div><div class="mt-4 h-2 rounded-full border border-gray-200 bg-white"><div class="h-full w-[92%] rounded-full bg-studio-orange"></div></div></div><div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2"><div class="rounded-2xl border border-gray-200 p-4"><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Deploys</div><strong class="mt-3 block text-2xl">12</strong></div><div class="rounded-2xl border border-gray-200 p-4"><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Assets</div><strong class="mt-3 block text-2xl">36</strong></div><div class="rounded-2xl border border-studio-blue bg-studio-blue p-4 text-white"><div class="mono text-[10px] uppercase tracking-[.2em] text-blue-100">Uptime</div><strong class="mt-3 block text-2xl">99.6%</strong></div><div class="rounded-2xl border border-gray-200 p-4"><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Support</div><strong class="mt-3 block text-base">24/7</strong></div></div></div>
+        </aside>
       </div>
+    </section>
 
-      <!-- FEATURED SOLUTIONS -->
-      <div class="space-y-6">
-        <div>
-          <h2 class="font-heading font-bold text-3xl text-neutral-black mb-2">Featured Solutions</h2>
-          <p class="text-neutral-gray">Start optimizing today</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- CARD 1: Excel Macros -->
-          <div class="bg-white rounded-xl p-6 sm:p-8 card-shadow card-hover border-t-4 border-primary-orange">
-            <div class="flex items-start justify-between mb-4">
-              <div>
-                <span class="inline-block badge-orange px-3 py-1 rounded-full text-sm font-bold mb-2">DIGITAL</span>
-                <h3 class="font-heading font-bold text-xl text-neutral-black">
-                  Custom Excel Macros
-                </h3>
-              </div>
-              <div class="text-4xl">📊</div>
-            </div>
-            <p class="text-neutral-gray text-sm leading-relaxed mb-6">
-              Automate repetitive tasks, create dynamic dashboards, and process data 10x faster. Perfect for inventory, billing, and customer management.
-            </p>
-            <div class="space-y-3 mb-6">
-              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-primary-orange">✓</span> Custom-built for your workflow</p>
-              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-primary-orange">✓</span> Training & documentation included</p>
-              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-primary-orange">✓</span> 6-month support guarantee</p>
-            </div>
-            <a href="#tools" data-nav="tools" class="inline-flex items-center text-primary-orange font-semibold text-sm hover:text-primary-orangeDark transition">
-              View pricing <span class="ml-2">→</span>
-            </a>
-          </div>
-
-          <!-- CARD 2: Analytics -->
-          <div class="bg-white rounded-xl p-6 sm:p-8 card-shadow card-hover border-t-4 border-secondary-blue">
-            <div class="flex items-start justify-between mb-4">
-              <div>
-                <span class="inline-block px-3 py-1 rounded-full text-sm font-bold mb-2" style="background-color: #3B82F6; color: white;">ANALYTICS</span>
-                <h3 class="font-heading font-bold text-xl text-neutral-black">
-                  Business Analytics Suite
-                </h3>
-              </div>
-              <div class="text-4xl">📈</div>
-            </div>
-            <p class="text-neutral-gray text-sm leading-relaxed mb-6">
-              Real-time insights into sales, expenses, and growth metrics. Make data-driven decisions with confidence.
-            </p>
-            <div class="space-y-3 mb-6">
-              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-secondary-blue">✓</span> Live dashboard syncing</p>
-              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-secondary-blue">✓</span> Automated reports</p>
-              <p class="text-sm text-neutral-grayDark"><span class="font-semibold text-secondary-blue">✓</span> Multi-source data integration</p>
-            </div>
-            <a href="#analytics" data-nav="analytics" class="inline-flex items-center text-secondary-blue font-semibold text-sm hover:text-secondary-blue transition">
-              Explore suite <span class="ml-2">→</span>
-            </a>
-          </div>
-        </div>
+    <section id="software" class="mt-12"><div class="mb-5 flex items-end justify-between"><div><div class="mono text-[10px] uppercase tracking-[.22em] text-gray-500">Catalog</div><h2 class="mt-2 text-3xl font-black tracking-[-.06em] sm:text-4xl">Unified inventory</h2></div><span class="hidden rounded-full border border-blue-200 bg-blue-50 px-3 py-2 text-[10px] font-semibold uppercase tracking-[.18em] text-studio-blue md:block">Digital + physical</span></div>
+      <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <article class="card rounded-[1.7rem] p-5"><div class="flex justify-between"><span class="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em] text-studio-blue">Software</span><span class="mono text-[11px] text-gray-500">v1.4</span></div><div class="mt-6 flex items-center justify-between"><div><h3 class="text-2xl font-black tracking-[-.05em]">Workflow OS</h3><p class="mt-2 text-sm text-gray-500">Operational control for revenue teams</p></div><span class="text-3xl">⚙️</span></div><ul class="mt-6 space-y-3 text-sm"><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Dashboard</span><span class="mono text-[11px]">Live</span></li><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Automation</span><span class="mono text-[11px]">24 rules</span></li><li class="flex justify-between"><span class="text-gray-500">Exports</span><span class="mono text-[11px]">CSV / XLSX</span></li></ul><div class="mt-7 flex items-end justify-between border-t border-gray-200 pt-4"><div><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Starting at</div><strong class="mt-1 block text-2xl"><span class="price" data-product="workflow-os">₹49,000</span></strong></div><button class="primary rounded-full px-4 py-2.5 text-xs font-semibold uppercase tracking-[.12em]">Buy</button></div></article>
+        <article class="card rounded-[1.7rem] p-5"><div class="flex justify-between"><span class="rounded-full bg-studio-orange px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em] text-white">Software</span><span class="mono text-[11px] text-gray-500">v1.9</span></div><div class="mt-6 flex items-center justify-between"><div><h3 class="text-2xl font-black tracking-[-.05em]">Sheetstack</h3><p class="mt-2 text-sm text-gray-500">Macro engine for operational teams</p></div><span class="text-3xl">📊</span></div><ul class="mt-6 space-y-3 text-sm"><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Macro library</span><span class="mono text-[11px]">38 packs</span></li><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Validation</span><span class="mono text-[11px]">Audit logs</span></li><li class="flex justify-between"><span class="text-gray-500">Onboarding</span><span class="mono text-[11px]">1 week</span></li></ul><div class="mt-7 flex items-end justify-between border-t border-gray-200 pt-4"><div><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Starting at</div><strong class="mt-1 block text-2xl"><span class="price" data-product="sheetstack">₹19,500</span></strong></div><button class="primary rounded-full px-4 py-2.5 text-xs font-semibold uppercase tracking-[.12em]">Buy</button></div></article>
+        <article id="hardware" class="card rounded-[1.7rem] p-5"><div class="flex justify-between"><span class="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em] text-studio-blue">Hardware</span><span class="mono text-[11px] text-gray-500">Custom</span></div><div class="mt-6 flex items-center justify-between"><div><h3 class="text-2xl font-black tracking-[-.05em]">Alpha Field</h3><p class="mt-2 text-sm text-gray-500">Industrial utility case system</p></div><span class="text-3xl">🧰</span></div><ul class="mt-6 space-y-3 text-sm"><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Material</span><span class="mono text-[11px]">Steel / alloy</span></li><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Build</span><span class="mono text-[11px]">Modular</span></li><li class="flex justify-between"><span class="text-gray-500">Finish</span><span class="mono text-[11px]">Matte black</span></li></ul><div class="mt-7 flex items-end justify-between border-t border-gray-200 pt-4"><div><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Starting at</div><strong class="mt-1 block text-2xl"><span class="price" data-product="alpha-field">₹12,800</span></strong></div><button class="primary rounded-full px-4 py-2.5 text-xs font-semibold uppercase tracking-[.12em]">Reserve</button></div></article>
+        <article class="card rounded-[1.7rem] p-5"><div class="flex justify-between"><span class="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em] text-studio-blue">Hardware</span><span class="mono text-[11px] text-gray-500">Lab</span></div><div class="mt-6 flex items-center justify-between"><div><h3 class="text-2xl font-black tracking-[-.05em]">Dustline</h3><p class="mt-2 text-sm text-gray-500">Compact tool storage and cleaning kit</p></div><span class="text-3xl">🧼</span></div><ul class="mt-6 space-y-3 text-sm"><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Capacity</span><span class="mono text-[11px]">32L</span></li><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Sealing</span><span class="mono text-[11px]">Lock fit</span></li><li class="flex justify-between"><span class="text-gray-500">Use case</span><span class="mono text-[11px]">Field kits</span></li></ul><div class="mt-7 flex items-end justify-between border-t border-gray-200 pt-4"><div><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Starting at</div><strong class="mt-1 block text-2xl"><span class="price" data-product="dustline">₹6,400</span></strong></div><button class="primary rounded-full px-4 py-2.5 text-xs font-semibold uppercase tracking-[.12em]">Reserve</button></div></article>
+        <article class="card rounded-[1.7rem] p-5"><div class="flex justify-between"><span class="rounded-full bg-studio-orange px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em] text-white">Provision</span><span class="mono text-[11px] text-gray-500">Stock</span></div><div class="mt-6 flex items-center justify-between"><div><h3 class="text-2xl font-black tracking-[-.05em]">Provision Case</h3><p class="mt-2 text-sm text-gray-500">Selected essentials for daily operations</p></div><span class="text-3xl">📦</span></div><ul class="mt-6 space-y-3 text-sm"><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Contents</span><span class="mono text-[11px]">12 items</span></li><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Quality</span><span class="mono text-[11px]">Certified</span></li><li class="flex justify-between"><span class="text-gray-500">Pack</span><span class="mono text-[11px]">Custom</span></li></ul><div class="mt-7 flex items-end justify-between border-t border-gray-200 pt-4"><div><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Starting at</div><strong class="mt-1 block text-2xl"><span class="price" data-product="provision-case">₹3,250</span></strong></div><button class="primary rounded-full px-4 py-2.5 text-xs font-semibold uppercase tracking-[.12em]">Order</button></div></article>
+        <article class="card rounded-[1.7rem] p-5"><div class="flex justify-between"><span class="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em] text-studio-blue">Software</span><span class="mono text-[11px] text-gray-500">Team</span></div><div class="mt-6 flex items-center justify-between"><div><h3 class="text-2xl font-black tracking-[-.05em]">Crew Board</h3><p class="mt-2 text-sm text-gray-500">Shared scheduling and task routing</p></div><span class="text-3xl">🧭</span></div><ul class="mt-6 space-y-3 text-sm"><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Planning</span><span class="mono text-[11px]">Kanban</span></li><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Assignments</span><span class="mono text-[11px]">Auto</span></li><li class="flex justify-between"><span class="text-gray-500">Alerts</span><span class="mono text-[11px]">Realtime</span></li></ul><div class="mt-7 flex items-end justify-between border-t border-gray-200 pt-4"><div><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Starting at</div><strong class="mt-1 block text-2xl"><span class="price" data-product="crew-board">₹14,000</span></strong></div><button class="primary rounded-full px-4 py-2.5 text-xs font-semibold uppercase tracking-[.12em]">Buy</button></div></article>
       </div>
+    </section>
 
-      <!-- PROVISIONS PREVIEW -->
-      <div class="bg-neutral-grayLight rounded-xl p-6 sm:p-8 border border-gray-300">
-        <h2 class="font-heading font-bold text-2xl text-neutral-black mb-4">Premium Provisions</h2>
-        <p class="text-neutral-gray mb-6">Hand-sourced, quality-assured dry fruits and masalas for discerning businesses.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="bg-white rounded-lg p-4 flex items-center gap-3 hover:shadow-md transition">
-            <span class="text-3xl">🥜</span>
-            <div>
-              <p class="font-semibold text-neutral-black">Premium Dry Fruits</p>
-              <p class="text-xs text-neutral-gray">Almonds, cashews, walnuts</p>
-            </div>
-          </div>
-          <div class="bg-white rounded-lg p-4 flex items-center gap-3 hover:shadow-md transition">
-            <span class="text-3xl">🌶️</span>
-            <div>
-              <p class="font-semibold text-neutral-black">Artisanal Masalas</p>
-              <p class="text-xs text-neutral-gray">Turmeric, cumin, garam masala</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- VIEW: TOOLS -->
-    <div id="view-tools" data-view hidden class="space-y-10">
-      <div>
-        <h2 class="font-heading font-bold text-4xl text-neutral-black mb-2">Excel Macro Solutions</h2>
-        <p class="text-neutral-gray text-lg">Tailored automation for your business needs</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl p-6 card-shadow card-hover">
-          <div class="text-5xl mb-4">🧮</div>
-          <h3 class="font-heading font-bold text-lg text-neutral-black mb-3">Billing Automator</h3>
-          <p class="text-sm text-neutral-gray mb-4 leading-relaxed">
-            Generate invoices, track payments, and manage GST calculations automatically.
-          </p>
-          <p class="text-primary-orange font-semibold text-sm">₹2,999 one-time</p>
-        </div>
-
-        <div class="bg-white rounded-xl p-6 card-shadow card-hover">
-          <div class="text-5xl mb-4">📦</div>
-          <h3 class="font-heading font-bold text-lg text-neutral-black mb-3">Inventory Manager</h3>
-          <p class="text-sm text-neutral-gray mb-4 leading-relaxed">
-            Real-time stock tracking, low-stock alerts, and reorder automation.
-          </p>
-          <p class="text-primary-orange font-semibold text-sm">₹3,499 one-time</p>
-        </div>
-
-        <div class="bg-white rounded-xl p-6 card-shadow card-hover">
-          <div class="text-5xl mb-4">💼</div>
-          <h3 class="font-heading font-bold text-lg text-neutral-black mb-3">Customer Portal</h3>
-          <p class="text-sm text-neutral-gray mb-4 leading-relaxed">
-            Manage leads, track interactions, and schedule follow-ups effortlessly.
-          </p>
-          <p class="text-primary-orange font-semibold text-sm">₹4,999 one-time</p>
-        </div>
-      </div>
-
-      <!-- Image Placeholder -->
-      <div class="bg-neutral-grayLight rounded-xl p-8 flex items-center justify-center min-h-96">
-        <svg class="w-48 h-48 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-        </svg>
-      </div>
-    </div>
-
-    <!-- VIEW: ANALYTICS -->
-    <div id="view-analytics" data-view hidden class="space-y-10">
-      <div>
-        <h2 class="font-heading font-bold text-4xl text-neutral-black mb-2">Analytics Dashboard Suite</h2>
-        <p class="text-neutral-gray text-lg">Transform raw data into actionable insights</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-gradient-to-br from-primary-orange to-primary-orangeLight rounded-xl p-6 text-white card-shadow card-hover">
-          <h3 class="font-heading font-bold text-xl mb-2">Sales Dashboard</h3>
-          <p class="text-white/90 text-sm mb-4 leading-relaxed">
-            Daily, weekly, and monthly revenue tracking with category breakdown and growth trends.
-          </p>
-          <ul class="space-y-2 text-sm text-white/80">
-            <li>• Real-time sales metrics</li>
-            <li>• Category performance</li>
-            <li>• Top-performing products</li>
-          </ul>
-        </div>
-
-        <div class="bg-gradient-to-br from-secondary-blue to-secondary-blueLight rounded-xl p-6 text-white card-shadow card-hover">
-          <h3 class="font-heading font-bold text-xl mb-2">Expense Tracker</h3>
-          <p class="text-white/90 text-sm mb-4 leading-relaxed">
-            Categorize expenses, monitor burn rate, and identify cost-saving opportunities.
-          </p>
-          <ul class="space-y-2 text-sm text-white/80">
-            <li>• Automated categorization</li>
-            <li>• Budget vs. actual</li>
-            <li>• Cost trends analysis</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Image Placeholder -->
-      <div class="bg-neutral-grayLight rounded-xl p-8 flex items-center justify-center min-h-72">
-        <svg class="w-40 h-40 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-        </svg>
-      </div>
-    </div>
-
-    <!-- VIEW: DRY FRUITS -->
-    <div id="view-dryfruits" data-view hidden class="space-y-10">
-      <div>
-        <h2 class="font-heading font-bold text-4xl text-neutral-black mb-2">Premium Dry Fruits</h2>
-        <p class="text-neutral-gray text-lg">Hand-selected, fresh-sourced provisions</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
-          <div class="bg-orange-100 h-48 flex items-center justify-center">
-            <span class="text-6xl">🥜</span>
-          </div>
-          <div class="p-6">
-            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">California Almonds</h3>
-            <p class="text-sm text-neutral-gray mb-4">Premium grade, raw & natural</p>
-            <p class="text-primary-orange font-bold text-lg">₹450/kg</p>
-            <p class="text-xs text-neutral-gray mt-2">MOQ: 5kg | Free delivery pan-India</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
-          <div class="bg-orange-100 h-48 flex items-center justify-center">
-            <span class="text-6xl">💰</span>
-          </div>
-          <div class="p-6">
-            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">Raw Cashews</h3>
-            <p class="text-sm text-neutral-gray mb-4">Whole, unsalted, fresh batch</p>
-            <p class="text-primary-orange font-bold text-lg">₹550/kg</p>
-            <p class="text-xs text-neutral-gray mt-2">MOQ: 3kg | Vacuum sealed</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
-          <div class="bg-orange-100 h-48 flex items-center justify-center">
-            <span class="text-6xl">🥜</span>
-          </div>
-          <div class="p-6">
-            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">Walnut Kernels</h3>
-            <p class="text-sm text-neutral-gray mb-4">Organic sourced, high omega-3</p>
-            <p class="text-primary-orange font-bold text-lg">₹380/kg</p>
-            <p class="text-xs text-neutral-gray mt-2">MOQ: 4kg | Cold storage</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Image Placeholder -->
-      <div class="bg-neutral-grayLight rounded-xl p-8 flex items-center justify-center min-h-64">
-        <svg class="w-40 h-40 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-        </svg>
-      </div>
-    </div>
-
-    <!-- VIEW: MASALAS -->
-    <div id="view-masalas" data-view hidden class="space-y-10">
-      <div>
-        <h2 class="font-heading font-bold text-4xl text-neutral-black mb-2">Artisanal Masalas & Spices</h2>
-        <p class="text-neutral-gray text-lg">Pure, unadulterated, freshly ground</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
-          <div class="bg-red-100 h-48 flex items-center justify-center">
-            <span class="text-6xl">🌶️</span>
-          </div>
-          <div class="p-6">
-            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">Garam Masala Blend</h3>
-            <p class="text-sm text-neutral-gray mb-4">10 authentic spices, hand-roasted</p>
-            <p class="text-primary-orange font-bold text-lg">₹120/100g</p>
-            <p class="text-xs text-neutral-gray mt-2">Freshly ground to order</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
-          <div class="bg-yellow-100 h-48 flex items-center justify-center">
-            <span class="text-6xl">✨</span>
-          </div>
-          <div class="p-6">
-            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">Turmeric Powder</h3>
-            <p class="text-sm text-neutral-gray mb-4">High curcumin, organic certified</p>
-            <p class="text-primary-orange font-bold text-lg">₹80/100g</p>
-            <p class="text-xs text-neutral-gray mt-2">No additives or fillers</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-xl overflow-hidden card-shadow card-hover">
-          <div class="bg-orange-100 h-48 flex items-center justify-center">
-            <span class="text-6xl">🫘</span>
-          </div>
-          <div class="p-6">
-            <h3 class="font-heading font-bold text-lg text-neutral-black mb-2">Cumin Seeds</h3>
-            <p class="text-sm text-neutral-gray mb-4">Rajasthan sourced, premium grade</p>
-            <p class="text-primary-orange font-bold text-lg">₹140/100g</p>
-            <p class="text-xs text-neutral-gray mt-2">Roasted for maximum flavor</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Image Placeholder -->
-      <div class="bg-neutral-grayLight rounded-xl p-8 flex items-center justify-center min-h-64">
-        <svg class="w-40 h-40 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-        </svg>
-      </div>
-    </div>
-
-    <!-- VIEW: ABOUT -->
-    <div id="view-about" data-view hidden class="space-y-12 max-w-4xl">
-      
-      <div>
-        <h2 class="font-heading font-bold text-4xl text-neutral-black mb-4">About KRA3T6</h2>
-        <p class="text-neutral-gray text-lg leading-relaxed">
-          We exist to empower local businesses with tools that scale operations without the corporate overhead. From automating Excel workflows to sourcing premium provisions, every solution is built with your growth in mind.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-neutral-grayLight rounded-xl p-8">
-          <h3 class="font-heading font-bold text-xl text-neutral-black mb-4 flex items-center gap-3">
-            <span class="text-3xl">⚙️</span> Our Mission
-          </h3>
-          <p class="text-neutral-gray leading-relaxed">
-            To provide affordable, effective business solutions that level the playing field for small and medium enterprises. We believe technology and quality provisions should be accessible to everyone.
-          </p>
-        </div>
-
-        <div class="bg-neutral-grayLight rounded-xl p-8">
-          <h3 class="font-heading font-bold text-xl text-neutral-black mb-4 flex items-center gap-3">
-            <span class="text-3xl">🎯</span> Our Values
-          </h3>
-          <p class="text-neutral-gray leading-relaxed">
-            Simplicity, Quality, Support. We don't overcomplicate. Every tool works out of the box, every provision is tested for quality, and your success is our success.
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-primary-orange rounded-xl p-8 text-white space-y-4">
-        <h3 class="font-heading font-bold text-2xl">Why Choose Us?</h3>
-        <ul class="space-y-3 text-blue-50">
-          <li class="flex items-start gap-3">
-            <span class="text-xl">✓</span>
-            <span><strong>Local First:</strong> Built by people who understand your market</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-xl">✓</span>
-            <span><strong>Support Included:</strong> Email & phone support for 6 months</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-xl">✓</span>
-            <span><strong>Quality Guaranteed:</strong> All provisions tested & certified</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-xl">✓</span>
-            <span><strong>Transparent Pricing:</strong> No hidden charges, pay once & done</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    <section id="archive" class="mt-14"><div class="card rounded-[2rem] p-6 sm:p-8"><div class="grid gap-8 lg:grid-cols-[1.1fr_.9fr]"><div><div class="mono text-[10px] uppercase tracking-[.22em] text-gray-500">Archive</div><h2 class="mt-3 text-3xl font-black leading-tight tracking-[-.06em] sm:text-4xl">A lean, durable system for teams working in the real world.</h2><p class="mt-4 max-w-xl text-base leading-7 text-gray-500">We combine custom software, reliable physical assets, and direct operational support. Nothing bloated. Nothing ornamental.</p></div><div class="rounded-2xl border border-gray-200 bg-studio-offwhite p-5"><div class="mono text-[10px] uppercase tracking-[.2em] text-gray-500">Build notes</div><div class="mt-2 text-xl font-black">Operational clarity</div><ul class="mt-5 space-y-3 text-sm"><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Design sprint</span><span class="mono text-[11px]">7 days</span></li><li class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Production handoff</span><span class="mono text-[11px]">2 weeks</span></li><li class="flex justify-between"><span class="text-gray-500">Support</span><span class="mono text-[11px]">Included</span></li></ul></div></div></div></section>
   </main>
 
-  <!-- FOOTER / CONTACT SECTION -->
-  <footer class="bg-neutral-grayDark text-white mt-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <div class="space-y-4">
-          <h4 class="font-heading font-bold text-lg">Get in Touch</h4>
-          <p class="text-sm text-gray-400">Have questions? We're here to help.</p>
-          <a href="mailto:hello@kra3t6.local" class="inline-block text-primary-orange font-semibold hover:text-primary-orangeLight transition">
-            hello@kra3t6.local
-          </a>
-        </div>
-
-        <div class="space-y-4">
-          <h4 class="font-heading font-bold text-lg">Connect</h4>
-          <p class="text-sm text-gray-400">Follow for updates & tips</p>
-          <div class="flex gap-4">
-            <a href="#" class="text-primary-orange hover:text-primary-orangeLight transition font-semibold text-sm">Instagram</a>
-            <a href="#" class="text-primary-orange hover:text-primary-orangeLight transition font-semibold text-sm">LinkedIn</a>
-            <a href="#" class="text-primary-orange hover:text-primary-orangeLight transition font-semibold text-sm">Twitter</a>
-          </div>
-        </div>
-
-        <div class="space-y-4">
-          <h4 class="font-heading font-bold text-lg">Info</h4>
-          <p class="text-sm text-gray-400">Learn more about us</p>
-          <p class="text-xs text-gray-500">
-            KRA3T6 is your partner in growth. Business solutions & premium provisions crafted with care.
-          </p>
-        </div>
-      </div>
-
-      <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-        <p>&copy; 2024 KRA3T6. Building local businesses, one tool at a time.</p>
-        <p>Made with care for growth.</p>
-      </div>
-    </div>
-  </footer>
+  <footer id="contact" class="border-t border-gray-200 bg-white"><div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8"><div class="grid gap-6 lg:grid-cols-3"><div class="rounded-2xl border border-studio-black p-5"><div class="mono text-[10px] uppercase tracking-[.22em] text-gray-500">System metadata</div><div class="mt-4 space-y-3 text-sm"><div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Build</span><span class="mono">2026.09</span></div><div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-500">Stack</span><span class="mono">HTML / CSS / JS</span></div><div class="flex justify-between"><span class="text-gray-500">Status</span><span class="mono">Operational</span></div></div></div><div class="rounded-2xl border border-studio-blue bg-blue-50 p-5"><div class="mono text-[10px] uppercase tracking-[.22em] text-studio-blue">Version tags</div><div class="mt-4 flex flex-wrap gap-2"><span class="rounded-full border border-gray-200 bg-white px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em]">Alpha</span><span class="rounded-full border border-gray-200 bg-white px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em]">Ops</span><span class="rounded-full border border-gray-200 bg-white px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em]">Field kits</span></div></div><div class="rounded-2xl border border-gray-200 bg-studio-offwhite p-5"><div class="mono text-[10px] uppercase tracking-[.22em] text-gray-500">Contact</div><a href="mailto:hello@kra3t6.studio" class="mt-4 block text-lg font-bold hover:text-studio-orange">hello@kra3t6.studio</a><p class="mt-3 text-sm leading-6 text-gray-500">Remote systems design, operational tooling, and studio-grade provisions for serious teams.</p></div></div><div class="mt-6 flex flex-col gap-3 border-t border-gray-200 pt-6 text-sm text-gray-500 sm:flex-row sm:justify-between"><span class="mono text-[11px] uppercase tracking-[.18em]">© 2026 KRA3T6</span><span class="mono text-[11px] uppercase tracking-[.18em]">Built for clean operation.</span></div></div></footer>
 
   <script>
-    const views = ["home", "tools", "analytics", "dryfruits", "masalas", "about"];
-    const dropdownBtn = document.getElementById("tab-prod-serv");
-    const dropdownMenu = document.getElementById("prod-serv-menu");
-    const dropdownChevron = document.getElementById("dropdown-chevron");
-
-    function showView(viewName) {
-      const activeView = views.includes(viewName) ? viewName : "home";
-      
-      document.querySelectorAll("[data-view]").forEach((panel) => {
-        panel.hidden = panel.id !== `view-${activeView}`;
-      });
-
-      document.querySelectorAll("[data-nav]").forEach((link) => {
-        const isActive = link.dataset.nav === activeView;
-        if (isActive) {
-          link.setAttribute("aria-current", "page");
-        } else {
-          link.removeAttribute("aria-current");
-        }
-      });
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    const translations = {
+      "en-in": { status:"Live", eyebrow:"Independent systems studio", heroLine1:"Independent software tools", heroLine2:"and physical provisions", heroLine3:"crafted from scratch.", heroCopy:"We design and build clean operational systems for modern teams — software that works, hardware that lasts, and essentials chosen for real-world use.", ctaPrimary:"Explore catalog", ctaSecondary:"Book a consultation" },
+      "en-us": { status:"Live", eyebrow:"Independent systems studio", heroLine1:"Independent software tools", heroLine2:"and physical provisions", heroLine3:"crafted from scratch.", heroCopy:"We design and build clean operational systems for modern teams — software that works, hardware that lasts, and essentials chosen for real-world use.", ctaPrimary:"Explore catalog", ctaSecondary:"Book a consultation" },
+      es: { status:"En vivo", eyebrow:"Estudio independiente de sistemas", heroLine1:"Herramientas de software", heroLine2:"y provisiones físicas", heroLine3:"diseñadas desde cero.", heroCopy:"Diseñamos y construimos sistemas operativos limpios para equipos modernos: software útil, hardware duradero y suministros elegidos para uso real.", ctaPrimary:"Explorar catálogo", ctaSecondary:"Reservar consulta" },
+      pt: { status:"Ao vivo", eyebrow:"Estúdio independente de sistemas", heroLine1:"Ferramentas de software", heroLine2:"e provisões físicas", heroLine3:"construídas do zero.", heroCopy:"Projetamos e desenvolvemos sistemas operacionais limpos para equipes modernas — software eficiente, hardware durável e itens essenciais escolhidos para uso real.", ctaPrimary:"Explorar catálogo", ctaSecondary:"Agendar consulta" },
+      ru: { status:"Онлайн", eyebrow:"Независимая студия систем", heroLine1:"Независимые инструменты", heroLine2:"и физические поставки", heroLine3:"созданные с нуля.", heroCopy:"Мы проектируем и создаем чистые операционные системы для современных команд — полезное ПО, надежное оборудование и essentials для реальной работы.", ctaPrimary:"Смотреть каталог", ctaSecondary:"Записаться на консультацию" }
+    };
+    const prices = { "workflow-os":{inr:49000,usd:590}, sheetstack:{inr:19500,usd:235}, "alpha-field":{inr:12800,usd:155}, dustline:{inr:6400,usd:78}, "provision-case":{inr:3250,usd:40}, "crew-board":{inr:14000,usd:170} };
+    const select = document.getElementById("languageSelect");
+    function update() {
+      const lang = select.value, market = lang === "en-in" ? "in" : "us", t = translations[lang];
+      document.documentElement.lang = lang.startsWith("en") ? "en" : lang;
+      document.querySelectorAll("[data-i18n]").forEach((node) => { if (t[node.dataset.i18n]) node.textContent = t[node.dataset.i18n]; });
+      document.querySelectorAll(".price").forEach((node) => { const p = prices[node.dataset.product], value = market === "in" ? p.inr : p.usd; node.textContent = `${market === "in" ? "₹" : "$"}${new Intl.NumberFormat(market === "in" ? "en-IN" : "en-US").format(value)}`; });
+      localStorage.setItem("kra3t6-language", lang);
     }
-
-    function routeFromHash() {
-      showView(location.hash.slice(1) || "home");
-    }
-
-    function closeDropdown() {
-      dropdownMenu.hidden = true;
-      dropdownBtn.setAttribute("aria-expanded", "false");
-      dropdownChevron.style.transform = "rotate(0deg)";
-    }
-
-    function toggleDropdown() {
-      const isOpen = !dropdownMenu.hidden;
-      dropdownMenu.hidden = isOpen;
-      dropdownBtn.setAttribute("aria-expanded", isOpen ? "false" : "true");
-      dropdownChevron.style.transform = isOpen ? "rotate(0deg)" : "rotate(180deg)";
-    }
-
-    dropdownBtn.addEventListener("click", toggleDropdown);
-
-    document.addEventListener("click", (e) => {
-      if (!document.getElementById("dropdown-container").contains(e.target)) {
-        closeDropdown();
-      }
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeDropdown();
-    });
-
-    window.addEventListener("hashchange", routeFromHash);
-    routeFromHash();
+    select.value = localStorage.getItem("kra3t6-language") || "en-in";
+    select.addEventListener("change", update);
+    update();
   </script>
 </body>
 </html>
