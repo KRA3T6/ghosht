@@ -2,987 +2,976 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>KRA3T6 — Services, Tools & Products</title>
+
   <meta
     name="description"
-    content="KRA3T6 — independent software tools, field hardware and artisanal provisions."
+    content="KRA3T6 offers digital services, IT tools, macros, useful resources, and curated products including masala, tea and dry fruits."
   />
-  <meta name="theme-color" content="#ffffff" />
 
-  <title>KRA3T6 — Studio & Provisions</title>
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            studio: {
-              white: "#FFFFFF",
-              black: "#000000",
-              orange: "#FF6600",
-              blue: "#003366",
-              muted: "#666666",
-              soft: "#F4F4F0"
-            }
-          }
-        }
-      }
-    };
-  </script>
+  <meta name="theme-color" content="#f7f7f5" />
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
   <style>
-    :root {
-      --black: #000000;
-      --white: #ffffff;
-      --orange: #ff6600;
-      --blue: #003366;
-      --muted: #666666;
-      --soft: #f4f4f0;
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 92px;
     }
 
     body {
-      margin: 0;
-      background: var(--white);
-      color: var(--black);
-      font-family: "Inter", sans-serif;
-      -webkit-font-smoothing: antialiased;
+      font-family: "DM Sans", sans-serif;
+      background: #f7f7f5;
+      color: #111111;
+      line-height: 1.5;
       overflow-x: hidden;
     }
 
-    ::selection {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    :root {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --black: #111111;
+      --muted: #6d6d6d;
+      --border: #deded9;
+      --orange: #ff5a1f;
+      --yellow: #ffd84d;
+      --blue: #3764ff;
+      --green: #1e9e63;
+      --radius: 24px;
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.07);
+    }
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 110px 0;
+      scroll-margin-top: 100px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
       background: var(--orange);
-      color: var(--white);
     }
 
-    .font-mono-studio {
-      font-family: "JetBrains Mono", monospace;
+    .section-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      max-width: 760px;
     }
 
-    /* =========================
-       BACKGROUND GRID
-    ========================== */
-
-    .grid-bg {
-      background-image:
-        linear-gradient(rgba(0, 0, 0, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.055) 1px, transparent 1px);
-      background-size: 28px 28px;
+    .section-description {
+      margin-top: 20px;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 17px;
     }
 
-    /* =========================
-       CARDS
-    ========================== */
+    /* =========================================================
+       HEADER
+    ========================================================= */
 
-    .neo-card {
-      background: var(--white);
-      border: 1px solid var(--black);
-
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        background-color 0.18s ease;
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 247, 245, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    .neo-card:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 6px 6px 0 var(--black);
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
     }
 
-    .product-card {
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      flex-shrink: 0;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      background: var(--black);
+      color: white;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      list-style: none;
+    }
+
+    .nav-links > li {
       position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 13px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav-link:hover {
+      background: #eaeae6;
+    }
+
+    .dropdown-arrow {
+      font-size: 10px;
+      opacity: 0.6;
+    }
+
+    /* Dropdown */
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      width: 230px;
+      padding: 8px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: 0.2s ease;
+    }
+
+    .has-dropdown:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 11px 13px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .dropdown a:hover {
+      background: #f1f1ee;
+    }
+
+    .dropdown-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 7px 4px;
+    }
+
+    .header-contact {
+      padding: 11px 17px;
+      border-radius: 999px;
+      background: var(--black);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .header-contact:hover {
+      transform: translateY(-2px);
+      background: var(--orange);
+    }
+
+    /* Mobile menu */
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      font-size: 20px;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      padding: 90px 0;
       overflow: hidden;
     }
 
-    .product-card::after {
+    .hero::before {
       content: "";
       position: absolute;
-
-      width: 70px;
-      height: 70px;
-
-      right: -30px;
-      top: -30px;
-
-      border: 1px solid rgba(0, 0, 0, 0.14);
-
-      transform: rotate(45deg);
-
+      width: 700px;
+      height: 700px;
+      top: -300px;
+      right: -250px;
+      border-radius: 50%;
+      background: rgba(255, 216, 77, 0.3);
+      filter: blur(30px);
       pointer-events: none;
     }
 
-    /* =========================
-       PRODUCT VISUALS
-    ========================== */
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      bottom: -300px;
+      left: -200px;
+      border-radius: 50%;
+      background: rgba(55, 100, 255, 0.13);
+      filter: blur(50px);
+      pointer-events: none;
+    }
 
-    .product-visual {
+    .hero-content {
       position: relative;
+      z-index: 2;
+    }
 
-      min-height: 190px;
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
 
-      border-bottom: 1px solid var(--black);
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 5px rgba(30, 158, 99, 0.1);
+    }
 
-      overflow: hidden;
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(58px, 9vw, 116px);
+      line-height: 0.86;
+      letter-spacing: -0.075em;
+      max-width: 1050px;
+    }
 
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin-top: 30px;
+      color: #555;
+      font-size: clamp(17px, 2vw, 20px);
+    }
+
+    .hero-actions {
       display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .product-visual::before {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          135deg,
-          transparent 48%,
-          rgba(0, 0, 0, 0.07) 49%,
-          transparent 51%
-        );
-
-      background-size: 18px 18px;
-
-      opacity: 0.45;
-    }
-
-    .visual-object {
-      position: relative;
-      z-index: 1;
-
-      width: 112px;
-      height: 140px;
-
-      border: 2px solid var(--black);
-
-      box-shadow: 8px 8px 0 var(--black);
-
-      transition: transform 0.25s ease;
-    }
-
-    .product-card:hover .visual-object {
-      transform: rotate(-3deg) translateY(-5px);
-    }
-
-    /* Masala */
-
-    .visual-masala {
-      background: var(--orange);
-
-      clip-path: polygon(
-        10% 8%,
-        90% 8%,
-        100% 94%,
-        0 94%
-      );
-    }
-
-    /* Tea */
-
-    .visual-tea {
-      width: 120px;
-      height: 120px;
-
-      border-radius: 50%;
-
-      background: var(--blue);
-
-      box-shadow: 8px 8px 0 var(--black);
-    }
-
-    /* Dry Fruit */
-
-    .visual-dryfruit {
-      width: 145px;
-      height: 105px;
-
-      background: var(--soft);
-
-      transform: rotate(-4deg);
-    }
-
-    /* Workflow */
-
-    .visual-workflow {
-      width: 170px;
-      height: 112px;
-
-      background: var(--black);
-
-      box-shadow: 8px 8px 0 var(--orange);
-    }
-
-    /* Sheetstack */
-
-    .visual-sheetstack {
-      width: 155px;
-      height: 115px;
-
-      background: var(--white);
-
-      box-shadow: 10px 10px 0 var(--blue);
-
-      transform: rotate(3deg);
-    }
-
-    /* Field case */
-
-    .visual-field {
-      width: 155px;
-      height: 105px;
-
-      background: var(--black);
-
-      box-shadow: 9px 9px 0 var(--orange);
-    }
-
-    .screen-line {
-      height: 5px;
-
-      background: var(--white);
-
-      margin: 14px;
-
-      opacity: 0.8;
-    }
-
-    .screen-line.short {
-      width: 45%;
-    }
-
-    .sheet-line {
-      height: 1px;
-
-      background: var(--black);
-
-      margin: 15px;
-    }
-
-    /* =========================
-       BUTTONS
-    ========================== */
-
-    .btn-primary,
-    .btn-secondary {
+      gap: 9px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 12px;
       border: 1px solid var(--black);
-
+      font-weight: 700;
+      font-size: 14px;
       transition:
-        transform 0.12s ease,
-        box-shadow 0.12s ease,
-        background-color 0.12s ease,
-        color 0.12s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
     }
 
     .btn-primary {
-      background: var(--orange);
-      color: var(--white);
-
-      box-shadow: 3px 3px 0 var(--black);
+      background: var(--black);
+      color: white;
     }
 
     .btn-primary:hover {
-      transform: translate(-2px, -2px);
-
-      box-shadow: 5px 5px 0 var(--black);
-    }
-
-    .btn-primary:active,
-    .btn-secondary:active {
-      transform: translate(2px, 2px);
-
-      box-shadow: 1px 1px 0 var(--black);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
     .btn-secondary {
-      background: var(--white);
+      background: white;
       color: var(--black);
     }
 
     .btn-secondary:hover {
+      transform: translateY(-3px);
+      background: #eeeeeb;
+    }
+
+    /* =========================================================
+       BENTO
+    ========================================================= */
+
+    .bento-section {
       background: var(--black);
-      color: var(--white);
+      color: white;
     }
 
-    /* =========================
-       STATUS
-    ========================== */
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-
-      border-radius: 999px;
-
-      background: var(--orange);
-
-      animation: pulse 1.8s infinite;
+    .bento-section .eyebrow {
+      color: #aaa;
     }
 
-    /* =========================
-       HERO SYSTEM VISUAL
-    ========================== */
+    .bento-section .section-description {
+      color: #a8a8a8;
+    }
 
-    .hero-orbit {
+    .bento-grid {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 220px;
+      gap: 16px;
+    }
+
+    .bento-card {
       position: relative;
-
-      width: min(390px, 82vw);
-
-      aspect-ratio: 1;
-
-      border: 1px solid var(--black);
-
-      background: var(--white);
-
-      box-shadow: 10px 10px 0 var(--black);
-
       overflow: hidden;
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.35s ease;
     }
 
-    .hero-orbit::before,
-    .hero-orbit::after {
-      content: "";
+    .bento-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    }
 
+    .bento-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .bento-card p {
+      max-width: 350px;
+      font-size: 14px;
+      opacity: 0.72;
+    }
+
+    .bento-number {
       position: absolute;
-
-      inset: 13%;
-
-      border: 1px solid var(--black);
-
-      border-radius: 50%;
+      top: 22px;
+      right: 25px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      opacity: 0.5;
     }
 
-    .hero-orbit::after {
-      inset: 27%;
-
-      border-style: dashed;
-
-      animation: spin 18s linear infinite;
+    .bento-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
     }
 
-    .orbit-core {
-      position: absolute;
+    .bento-services {
+      grid-column: span 7;
+      grid-row: span 2;
+      background: #f4f4f0;
+      color: var(--black);
+    }
 
-      left: 50%;
-      top: 50%;
+    .bento-tools {
+      grid-column: span 5;
+      background: var(--blue);
+    }
 
-      transform: translate(-50%, -50%);
+    .bento-macros {
+      grid-column: span 5;
+      background: var(--orange);
+    }
 
-      width: 120px;
-      height: 120px;
+    .bento-blog {
+      grid-column: span 4;
+      background: #272727;
+    }
 
-      background: var(--black);
+    .bento-products {
+      grid-column: span 8;
+      background: var(--yellow);
+      color: var(--black);
+    }
 
-      color: var(--white);
+    .bento-products-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
 
+    .product-pill {
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+
+    .service-grid {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: #bdbdb8;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #f0f0ed;
+      font-size: 22px;
+    }
+
+    .service-card h3 {
+      margin-top: 35px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 25px;
+      letter-spacing: -0.03em;
+    }
+
+    .service-card p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .text-link:hover {
+      color: var(--orange);
+    }
+
+    /* =========================================================
+       TOOLS
+    ========================================================= */
+
+    .dark-section {
+      background: #111;
+      color: white;
+    }
+
+    .dark-section .section-description {
+      color: #999;
+    }
+
+    .tool-grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .tool-card {
+      border: 1px solid #303030;
+      background: #1b1b1b;
+      border-radius: 20px;
+      padding: 30px;
+      transition: 0.3s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      border-color: #555;
+    }
+
+    .tool-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 30px;
+    }
+
+    .tool-card p {
+      margin-top: 10px;
+      color: #999;
+    }
+
+    .tool-meta {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .tool-status {
+      color: #57d48e;
+    }
+
+    /* =========================================================
+       PRODUCTS
+    ========================================================= */
+
+    .product-grid {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-image {
+      height: 250px;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      text-align: center;
-
-      border: 4px solid var(--orange);
-
-      z-index: 2;
-    }
-
-    .orbit-node {
-      position: absolute;
-
-      z-index: 3;
-
-      border: 1px solid var(--black);
-
-      background: var(--white);
-
-      padding: 7px 9px;
-
-      font: 600 9px/1 "JetBrains Mono", monospace;
-
-      text-transform: uppercase;
-
-      letter-spacing: 0.12em;
-    }
-
-    .node-a {
-      top: 10%;
-      left: 7%;
-    }
-
-    .node-b {
-      top: 11%;
-      right: 6%;
-    }
-
-    .node-c {
-      bottom: 10%;
-      left: 7%;
-    }
-
-    .node-d {
-      bottom: 10%;
-      right: 6%;
-    }
-
-    .scan-line {
-      position: absolute;
-
-      left: 0;
-      right: 0;
-
-      height: 1px;
-
-      background: var(--orange);
-
-      opacity: 0.7;
-
-      animation: scan 4s ease-in-out infinite;
-
-      z-index: 1;
-    }
-
-    /* =========================
-       MOBILE MENU
-    ========================== */
-
-    .mobile-menu {
-      max-height: 0;
-
       overflow: hidden;
-
-      transition: max-height 0.25s ease;
     }
 
-    .mobile-menu.open {
-      max-height: 320px;
+    .product-image::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      filter: blur(5px);
     }
 
-    /* =========================
-       MODAL
-    ========================== */
-
-    .modal {
-      opacity: 0;
-
-      pointer-events: none;
-
-      transition: opacity 0.18s ease;
+    .masala-image {
+      background: #e87745;
     }
 
-    .modal.open {
-      opacity: 1;
-
-      pointer-events: auto;
+    .tea-image {
+      background: #b7c88c;
     }
 
-    .modal-panel {
-      transform: translateY(10px);
-
-      transition: transform 0.18s ease;
+    .dryfruit-image {
+      background: #d8a15b;
     }
 
-    .modal.open .modal-panel {
-      transform: translateY(0);
+    .product-symbol {
+      position: relative;
+      z-index: 2;
+      width: 120px;
+      height: 150px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 28px;
+      font-weight: 700;
     }
 
-    /* =========================
-       TOAST
-    ========================== */
-
-    .toast {
-      transform: translateY(120%);
-
-      transition: transform 0.25s ease;
+    .product-content {
+      padding: 24px;
     }
 
-    .toast.show {
-      transform: translateY(0);
+    .product-category {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
-    /* =========================
-       ANIMATIONS
-    ========================== */
-
-    @keyframes pulse {
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.35;
-        transform: scale(0.75);
-      }
+    .product-card h3 {
+      margin-top: 8px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 26px;
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+    .product-card p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    @keyframes scan {
-      0%,
-      100% {
-        top: 15%;
-      }
-
-      50% {
-        top: 82%;
-      }
+    .product-bottom {
+      margin-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
     }
 
-    /* =========================
-       REDUCED MOTION
-    ========================== */
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
+    .price {
+      font-weight: 800;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
     }
-  </style>
-</head>
-
-<body>
-
-  <!-- =========================================================
-       HEADER
-  ========================================================== -->
-
-  <header class="sticky top-0 z-50 border-b border-black bg-white/95 backdrop-blur-sm">
-
-    <div class="mx-auto max-w-7xl px-5 lg:px-12">
-
-      <div class="flex h-[72px] items-center justify-between">
-
-        <!-- LOGO -->
-
-        <a
-          href="#studio"
-          class="inline-flex items-center gap-3"
-          aria-label="KRA3T6 homepage"
-        >
-          <span
-            class="flex h-9 w-9 items-center justify-center border border-black bg-black text-xs font-bold tracking-widest text-white font-mono-studio"
-          >
-            K
-          </span>
-
-          <span
-            class="font-mono-studio text-sm font-bold uppercase tracking-[0.25em]"
-          >
-            KRA3T6
-          </span>
-        </a>
-
-        <!-- DESKTOP NAV -->
-
-        <nav
-          aria-label="Main navigation"
-          class="hidden items-center gap-7 font-mono-studio text-xs uppercase tracking-wider md:flex"
-        >
-          <a href="#studio" class="hover:text-studio-orange">
-            Studio
-          </a>
-
-          <a href="#catalog" class="hover:text-studio-orange">
-            Catalog
-          </a>
-
-          <a href="#provisions" class="hover:text-studio-orange">
-            Provisions
-          </a>
-
-          <a href="#archive" class="hover:text-studio-orange">
-            Archive
-          </a>
-        </nav>
-
-        <!-- HEADER CONTROLS -->
-
-        <div class="flex items-center gap-3">
-
-          <label for="marketSelect" class="sr-only">
-            Select market
-          </label>
-
-          <select
-            id="marketSelect"
-            class="h-9 cursor-pointer appearance-none rounded-none border border-black bg-white px-2 pr-7 font-mono-studio text-[10px] uppercase tracking-wider"
-          >
-            <option value="in">
-              India • ₹
-            </option>
-
-            <option value="us">
-              Global • $
-            </option>
-          </select>
-
-          <div
-            class="hidden items-center gap-2 border border-black px-3 py-1.5 font-mono-studio text-[10px] uppercase tracking-widest sm:inline-flex"
-          >
-            <span class="status-dot"></span>
 
-            <span>
-              Live
-            </span>
-          </div>
-
-          <!-- MOBILE MENU BUTTON -->
-
-          <button
-            id="menuButton"
-            type="button"
-            class="inline-flex h-9 w-9 items-center justify-center border border-black md:hidden"
-            aria-label="Open navigation"
-            aria-expanded="false"
-            aria-controls="mobileMenu"
-          >
-            <span class="text-lg">
-              ☰
-            </span>
-          </button>
-
-        </div>
-
-      </div>
-
-      <!-- MOBILE NAV -->
-
-      <div id="mobileMenu" class="mobile-menu md:hidden">
-
-        <nav
-          class="grid gap-2 border-t border-black py-4 font-mono-studio text-xs uppercase tracking-wider"
-          aria-label="Mobile navigation"
-        >
-
-          <a
-            href="#studio"
-            class="mobile-link border border-black px-3 py-3"
-          >
-            Studio
-          </a>
-
-          <a
-            href="#catalog"
-            class="mobile-link border border-black px-3 py-3"
-          >
-            Catalog
-          </a>
-
-          <a
-            href="#provisions"
-            class="mobile-link border border-black px-3 py-3"
-          >
-            Provisions
-          </a>
-
-          <a
-            href="#archive"
-            class="mobile-link border border-black px-3 py-3"
-          >
-            Archive
-          </a>
-
-        </nav>
-
-      </div>
-
-    </div>
-
-  </header>
-
-
-  <!-- =========================================================
-       MAIN
-  ========================================================== -->
-
-  <main class="mx-auto max-w-7xl px-5 lg:px-12">
-
-    <!-- =======================================================
-         HERO
-    ======================================================== -->
-
-    <section
-      id="studio"
-      class="grid-bg relative py-12 lg:py-20"
-    >
-
-      <div class="grid gap-12 lg:grid-cols-12 lg:items-center">
-
-        <!-- HERO COPY -->
-
-        <div class="lg:col-span-7">
-
-          <div
-            class="mb-5 inline-flex items-center gap-2 border border-black bg-white px-3 py-1.5 font-mono-studio text-[10px] uppercase tracking-[0.2em]"
-          >
-
-            <span class="h-1.5 w-1.5 bg-studio-orange"></span>
-
-            Independent Systems & Provisions Studio
-
-          </div>
-
-          <h1
-            class="max-w-4xl text-5xl font-extrabold leading-[0.95] tracking-[-0.04em] sm:text-7xl lg:text-8xl"
-          >
-
-            Digital tools
-
-            <span class="block text-studio-orange">
-              & provisions
-            </span>
-
-            <span class="block text-studio-blue">
-              built from scratch.
-            </span>
-
-          </h1>
-
-          <p
-            class="mt-7 max-w-2xl text-base leading-relaxed text-studio-muted sm:text-lg"
-          >
-            Independent software, field hardware and small-batch provisions
-            built around utility, clarity and direct execution.
-          </p>
-
-          <div class="mt-8 flex flex-wrap gap-4">
-
-            <a
-              href="#catalog"
-              class="btn-primary px-6 py-3 font-mono-studio text-xs font-semibold uppercase tracking-widest"
-            >
-              View inventory
-            </a>
-
-            <a
-              href="#contact"
-              class="btn-secondary px-6 py-3 font-mono-studio text-xs font-semibold uppercase tracking-widest"
-            >
-              Direct inquiry
-            </a>
-
-          </div>
-
-          <div
-            class="mt-9 flex flex-wrap gap-x-8 gap-y-3 border-t border-black pt-5 font-mono-studio text-[10px] uppercase tracking-wider text-studio-muted"
-          >
-
-            <span>
-              01 — Independent
-            </span>
-
-            <span>
-              02 — Direct
-            </span>
-
-            <span>
-              03 — Modular
-            </span>
-
-            <span>
-              04 — Active
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <!-- HERO SYSTEM -->
-
-        <div class="flex justify-center lg:col-span-5 lg:justify-end">
-
-          <div
-            class="hero-orbit"
-            aria-label="KRA3T6 system status visualization"
-          >
-
-            <div class="scan-line"></div>
-
-            <div class="orbit-node node-a">
-              Software
-            </div>
-
-            <div class="orbit-node node-b">
-              Goods
-            </div>
-
-            <div class="orbit-node node-c">
-              Field
-            </div>
-
-            <div class="orbit-node node-d">
-              Direct
-            </div>
-
-            <div class="orbit-core">
-
-              <div>
-
-                <div
-                  class="font-mono-studio text-[10px] uppercase tracking-widest text-studio-orange"
-                >
-                  KRA3T6
-                </div>
-
-                <div class="mt-2 text-xl font-extrabold tracking-tight">
-                  SYSTEM
-                  <br />
-                  ONLINE
-                </div>
-
-                <div
-                  class="mt-2 font-mono-studio text-[8px] text-gray-300"
-                >
-                  v2.1 / ACTIVE
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         CATALOG
-    ======================================================== -->
-
-    <section
-      id="catalog"
-      class="border-t border-black py-16 lg:py-24"
-    >
-
-      <div
-        class="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"
-      >
-
-        <div>
-
-          <div
-            class="font-mono-studio text-xs uppercase tracking-[0.2em] text-studio-muted"
-          >
-            01 / Catalog
-          </div>
-
-          <h2
-            class="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl"
-          >
-            Independent inventory.
-          </h2>
-
-        </div>
-
-        <div
-          class="font-mono-studio text-xs uppercase tracking-wider text-studio-blue"
-        >
-          06 active products
-        </div>
-
-      </div>
-
-
-      <!-- =====================================================
-           PROVISIONS
-      ====================================================== -->
-
-      <div
-        id="provisions"
-        class="mb-16 scroll-mt-28"
-      >
-
-        <div class="mb-5 flex items-center gap-4">
-
-          <h3
-            class="font-mono-studio text-sm font-bold uppercase tracking-widest"
-          >
-            02 / Provisions
-          </h3>
-
-          <div class="h-px flex-1 bg-black"></div>
-
-          <span
-            class="hidden font-mono-studio text-[10px] text-studio-muted sm:block"
-          >
-            SMALL BATCH / DIRECT
-          </span>
-
-        </div>
-
-
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-
-          <!-- =================================================
-               MASALA
-          ================================================== -->
-
-          <article
-            class="neo-card product-card flex flex-col"
-            data-product-card="masala"
-          >
-
-            <div
-              class="product-visual bg-orange-50"
-            >
-
-              <div
-                class="visual-object visual-masala"
-              >
-
-                <div
-                  class="absolute inset-x-0 top-5 text-center font-mono-studio text-[9px] font-bold uppercase tracking-widest"
-                >
-                  KRA3T6
-                </div>
-
-                <div
-                  class="absolute bottom-7 left-0 right-0 text-center text-lg font-extrabold text-white"
-                >
-                  MASALA
-                </div>
-
-              </div>
-
-              <span
-                class="absolute left-4 top-4 z-10 border border-black bg-white px-2 py-1 font-mono-studio text-[9px] uppercase"
-              >
-                Provision
-              </span>
-
-         
+    .small-btn {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--black);
+      background: var(--black);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .small-btn:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    /* =========================================================
+       BLOG
+    ========================================================= */
+
+    .blog-grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .blog-card {
+      min-height: 310px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 27px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .blog-tag {
+      display: inline-flex;
+      width: fit-content;
+      padding: 6px 9px;
+      background: #eeeeeb;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .blog-card h3 {
+      margin-top: 25px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 27px;
+      line-height: 1.05;
+    }
+
+    .blog-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .blog-date {
+      color: #999;
+      font-size: 12px;
+    }
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-grid {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-large {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .about-text + .about-text {
+      margin-top: 18px;
+    }
+
+    .about-stats {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: white;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 28px;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact-section {
+      background: var(--orange);
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .contact-section .section-title {
+      max-width: 600px;
+    }
+
+    .contact-description {
+      margin-top: 20px;
+      max-width: 550px;
+      color: rgba(0, 0, 0, 0.65);
+    }
+
+    .contact-form {
+      padding: 30px;
+      border-radius: 22px;
+      background: white;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      outline: none;
+      background: #fafafa;
+      transition: 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--black);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-group textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 5px;
+      background: var(--black);
+      color: white;
+      border: none;
+      min-height: 48px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      background: #252525;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      background: var(--black);
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1
