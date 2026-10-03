@@ -3,61 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghosht — Studio & Multi-Category Catalog</title>
+    <title>Ghosht — Minimalist Multi-Service Platform</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-white: #ffffff;
-            --surface-light: #f7f7f9;
-            --border-color: #e2e2e7;
+            --bg-main: #fcfcfd;
+            --surface: #ffffff;
+            --border-color: #e2e2e6;
             --text-main: #111115;
-            --text-muted: #666670;
+            --text-muted: #555560;
             
-            /* Color Palette Requests */
+            /* Required Color Palette Blocks */
+            --color-white: #ffffff;
+            --color-blue: #0052ff;
             --color-orange: #ff5500;
-            --color-blue: #0051ff;
-            --color-green: #10b981; /* Minimalist use */
+            --color-green: #059669;
             
-            --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-white);
+            background-color: var(--bg-main);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            line-height: 1.5;
-            padding: 2rem 1.5rem;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
+        .wrapper {
+            width: 100%;
+            max-width: 760px;
         }
 
-        /* Clean Minimalist Header */
-        header {
+        /* Ribbon Navigation */
+        nav.ribbon {
+            background: var(--color-white);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 0.85rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--text-main);
-            padding-bottom: 1.25rem;
-            margin-bottom: 2.5rem;
+            position: sticky;
+            top: 1rem;
+            z-index: 1000;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.03);
         }
 
         .brand {
             font-family: 'JetBrains Mono', monospace;
             font-weight: 700;
-            font-size: 1.35rem;
-            letter-spacing: -0.04em;
+            font-size: 1.05rem;
             color: var(--text-main);
             text-decoration: none;
             display: flex;
@@ -65,272 +74,442 @@
             gap: 0.5rem;
         }
 
-        /* Minimal Green Status Dot */
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--color-green);
+        .green-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--color-green);
             border-radius: 50%;
         }
 
-        .nav-links {
+        .nav-items {
             display: flex;
-            gap: 2rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-muted);
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
         }
 
-        .nav-links span {
-            cursor: pointer;
+        .nav-items a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
             transition: var(--transition);
         }
 
-        .nav-links span:hover {
+        .nav-items a:hover {
             color: var(--color-blue);
         }
 
-        /* Bento Grid Layout */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 320px;
+        /* Dropdown Menu Styling */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--color-white);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            min-width: 150px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.5rem 1.2rem;
+            color: var(--text-main);
+            font-size: 0.8rem;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--bg-main);
+            color: var(--color-orange);
+        }
+
+        /* Single Column Sections with Color Block Framework */
+        section {
+            background: var(--color-white);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.75rem 2.25rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section.card-blue-block {
+            background: var(--color-blue);
+            color: #ffffff;
+            border-color: var(--color-blue);
+        }
+        section.card-blue-block p, section.card-blue-block h2 {
+            color: rgba(255,255,255,0.9);
+        }
+
+        section.card-orange-block {
+            background: var(--color-orange);
+            color: #ffffff;
+            border-color: var(--color-orange);
+        }
+        section.card-orange-block p, section.card-orange-block h2 {
+            color: rgba(255,255,255,0.9);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .visual-banner {
+            width: 100%;
+            height: 180px;
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .card-blue-block .visual-banner, .card-orange-block .visual-banner {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .item-grid {
+            display: flex;
+            flex-direction: column;
             gap: 1.25rem;
         }
 
-        .bento-card {
-            background-color: var(--surface-light);
+        .item-card {
+            background: var(--bg-main);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 2rem;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
             transition: var(--transition);
         }
 
-        .bento-card:hover {
+        .item-card:hover {
             border-color: var(--text-main);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
         }
 
-        /* Bento Spans */
-        .col-2 { grid-column: span 2; }
-        .row-2 { grid-row: span 2; }
+        .item-img-container {
+            width: 100%;
+            height: 140px;
+            background: #eee;
+            position: relative;
+            overflow: hidden;
+        }
 
-        /* Card Elements */
-        .card-top {
+        .item-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-body {
+            padding: 1.25rem;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
         }
 
-        .category-badge {
-            font-family: 'JetBrains Mono', monospace;
+        .item-info span {
             font-size: 0.7rem;
-            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--color-orange);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.35rem 0.65rem;
-            border-radius: 6px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
+            font-weight: 700;
+            background: rgba(255,85,0,0.08);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 0.3rem;
         }
 
-        /* Accent variations using Blue and Orange */
-        .badge-blue { color: var(--color-blue); border-color: rgba(0, 81, 255, 0.2); }
-        .badge-orange { color: var(--color-orange); border-color: rgba(255, 85, 0, 0.2); }
-
-        .card-title {
-            font-size: 1.35rem;
+        .item-info h3 {
+            font-size: 1.05rem;
             font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-top: 1.5rem;
-            color: var(--text-main);
         }
 
-        .hero-title {
-            font-size: 2.25rem;
-            max-width: 550px;
-            line-height: 1.1;
-        }
-
-        .card-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .price {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .action-btn {
+        .item-action {
             background: var(--text-main);
-            color: var(--bg-white);
+            color: white;
             border: none;
-            padding: 0.65rem 1.25rem;
-            font-family: 'JetBrains Mono', monospace;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
             font-size: 0.75rem;
-            font-weight: 500;
-            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
             cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .item-action:hover {
+            background: var(--color-blue);
+        }
+
+        .admin-box {
+            background: #f4f6ff;
+            border: 1px dashed var(--color-blue);
+            padding: 1.75rem;
+            border-radius: 14px;
+            margin-top: 1.75rem;
+        }
+
+        .admin-box input, .admin-box select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 0.85rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            background: #ffffff;
+        }
+
+        .admin-btn {
+            background: var(--color-blue);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            cursor: pointer;
+            font-weight: 600;
             transition: var(--transition);
         }
 
-        .action-btn:hover {
-            background: var(--color-blue);
+        .admin-btn:hover {
+            opacity: 0.9;
         }
 
-        /* Special Hero Card Styling */
-        .hero-card {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e6edff 100%);
-            border-color: rgba(0, 81, 255, 0.2);
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
         }
 
-        .hero-card .action-btn {
-            background: var(--color-blue);
-        }
-
-        .hero-card .action-btn:hover {
-            background: var(--color-orange);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .bento-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .col-2 { grid-column: span 2; }
-            .row-2 { grid-row: span 1; }
-        }
-
-        @media (max-width: 640px) {
-            .bento-grid {
-                grid-template-columns: 1fr;
-            }
-            .col-2 { grid-column: span 1; }
-            body { padding: 1rem; }
+        @media (max-width: 600px) {
+            .nav-items { gap: 0.75rem; font-size: 0.75rem; }
+            section { padding: 1.75rem 1.25rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <a href="#" class="brand">
-                <div class="status-dot"></div>
-                GHOSHT.STUDIO
+    <div class="wrapper">
+        <!-- Ribbon Navigation -->
+        <nav class="ribbon">
+            <a href="#home" class="brand">
+                <div class="green-dot"></div>
+                GHOSHT
             </a>
-            <div class="nav-links">
-                <span>[ ALL ITEMS ]</span>
-                <span>[ HARDWARE ]</span>
-                <span>[ APPAREL ]</span>
-                <span>[ CART (0) ]</span>
-            </div>
-        </header>
+            <ul class="nav-items">
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#products">Services ▾</a>
+                    <div class="dropdown-content">
+                        <a href="#products">Masala</a>
+                        <a href="#products">Tea</a>
+                        <a href="#services">Tools</a>
+                        <a href="#blogs">Blogs</a>
+                    </div>
+                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contacts</a></li>
+            </ul>
+        </nav>
 
-        <!-- Bento Grid Catalog -->
-        <main class="bento-grid">
+        <!-- 1. Home Section -->
+        <section id="home">
+            <div class="visual-banner">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#0052ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h1>Engineered Simplicity.</h1>
+            <p>Welcome to Ghosht. We bridge premium handcrafted consumer goods with advanced digital operational tools under one clean single-column structure.</p>
+            <button class="item-action" onclick="document.getElementById('products').scrollIntoView();">Explore Catalog</button>
+        </section>
+
+        <!-- 2. Products / Services Section -->
+        <section id="products" class="card-blue-block">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2>📦 Products & Services Catalog</h2>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            </div>
+            <p>Select from curated blends, diagnostic tools, and operational logs.</p>
             
-            <!-- Hero Flagship Item (Blue Accent Theme) -->
-            <div class="bento-card col-2 row-2 hero-card">
-                <div>
-                    <div class="card-top">
-                        <span class="category-badge badge-blue">SYSTEM FLAGSHIP // AUDIO</span>
-                        <span style="font-family: 'JetBrains Mono'; font-size: 0.75rem; color: var(--color-blue); font-weight: 600;">NEW RELEASE</span>
+            <div class="item-grid" id="catalog-container">
+                <div class="item-card" data-category="Masala">
+                    <div class="item-img-container">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80" alt="Masala Spice">
                     </div>
-                    <h1 class="card-title hero-title">GH-01 Precision Field Recorder & Sound Generator</h1>
+                    <div class="item-body">
+                        <div class="item-info">
+                            <span>Masala</span>
+                            <h3>Royal Artisanal Spice Blend</h3>
+                        </div>
+                        <button class="item-action" onclick="alert('Inquired about Royal Artisanal Spice Blend.')">Inquire</button>
+                    </div>
                 </div>
-                <div class="card-bottom">
-                    <div>
-                        <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">32-BIT DUAL CORE PROCESSOR</span>
-                        <span class="price">$499.00 USD</span>
+
+                <div class="item-card" data-category="Tea">
+                    <div class="item-img-container">
+                        <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Tea">
                     </div>
-                    <button class="action-btn">INITIALIZE ORDER</button>
+                    <div class="item-body">
+                        <div class="item-info">
+                            <span>Tea</span>
+                            <h3>Himalayan Organic Leaf Tea</h3>
+                        </div>
+                        <button class="item-action" onclick="alert('Inquired about Himalayan Organic Leaf Tea.')">Inquire</button>
+                    </div>
+                </div>
+
+                <div class="item-card" data-category="Tools">
+                    <div class="item-img-container">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Tools">
+                    </div>
+                    <div class="item-body" id="services">
+                        <div class="item-info">
+                            <span>Tools</span>
+                            <h3>Ghosht Workflow Diagnostic Tool</h3>
+                        </div>
+                        <button class="item-action" onclick="alert('Launched tool utility session.')">Access</button>
+                    </div>
+                </div>
+
+                <div class="item-card" data-category="Blogs">
+                    <div class="item-img-container">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="Blogs">
+                    </div>
+                    <div class="item-body" id="blogs">
+                        <div class="item-info">
+                            <span>Blogs</span>
+                            <h3>Minimalist Architecture in 2026</h3>
+                        </div>
+                        <button class="item-action" onclick="alert('Opening reading view.')">Read</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Product 2 (Orange Accent Theme) -->
-            <div class="bento-card">
-                <div>
-                    <div class="card-top">
-                        <span class="category-badge badge-orange">HARDWARE // SYNTH</span>
-                    </div>
-                    <h2 class="card-title">K.O. Pocket Sub-Oscillator</h2>
-                </div>
-                <div class="card-bottom">
-                    <span class="price">$195.00</span>
-                    <button class="action-btn">+ ADD</button>
-                </div>
+            <!-- Admin Panel -->
+            <div class="admin-box" style="background: rgba(255,255,255,0.95); color: var(--text-main);">
+                <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; font-family: 'JetBrains Mono', monospace; color: var(--color-blue);">🛠️ Admin Management Panel</h3>
+                <p style="font-size: 0.8rem; margin-bottom: 0.75rem; color: var(--text-muted);">Add new products or services with an image URL to instantly append them to the live single-column frame.</p>
+                <input type="text" id="newItemName" placeholder="Item Title (e.g. Cardamom Chai Mix)">
+                <select id="newItemCategory">
+                    <option value="Masala">Masala</option>
+                    <option value="Tea">Tea</option>
+                    <option value="Tools">Tools</option>
+                    <option value="Blogs">Blogs</option>
+                </select>
+                <input type="text" id="newItemImg" placeholder="Image URL (leave blank for default minimalist stock image)">
+                <button class="admin-btn" onclick="addNewItem()">Inject Item to Live View</button>
             </div>
+        </section>
 
-            <!-- Product 3 -->
-            <div class="bento-card">
-                <div>
-                    <div class="card-top">
-                        <span class="category-badge badge-blue">APPAREL // GEAR</span>
-                    </div>
-                    <h2 class="card-title">Heavyweight Utility Shell</h2>
-                </div>
-                <div class="card-bottom">
-                    <span class="price">$220.00</span>
-                    <button class="action-btn">+ ADD</button>
-                </div>
+        <!-- About Us Section -->
+        <section id="about" class="card-orange-block">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2>🏛️ About Us</h2>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
             </div>
+            <p>Ghosht operates as an independent studio and modular storefront. By cutting away digital clutter, we focus entirely on structural utility, purity of ingredients, and clean functional software architecture.</p>
+        </section>
 
-            <!-- Product 4 -->
-            <div class="bento-card">
-                <div>
-                    <div class="card-top">
-                        <span class="category-badge badge-orange">OBJECTS // WORKSPACE</span>
-                    </div>
-                    <h2 class="card-title">Anodized Desk Block</h2>
-                </div>
-                <div class="card-bottom">
-                    <span class="price">$85.00</span>
-                    <button class="action-btn">+ ADD</button>
-                </div>
+        <!-- Contacts Section -->
+        <section id="contact">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2>📬 Contacts</h2>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0052ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </div>
-
-            <!-- Product 5 -->
-            <div class="bento-card">
-                <div>
-                    <div class="card-top">
-                        <span class="category-badge badge-blue">ARCHIVE // PAPER</span>
-                    </div>
-                    <h2 class="card-title">Grid Layout Ledger</h2>
-                </div>
-                <div class="card-bottom">
-                    <span class="price">$32.00</span>
-                    <button class="action-btn">+ ADD</button>
-                </div>
+            <p>Reach out directly for institutional allocations, custom tool integrations, or wholesale inquiries.</p>
+            <div class="contact-info">
+                <div>EMAIL: contact@ghosht.studio</div>
+                <div>SECURE LINE: Available via client portal</div>
+                <div>BASE: Global Studio Network</div>
             </div>
-
-            <!-- Wide Banner Card -->
-            <div class="bento-card col-2">
-                <div>
-                    <div class="card-top">
-                        <span class="category-badge badge-orange">LIMITED ALLOCATION</span>
-                    </div>
-                    <h2 class="card-title">The Complete Ghosht Multi-Category Field Kit Bundle</h2>
-                </div>
-                <div class="card-bottom">
-                    <span class="price">$980.00</span>
-                    <button class="action-btn">SECURE ALLOCATION</button>
-                </div>
-            </div>
-
-        </main>
+        </section>
     </div>
 
+    <script>
+        function addNewItem() {
+            const nameInput = document.getElementById('newItemName');
+            const categorySelect = document.getElementById('newItemCategory');
+            const imgInput = document.getElementById('newItemImg');
+            
+            if (!nameInput.value.trim()) {
+                alert("Please enter a valid item name.");
+                return;
+            }
+
+            let imageUrl = imgInput.value.trim();
+            if (!imageUrl) {
+                imageUrl = "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=600&q=80";
+            }
+
+            const container = document.getElementById('catalog-container');
+            
+            const newCard = document.createElement('div');
+            newCard.className = 'item-card';
+            newCard.innerHTML = `
+                <div class="item-img-container">
+                    <img src="${imageUrl}" alt="${nameInput.value}">
+                </div>
+                <div class="item-body">
+                    <div class="item-info">
+                        <span>${categorySelect.value}</span>
+                        <h3>${nameInput.value}</h3>
+                    </div>
+                    <button class="item-action" onclick="alert('Interacting with new item.')">Select</button>
+                </div>
+            `;
+            
+            container.appendChild(newCard);
+            
+            nameInput.value = '';
+            imgInput.value = '';
+            alert("Success: New item successfully injected into the live column view!");
+        }
+    </script>
 </body>
 </html>
