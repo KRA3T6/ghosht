@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghosht — Multi-Category Architecture</title>
-    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <title>Ghosht — Studio & Multi-Category Catalog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #0c0c0e;
-            --surface-color: #141417;
-            --border-color: #26262c;
-            --text-primary: #f4f4f5;
-            --text-secondary: #91919d;
-            --transition-speed: 0.2s ease;
+            --bg-white: #ffffff;
+            --surface-light: #f7f7f9;
+            --border-color: #e2e2e7;
+            --text-main: #111115;
+            --text-muted: #666670;
+            
+            /* Color Palette Requests */
+            --color-orange: #ff5500;
+            --color-blue: #0051ff;
+            --color-green: #10b981; /* Minimalist use */
+            
+            --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -26,8 +31,8 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
+            background-color: var(--bg-white);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
             line-height: 1.5;
             padding: 2rem 1.5rem;
@@ -38,22 +43,34 @@
             margin: 0 auto;
         }
 
+        /* Clean Minimalist Header */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--text-main);
+            padding-bottom: 1.25rem;
             margin-bottom: 2.5rem;
         }
 
-        .logo {
+        .brand {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: -0.05em;
-            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: -0.04em;
+            color: var(--text-main);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Minimal Green Status Dot */
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-green);
+            border-radius: 50%;
         }
 
         .nav-links {
@@ -61,48 +78,88 @@
             gap: 2rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
-            color: var(--text-secondary);
+            font-weight: 500;
+            color: var(--text-muted);
         }
 
+        .nav-links span {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-links span:hover {
+            color: var(--color-blue);
+        }
+
+        /* Bento Grid Layout */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 280px;
+            grid-auto-rows: 320px;
             gap: 1.25rem;
         }
 
         .bento-card {
-            background-color: var(--surface-color);
+            background-color: var(--surface-light);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.75rem;
+            border-radius: 12px;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: border-color var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
         }
 
         .bento-card:hover {
-            border-color: var(--text-secondary);
+            border-color: var(--text-main);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
         }
 
-        .col-span-2 { grid-column: span 2; }
-        .row-span-2 { grid-row: span 2; }
+        /* Bento Spans */
+        .col-2 { grid-column: span 2; }
+        .row-2 { grid-row: span 2; }
 
-        .card-meta {
+        /* Card Elements */
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .category-badge {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
+            font-size: 0.7rem;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
         }
+
+        /* Accent variations using Blue and Orange */
+        .badge-blue { color: var(--color-blue); border-color: rgba(0, 81, 255, 0.2); }
+        .badge-orange { color: var(--color-orange); border-color: rgba(255, 85, 0, 0.2); }
 
         .card-title {
-            font-size: 1.25rem;
-            font-weight: 400;
-            margin-top: 0.5rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-top: 1.5rem;
+            color: var(--text-main);
         }
 
-        .card-footer {
+        .hero-title {
+            font-size: 2.25rem;
+            max-width: 550px;
+            line-height: 1.1;
+        }
+
+        .card-bottom {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -110,106 +167,168 @@
 
         .price {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
         }
 
         .action-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 0.5rem 1rem;
+            background: var(--text-main);
+            color: var(--bg-white);
+            border: none;
+            padding: 0.65rem 1.25rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
-            border-radius: 4px;
+            font-weight: 500;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background var(--transition-speed), color var(--transition-speed);
+            transition: var(--transition);
         }
 
         .action-btn:hover {
-            background: var(--text-primary);
-            color: var(--bg-color);
+            background: var(--color-blue);
         }
 
+        /* Special Hero Card Styling */
         .hero-card {
-            background: linear-gradient(135deg, #141417 0%, #1c1c21 100%);
-            justify-content: center;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6edff 100%);
+            border-color: rgba(0, 81, 255, 0.2);
         }
 
-        .hero-card .card-title {
-            font-size: 2.25rem;
-            max-width: 500px;
-            line-height: 1.1;
-            margin-bottom: 1rem;
+        .hero-card .action-btn {
+            background: var(--color-blue);
         }
 
+        .hero-card .action-btn:hover {
+            background: var(--color-orange);
+        }
+
+        /* Responsive */
         @media (max-width: 1024px) {
-            .bento-grid { grid-template-columns: repeat(2, 1fr); }
-            .col-span-2 { grid-column: span 2; }
-            .row-span-2 { grid-row: span 1; }
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .col-2 { grid-column: span 2; }
+            .row-2 { grid-row: span 1; }
         }
 
         @media (max-width: 640px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .col-span-2 { grid-column: span 1; }
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .col-2 { grid-column: span 1; }
+            body { padding: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Header -->
         <header>
-            <a href="#" class="logo">GHOSHT // 360</a>
+            <a href="#" class="brand">
+                <div class="status-dot"></div>
+                GHOSHT.STUDIO
+            </a>
             <div class="nav-links">
-                <span>[ catalog ]</span>
-                <span>[ hardware ]</span>
-                <span>[ cart (0) ]</span>
+                <span>[ ALL ITEMS ]</span>
+                <span>[ HARDWARE ]</span>
+                <span>[ APPAREL ]</span>
+                <span>[ CART (0) ]</span>
             </div>
         </header>
 
+        <!-- Bento Grid Catalog -->
         <main class="bento-grid">
-            <div class="bento-card col-span-2 row-span-2 hero-card">
+            
+            <!-- Hero Flagship Item (Blue Accent Theme) -->
+            <div class="bento-card col-2 row-2 hero-card">
                 <div>
-                    <span class="card-meta">SYSTEM 01 // FLAGSHIP RELEASE</span>
-                    <h1 class="card-title">Engineered minimalism for modern workspaces.</h1>
+                    <div class="card-top">
+                        <span class="category-badge badge-blue">SYSTEM FLAGSHIP // AUDIO</span>
+                        <span style="font-family: 'JetBrains Mono'; font-size: 0.75rem; color: var(--color-blue); font-weight: 600;">NEW RELEASE</span>
+                    </div>
+                    <h1 class="card-title hero-title">GH-01 Precision Field Recorder & Sound Generator</h1>
                 </div>
-                <div class="card-footer">
-                    <span class="price">$340.00 USD</span>
-                    <button class="action-btn">EXPLORE SPECIFICATION</button>
+                <div class="card-bottom">
+                    <div>
+                        <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">32-BIT DUAL CORE PROCESSOR</span>
+                        <span class="price">$499.00 USD</span>
+                    </div>
+                    <button class="action-btn">INITIALIZE ORDER</button>
                 </div>
             </div>
 
+            <!-- Product 2 (Orange Accent Theme) -->
             <div class="bento-card">
                 <div>
-                    <span class="card-meta">AUDIO // HARDWARE</span>
-                    <h2 class="card-title">TX-P Portable Receiver</h2>
+                    <div class="card-top">
+                        <span class="category-badge badge-orange">HARDWARE // SYNTH</span>
+                    </div>
+                    <h2 class="card-title">K.O. Pocket Sub-Oscillator</h2>
                 </div>
-                <div class="card-footer">
+                <div class="card-bottom">
                     <span class="price">$195.00</span>
                     <button class="action-btn">+ ADD</button>
                 </div>
             </div>
 
+            <!-- Product 3 -->
             <div class="bento-card">
                 <div>
-                    <span class="card-meta">APPAREL // TEXTILE</span>
-                    <h2 class="card-title">Heavyweight Modular Shell</h2>
+                    <div class="card-top">
+                        <span class="category-badge badge-blue">APPAREL // GEAR</span>
+                    </div>
+                    <h2 class="card-title">Heavyweight Utility Shell</h2>
                 </div>
-                <div class="card-footer">
+                <div class="card-bottom">
                     <span class="price">$220.00</span>
                     <button class="action-btn">+ ADD</button>
                 </div>
             </div>
 
+            <!-- Product 4 -->
             <div class="bento-card">
                 <div>
-                    <span class="card-meta">OBJECTS // WORKSPACE</span>
+                    <div class="card-top">
+                        <span class="category-badge badge-orange">OBJECTS // WORKSPACE</span>
+                    </div>
                     <h2 class="card-title">Anodized Desk Block</h2>
                 </div>
-                <div class="card-footer">
+                <div class="card-bottom">
                     <span class="price">$85.00</span>
                     <button class="action-btn">+ ADD</button>
                 </div>
             </div>
+
+            <!-- Product 5 -->
+            <div class="bento-card">
+                <div>
+                    <div class="card-top">
+                        <span class="category-badge badge-blue">ARCHIVE // PAPER</span>
+                    </div>
+                    <h2 class="card-title">Grid Layout Ledger</h2>
+                </div>
+                <div class="card-bottom">
+                    <span class="price">$32.00</span>
+                    <button class="action-btn">+ ADD</button>
+                </div>
+            </div>
+
+            <!-- Wide Banner Card -->
+            <div class="bento-card col-2">
+                <div>
+                    <div class="card-top">
+                        <span class="category-badge badge-orange">LIMITED ALLOCATION</span>
+                    </div>
+                    <h2 class="card-title">The Complete Ghosht Multi-Category Field Kit Bundle</h2>
+                </div>
+                <div class="card-bottom">
+                    <span class="price">$980.00</span>
+                    <button class="action-btn">SECURE ALLOCATION</button>
+                </div>
+            </div>
+
         </main>
     </div>
 
